@@ -1,0 +1,21 @@
+C:\Users\Phillip Couto\Documents\Stemstudios\Clear Choice\branches\phillipCouto\ExceptionLogging\bin\Debug\ExceptionLogging.dll
+C:\Users\Phillip Couto\Documents\Stemstudios\Clear Choice\branches\phillipCouto\ExceptionLogging\bin\Debug\ExceptionLogging.pdb
+C:\Users\Phillip Couto\Documents\Stemstudios\Clear Choice\branches\phillipCouto\ExceptionLogging\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Phillip Couto\Documents\Stemstudios\Clear Choice\branches\phillipCouto\ExceptionLogging\obj\Debug\ExceptionLogging.MessageCodes.resources
+C:\Users\Phillip Couto\Documents\Stemstudios\Clear Choice\branches\phillipCouto\ExceptionLogging\obj\Debug\ExceptionLogging.csproj.GenerateResource.Cache
+C:\Users\Phillip Couto\Documents\Stemstudios\Clear Choice\branches\phillipCouto\ExceptionLogging\obj\Debug\ExceptionLogging.dll
+C:\Users\Phillip Couto\Documents\Stemstudios\Clear Choice\branches\phillipCouto\ExceptionLogging\obj\Debug\ExceptionLogging.pdb
+C:\Users\Phillip Couto\Documents\Stemstudios\phillipCouto\ExceptionLogging\bin\Debug\ExceptionLogging.dll
+C:\Users\Phillip Couto\Documents\Stemstudios\phillipCouto\ExceptionLogging\bin\Debug\ExceptionLogging.pdb
+C:\Users\Phillip Couto\Documents\Stemstudios\phillipCouto\ExceptionLogging\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Phillip Couto\Documents\Stemstudios\phillipCouto\ExceptionLogging\obj\Debug\ExceptionLogging.MessageCodes.resources
+C:\Users\Phillip Couto\Documents\Stemstudios\phillipCouto\ExceptionLogging\obj\Debug\ExceptionLogging.csproj.GenerateResource.Cache
+C:\Users\Phillip Couto\Documents\Stemstudios\phillipCouto\ExceptionLogging\obj\Debug\ExceptionLogging.dll
+C:\Users\Phillip Couto\Documents\Stemstudios\phillipCouto\ExceptionLogging\obj\Debug\ExceptionLogging.pdb
+C:\Users\Anthony\Documents\Git\Clear-Choice\ExceptionLogging\bin\Debug\ExceptionLogging.dll
+C:\Users\Anthony\Documents\Git\Clear-Choice\ExceptionLogging\bin\Debug\ExceptionLogging.pdb
+C:\Users\Anthony\Documents\Git\Clear-Choice\ExceptionLogging\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Anthony\Documents\Git\Clear-Choice\ExceptionLogging\obj\Debug\ExceptionLogging.MessageCodes.resources
+C:\Users\Anthony\Documents\Git\Clear-Choice\ExceptionLogging\obj\Debug\ExceptionLogging.csproj.GenerateResource.Cache
+C:\Users\Anthony\Documents\Git\Clear-Choice\ExceptionLogging\obj\Debug\ExceptionLogging.dll
+C:\Users\Anthony\Documents\Git\Clear-Choice\ExceptionLogging\obj\Debug\ExceptionLogging.pdb

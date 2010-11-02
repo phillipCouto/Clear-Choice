@@ -1,0 +1,110 @@
+﻿<UserControl x:Class="Clear_Choice.Views.InventoryTransactionView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns:UIControls="clr-namespace:Stemstudios.UIControls;assembly=UIControls"
+     xmlns:toolkit="http://schemas.microsoft.com/wpf/2008/toolkit"
+     IsVisibleChanged="UserControl_IsVisibleChanged">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/Theme.xaml"/>
+                <ResourceDictionary Source="/Resources/Views/InventoryTransactionViewDict.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Border CornerRadius="5" BorderThickness="1" Background="#15FFFFFF">
+        <Border.BorderBrush>
+            <LinearGradientBrush>
+                <GradientStop Color="#FFFFFFFF" Offset="0"/>
+                <GradientStop Color="#55FFFFFF" Offset="0.5"/>
+                <GradientStop Color="#FFFFFFFF" Offset="1"/>
+            </LinearGradientBrush>
+        </Border.BorderBrush>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="27"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <GroupBox Grid.Row="0" Name="grpRecieverInfo" FontSize="14" Foreground="White" Margin="5">
+                <GroupBox.Header>
+                    <TextBlock Text="Transaction Information" Foreground="White" Width="{Binding Path=Width, ElementName=grpRecieverInfo, Mode=Default}"/>
+                </GroupBox.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Recieving:" VerticalAlignment="Center"/>
+                    <TextBox Name="txtReciever" Grid.Column="1" Margin="5" IsReadOnly="True" Foreground="White" Background="#00FFFFFF"/>
+                    <TextBlock Grid.Column="2" Text="Transaction Date:" VerticalAlignment="Center"/>
+                    <UIControls:SDatePicker Name="dpTransactionDate" Grid.Column="3" Margin="5" SelectedDateChanged="dpTransactionDate_SelectedDateChanged" TextForeground="White"/>
+                </Grid>
+            </GroupBox>
+            <GroupBox Grid.Row="1" Name="grpItemInfo" FontSize="14" Foreground="#FFFFFFFF" Margin="5,5,5,0" Height="185.0">
+                <GroupBox.Header>
+                    <TextBlock Text="Item Information" Foreground="White" Width="{Binding Path=Width, ElementName=grpItemInfo, Mode=Default}"/>
+                </GroupBox.Header>
+                <Grid Grid.Column="0" Grid.Row="0" Margin="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Center">Item ID:</TextBlock>
+                    <TextBox Name="txtItemID"  Grid.Column="1" Text="Test" Margin="5" Grid.Row="0" IsReadOnly="True" Foreground="White" Background="#00FFFFFF"/>
+
+                    <TextBlock Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center">Item Name:</TextBlock>
+                    <TextBox Name="txtItemName" Grid.Column="1" Text="Test" Margin="5" Grid.Row="1" IsReadOnly="True" Foreground="White" Background="#00FFFFFF"/>
+
+                    <TextBlock Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center">Item Category:</TextBlock>
+                    <TextBox Name="txtCategory" Grid.Column="1" Grid.Row="2" Margin="5" IsReadOnly="True" Foreground="White" Background="#00FFFFFF"/>
+                    
+                    <TextBlock Grid.Column="2" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5">Quantity:</TextBlock>
+                    <TextBox Name="txtQuantity" Grid.Column="3" Text="0" Margin="5" Grid.Row="0" TextChanged="fieldTextChanged"/>
+
+                    <TextBlock Grid.Column="2" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5">Average Cost:</TextBlock>
+                    <UIControls:SNumberBox Name="txtAverageCost" Grid.Column="3" Margin="5" Grid.Row="1"/>
+
+                    <TextBlock Grid.Column="2" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5">Latest Cost:</TextBlock>
+                    <UIControls:SNumberBox Name="txtLatestCost" Grid.Column="3" Margin="5" Grid.Row="2" TextChanged="fieldTextChanged"/>
+                    
+                    <StackPanel Grid.Column="0" Grid.Row="3" Margin="5" Grid.ColumnSpan="4">
+                        <StackPanel Orientation="Horizontal">
+                            <Button Name="cmdSaveEditItem" Content="Add Item" Margin="5" Padding="10,5,10,5" Click="cmdSaveEditItem_Click"/>
+                            <Button Name="cmdCancelItem" Content="Cancel" Margin="5" Padding="10,5,10,5" Click="cmdCancelItem_Click"/>
+                            <Button Name="cmdRemoveItem" Content="Remove Item" Margin="5" Padding="10,5,10,5" Click="cmdRemoveItem_Click"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </GroupBox>
+            <Image Name="TabShowHideButton" Grid.Row="2" HorizontalAlignment="Center" Width="135" Height="27" MouseDown="TabShowHideButton_MouseDown"/>
+            <toolkit:DataGrid Grid.Row="3"
+                              Name="dgTransactionItems" 
+                              Margin="10" 
+                              CanUserAddRows="False" 
+                              CanUserDeleteRows="False" 
+                              IsReadOnly="True" 
+                              ColumnWidth=".5*"
+                              RowHeaderWidth="17" RowHeight="20" 
+                              SelectionMode="Extended" HorizontalScrollBarVisibility="Hidden"
+                              FontSize="12"
+                              AutoGeneratedColumns="dgTransactionItems_AutoGeneratedColumns"
+                              SelectionChanged="dgTransactionItems_SelectionChanged">
+            </toolkit:DataGrid>
+        </Grid>
+    </Border>
+</UserControl>

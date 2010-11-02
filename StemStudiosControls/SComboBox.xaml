@@ -1,0 +1,9 @@
+﻿<UserControl x:Class="Stemstudios.UIControls.SComboBox"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    >
+    <Grid>
+        <TextBox Name="txtValue" IsReadOnly="True" Visibility="Collapsed"/>
+        <ComboBox Name="cmboValue" SelectionChanged="cmboValue_SelectionChanged"/>
+    </Grid>
+</UserControl>

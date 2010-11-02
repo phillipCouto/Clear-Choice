@@ -1,0 +1,9 @@
+﻿<UserControl x:Class="Stemstudios.UIControls.SDatePicker"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/wpf/2008/toolkit">
+    <Grid>
+        <toolkit:DatePicker Name="dpDate" SelectedDateChanged="dpDate_SelectedDateChanged" BorderBrush="#00FFFFFF" BorderThickness="0"/>
+        <TextBox Name="txtDisplay" Text="Test" VerticalAlignment="Center" Visibility="Collapsed" Background="#00FFFFFF" IsReadOnly="True"/>
+    </Grid>
+</UserControl>

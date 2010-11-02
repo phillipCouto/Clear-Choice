@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="Stemstudios.UIControls.CategoryExpander"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Expander Name="clientButtons" Foreground="White" Background="#44FFFFFF" BorderThickness="1,1,1,1" IsExpanded="True">
+            <Expander.BorderBrush>
+                <SolidColorBrush Color="#99FFFFFF"></SolidColorBrush>
+            </Expander.BorderBrush>
+            <Expander.Header>
+                <StackPanel Orientation="Horizontal" Margin="5,0,0,0">
+                    <Image Height="32" x:Name="IconImage"/>
+                    <TextBlock VerticalAlignment="Center" Foreground="#FFFFFF" Margin="5,0,0,0" x:Name="CategoryTitle">
+                    </TextBlock>
+                </StackPanel>
+            </Expander.Header>
+            <Border BorderThickness="0,1,0,0">
+                <Border.BorderBrush>
+                    <SolidColorBrush Color="#99FFFFFF"></SolidColorBrush>
+                </Border.BorderBrush>
+                <Border.Background>
+                    <SolidColorBrush Color="#22000000"></SolidColorBrush>
+                </Border.Background>
+                <Grid x:Name="ContentGrid">
+                </Grid>
+            </Border>
+        </Expander>
+    </Grid>
+</UserControl>

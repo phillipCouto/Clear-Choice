@@ -1,0 +1,9 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Storyboard BeginTime="0" x:Key="SheetFormShrink">
+        <DoubleAnimation Storyboard.TargetName="grpTimeInfo" Storyboard.TargetProperty="Height"  From="210.0" To="0.0" Duration="0:0:0.1"/>
+    </Storyboard>
+    <Storyboard BeginTime="0" x:Key="SheetFormExpand">
+        <DoubleAnimation Storyboard.TargetName="grpTimeInfo" Storyboard.TargetProperty="Height"  From="0.0" To="210.0" Duration="0:0:0.1"/>
+    </Storyboard>
+</ResourceDictionary>

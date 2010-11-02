@@ -1,0 +1,10 @@
+C:\Users\Phillip Couto\Documents\Stemstudios\Clear Choice\branches\phillipCouto\Client Portal\bin\Client Portal.dll
+C:\Users\Phillip Couto\Documents\Stemstudios\Clear Choice\branches\phillipCouto\Client Portal\bin\Client Portal.pdb
+C:\Users\Phillip Couto\Documents\Stemstudios\Clear Choice\branches\phillipCouto\Client Portal\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Phillip Couto\Documents\Stemstudios\Clear Choice\branches\phillipCouto\Client Portal\obj\Debug\Client Portal.dll
+C:\Users\Phillip Couto\Documents\Stemstudios\Clear Choice\branches\phillipCouto\Client Portal\obj\Debug\Client Portal.pdb
+C:\Users\Phillip Couto\Documents\Stemstudios\GIT\Clear-Choice\Client Portal\bin\Client Portal.dll
+C:\Users\Phillip Couto\Documents\Stemstudios\GIT\Clear-Choice\Client Portal\bin\Client Portal.pdb
+C:\Users\Phillip Couto\Documents\Stemstudios\GIT\Clear-Choice\Client Portal\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Phillip Couto\Documents\Stemstudios\GIT\Clear-Choice\Client Portal\obj\Debug\Client Portal.dll
+C:\Users\Phillip Couto\Documents\Stemstudios\GIT\Clear-Choice\Client Portal\obj\Debug\Client Portal.pdb

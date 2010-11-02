@@ -1,0 +1,70 @@
+﻿<UserControl x:Class="Stemstudios.UIControls.STabItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <Storyboard BeginTime="0" x:Key="MouseEnterAnim">
+            <ColorAnimation Storyboard.TargetName="HoverBGFirst" Storyboard.TargetProperty="Color"  From="#00fff0c1" To="#DDfff0c1" Duration="0:0:0.1"/>
+            <ColorAnimation Storyboard.TargetName="HoverBGSecond" Storyboard.TargetProperty="Color"  From="#00ffdb6f" To="#99ffdb6f" Duration="0:0:0.1"/>
+            <ColorAnimation Storyboard.TargetName="HoverBGThird" Storyboard.TargetProperty="Color"  From="#00e6eff2" To="#11e6eff2" Duration="0:0:0.1" />
+            <ColorAnimation Storyboard.TargetName="HoverBDFirst" Storyboard.TargetProperty="Color"  From="#00fff0c1" To="#FFfff0c1" Duration="0:0:0.1"/>
+            <ColorAnimation Storyboard.TargetName="HoverBDThird" Storyboard.TargetProperty="Color"  From="#00fff0c1" To="#FFfff0c1" Duration="0:0:0.1"/>
+            <ColorAnimation Storyboard.TargetName="ButtonTextColor" Storyboard.TargetProperty="Color" From="#FFFFFFFF" To="#FF000000" Duration="0:0:0.1"/>
+        </Storyboard>
+        <Storyboard BeginTime="0" x:Key="MouseExitAnim">
+            <ColorAnimation Storyboard.TargetName="HoverBGFirst" Storyboard.TargetProperty="Color"  To="#00fff0c1" From="#DDfff0c1" Duration="0:0:0.1"/>
+            <ColorAnimation Storyboard.TargetName="HoverBGSecond" Storyboard.TargetProperty="Color"  To="#00ffdb6f" From="#99ffdb6f" Duration="0:0:0.1"/>
+            <ColorAnimation Storyboard.TargetName="HoverBGThird" Storyboard.TargetProperty="Color"  To="#00e6eff2" From="#11e6eff2" Duration="0:0:0.1" />
+            <ColorAnimation Storyboard.TargetName="HoverBDFirst" Storyboard.TargetProperty="Color"  To="#00fff0c1" From="#FFfff0c1" Duration="0:0:0.1"/>
+            <ColorAnimation Storyboard.TargetName="HoverBDThird" Storyboard.TargetProperty="Color"  To="#00fff0c1" From="#FFfff0c1" Duration="0:0:0.1"/>
+            <ColorAnimation Storyboard.TargetName="ButtonTextColor" Storyboard.TargetProperty="Color" From="#FF000000" To="#FFFFFFFF" Duration="0:0:0.1"/>
+        </Storyboard>
+        <Storyboard BeginTime="0" x:Key="SelectedAnim">
+            <ColorAnimation Storyboard.TargetName="HoverBGFirst" Storyboard.TargetProperty="Color"  To="#BBFFFFFF" From="#DDfff0c1" Duration="0:0:0.1"/>
+            <ColorAnimation Storyboard.TargetName="HoverBGSecond" Storyboard.TargetProperty="Color"  To="#77dae2e7" From="#99ffdb6f" Duration="0:0:0.1"/>
+            <ColorAnimation Storyboard.TargetName="HoverBGThird" Storyboard.TargetProperty="Color"  To="#11e6eff2" From="#11e6eff2" Duration="0:0:0.1" />
+            <ColorAnimation Storyboard.TargetName="HoverBDFirst" Storyboard.TargetProperty="Color"  To="#FFFFFFFF" From="#FFfff0c1" Duration="0:0:0.1"/>
+            <ColorAnimation Storyboard.TargetName="HoverBDThird" Storyboard.TargetProperty="Color"  To="#FFFFFFFF" From="#FFfff0c1" Duration="0:0:0.1"/>
+            <ColorAnimation Storyboard.TargetName="ButtonTextColor" Storyboard.TargetProperty="Color" From="#FF000000" To="#FF000000" Duration="0:0:0.1"/>
+            
+        </Storyboard>
+        <Storyboard BeginTime="0" x:Key="DeSelectedAnim">
+            <ColorAnimation Storyboard.TargetName="HoverBGFirst" Storyboard.TargetProperty="Color"  To="#00fff0c1" From="#BBFFFFFF" Duration="0:0:0.1"/>
+            <ColorAnimation Storyboard.TargetName="HoverBGSecond" Storyboard.TargetProperty="Color"  To="#00ffdb6f" From="#77dae2e7" Duration="0:0:0.1"/>
+            <ColorAnimation Storyboard.TargetName="HoverBGThird" Storyboard.TargetProperty="Color"  To="#00e6eff2" From="#11e6eff2" Duration="0:0:0.1" />
+            <ColorAnimation Storyboard.TargetName="HoverBDFirst" Storyboard.TargetProperty="Color"  To="#00fff0c1" From="#FFFFFFFF" Duration="0:0:0.1"/>
+            <ColorAnimation Storyboard.TargetName="HoverBDThird" Storyboard.TargetProperty="Color"  To="#00fff0c1" From="#FFFFFFFF" Duration="0:0:0.1"/>
+            <ColorAnimation Storyboard.TargetName="ButtonTextColor" Storyboard.TargetProperty="Color" From="#FF000000" To="#FFFFFFFF" Duration="0:0:0.1"/>
+        </Storyboard>
+
+    </UserControl.Resources>
+    <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+        <Border Name="Border"  CornerRadius="3,3,3,3" BorderThickness="1,1,1,1" MouseDown="Border_MouseDown" MouseEnter="Border_MouseEnter" MouseLeave="Border_MouseLeave">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0.4,0" EndPoint="1,1">
+                    <GradientStop Color="#00fff0c1" Offset="0.0" x:Name="HoverBGFirst"/>
+                    <GradientStop Color="#00ffdb6f" Offset="0.2" x:Name="HoverBGSecond"/>
+                    <GradientStop Color="#00e6eff2" Offset="0.9" x:Name="HoverBGThird"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#00fff0c1" Offset="0.0" x:Name="HoverBDFirst"/>
+                    <GradientStop Color="#00fff0c1" Offset="0.5"/>
+                    <GradientStop Color="#00fff0c1" Offset="1.0" x:Name="HoverBDThird"/>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+            <StackPanel Orientation="Vertical" Height="65"  Margin="10,5,10,5">
+                <Image Name="IconImageHolder" Height="40"/>
+                <TextBlock Name="ButtonText" TextAlignment="Center" FontSize="14">
+                    <TextBlock.Foreground>
+                        <SolidColorBrush x:Name="ButtonTextColor" Color="#FFFFFF"></SolidColorBrush>
+                    </TextBlock.Foreground>
+                </TextBlock>
+            </StackPanel>
+        </Border>
+    </StackPanel>
+</UserControl>

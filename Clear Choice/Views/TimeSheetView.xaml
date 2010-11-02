@@ -1,0 +1,106 @@
+﻿<UserControl x:Class="Clear_Choice.Views.TimeSheetView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:UIControls="clr-namespace:Stemstudios.UIControls;assembly=UIControls"
+             xmlns:toolkit="http://schemas.microsoft.com/wpf/2008/toolkit"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+             IsVisibleChanged="UserControl_IsVisibleChanged">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/Theme.xaml"/>
+                <ResourceDictionary Source="/Resources/Views/TimeSheetViewDict.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Border CornerRadius="5" BorderThickness="1" Background="#15FFFFFF">
+        <Border.BorderBrush>
+            <LinearGradientBrush>
+                <GradientStop Color="#FFFFFFFF" Offset="0"/>
+                <GradientStop Color="#55FFFFFF" Offset="0.5"/>
+                <GradientStop Color="#FFFFFFFF" Offset="1"/>
+            </LinearGradientBrush>
+        </Border.BorderBrush>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="27"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <GroupBox Grid.Row="0" Name="grpTimeInfo" FontSize="14" Foreground="#FFFFFFFF" Margin="5,5,5,0" Height="210.0">
+                <GroupBox.Header>
+                    <TextBlock Text="Time Information" Foreground="White" Width="{Binding Path=Width, ElementName=grpTimeInfo, Mode=Default}"/>
+                </GroupBox.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Name:" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <UIControls:SComboBox Name="cmboName" Grid.Column="1" Grid.Row="0" Margin="5" SelectionChanged="cmboName_SelectionChanged" IsEditable="True"/>
+
+                    <TextBlock Text="Job Code:" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <UIControls:SComboBox Name="cmboCode" Grid.Column="3" Grid.Row="0" Margin="5" SelectionChanged="cmboCode_SelectionChanged">
+                        <UIControls:SComboBox.Items>
+                            <ComboBoxItem>RI</ComboBoxItem>
+                        </UIControls:SComboBox.Items>
+                    </UIControls:SComboBox>
+
+                    <TextBlock Text="Hours:" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <UIControls:SNumberBox Name="fltHours" Grid.Column="1" Grid.Row="1" Margin="5" TextChanged="FieldTextChanged" IsCurrency="False"/>
+
+                    <TextBlock Text="Date:" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <UIControls:SDatePicker Name="dpDate" Grid.Column="3" Grid.Row="1" Margin="5" SelectedDateChanged="dpDate_SelectedDateChanged" TextForeground="White"/>
+
+                    <TextBlock Text="Wage:" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <UIControls:SNumberBox Name="amtWage" Grid.Column="1" Grid.Row="2" Margin="5" TextChanged="FieldTextChanged" IsCurrency="True"/>
+
+                    <TextBlock Text="Notes:" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <TextBox Name="txtNotes" TextWrapping="WrapWithOverflow" Grid.Column="3" Grid.Row="2" Grid.RowSpan="2" Margin="5"
+                                 ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+                                 ScrollViewer.VerticalScrollBarVisibility="Auto" 
+                                 Width="Auto"
+                                 AcceptsReturn="True"
+                             TextChanged="FieldTextChanged"/>
+
+                    <TextBlock Text="Total Wage:" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <UIControls:SNumberBox Name="amtTotal" Grid.Column="1" Grid.Row="3" Margin="5" IsCurrency="True"/>
+                    <StackPanel Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="4" Orientation="Horizontal">
+                        <Button Name="cmdSaveEdit" Content="Save Changes" Padding="10,5,10,5" Margin="5" Click="cmdSaveEdit_Click"/>
+                        <Button Name="cmdCancel" Content="Cancel" Padding="10,5,10,5" Margin="5" Click="cmdCancel_Click"/>
+                    </StackPanel>
+                </Grid>
+            </GroupBox>
+            <Image Name="TabShowHideButton" Grid.Row="1" HorizontalAlignment="Center" MouseDown="TabShowHideButton_MouseDown" Width="135" Height="27"/>
+            <toolkit:DataGrid Grid.Row="2"
+                              Name="dgTimeSheets" 
+                              Margin="10" 
+                              CanUserAddRows="False" 
+                              CanUserDeleteRows="False" 
+                              IsReadOnly="True" 
+                              ColumnWidth=".5*"
+                              RowHeaderWidth="17" RowHeight="20" 
+                              SelectionMode="Extended" HorizontalScrollBarVisibility="Hidden"
+                              FontSize="12"
+                              AutoGeneratedColumns="dgTimeSheets_AutoGeneratedColumns"
+                              SelectionChanged="dgTimeSheets_SelectionChanged">
+
+            </toolkit:DataGrid>
+        </Grid>
+    </Border>
+</UserControl>

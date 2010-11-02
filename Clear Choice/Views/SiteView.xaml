@@ -1,0 +1,164 @@
+﻿<UserControl x:Class="Clear_Choice.Views.SiteView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:UIControls="clr-namespace:Stemstudios.UIControls;assembly=UIControls"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:toolkit="http://schemas.microsoft.com/wpf/2008/toolkit"
+             mc:Ignorable="d" 
+             IsVisibleChanged="UserControl_IsVisibleChanged" Loaded="UserControl_Loaded">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/IconSet.xaml"/>
+                <ResourceDictionary Source="/Resources/Theme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Border CornerRadius="5,5,5,5" BorderThickness="1" Background="#15FFFFFF">
+        <Border.BorderBrush>
+            <LinearGradientBrush>
+                <GradientStop Color="#FFFFFFFF" Offset="0"/>
+                <GradientStop Color="#55FFFFFF" Offset="0.5"/>
+                <GradientStop Color="#FFFFFFFF" Offset="1"/>
+            </LinearGradientBrush>
+        </Border.BorderBrush>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <GroupBox  Name="grpSiteInfo" FontSize="14" Grid.Column="0" Grid.Row="0" Foreground="#FFFFFFFF" Margin="5">
+                <GroupBox.Header>
+                    <TextBlock Text="Site Information" Foreground="White" Width="{Binding Path=Width, ElementName=grpSiteInfo, Mode=Default}"/>
+                </GroupBox.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Right">Site Name:</TextBlock>
+                    <TextBox Grid.Column="1" Grid.Row="0" Margin="5" Name="txtSiteName" TextChanged="txtFieldChanged"/>
+
+                    <TextBlock Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right">Address:</TextBlock>
+                    <TextBox Grid.Column="1" Grid.Row="1" Margin="5" Name="txtAddress" TextChanged="txtFieldChanged"/>
+
+                    <TextBlock Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right">City:</TextBlock>
+                    <TextBox Grid.Column="1" Grid.Row="2" Margin="5" Name="txtCity" TextChanged="txtFieldChanged"/>
+
+                    <TextBlock Grid.Column="0" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Right">Service Size:</TextBlock>
+                    <TextBox Grid.Column="1" Grid.Row="3" Margin="5" Name="txtServiceSize" TextChanged="txtFieldChanged"/>
+
+                    <TextBlock Grid.Column="0" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Right">Site Email:</TextBlock>
+                    <TextBox Grid.Column="1" Grid.Row="4" Margin="5" Name="txtSiteEmail" TextChanged="txtFieldChanged"/>
+                </Grid>
+            </GroupBox>
+            <GroupBox Name="grpInspectorInfo" Grid.Column="1" Grid.Row="0" FontSize="14" Foreground="#FFFFFFFF" Margin="5">
+                <GroupBox.Header>
+                    <TextBlock Text="Inspector Information" Foreground="White" Width="{Binding Path=Width, ElementName=grpInspectorInfo, Mode=Default}"/>
+                </GroupBox.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Right">Inspector Name:</TextBlock>
+                    <TextBox Grid.Column="1" Grid.Row="0" Margin="5" Name="txtInspectorName" TextChanged="txtFieldChanged"/>
+
+                    <TextBlock Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right">Inspector Office:</TextBlock>
+                    <TextBox Grid.Column="1" Grid.Row="1" Margin="5" Name="txtInspectorOffice" TextChanged="txtFieldChanged"/>
+
+                    <TextBlock Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right">Office Number:</TextBlock>
+                    <TextBox Grid.Column="1" Grid.Row="2" Margin="5" Name="txtInspectorOfficeNumber" TextChanged="txtFieldChanged"/>
+
+                    <TextBlock Grid.Column="0" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Right">Cell Number:</TextBlock>
+                    <TextBox Grid.Column="1" Grid.Row="3" Margin="5" Name="txtInspectorCellNumber" TextChanged="txtFieldChanged"/>
+
+                    <TextBlock Grid.Column="0" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Right">Email Address:</TextBlock>
+                    <TextBox Grid.Column="1" Grid.Row="4" Margin="5" Name="txtInspectorEmail" TextChanged="txtFieldChanged"/>
+                </Grid>
+            </GroupBox>
+            <GroupBox Name="grpSuperInfo" Grid.Column="0" Grid.Row="1" FontSize="14" Foreground="#FFFFFFFF" Margin="5">
+                <GroupBox.Header>
+                    <TextBlock Text="Site Contact Information" Foreground="White" Width="{Binding Path=Width, ElementName=grpSuperInfo, Mode=Default}"/>
+                </GroupBox.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Right">Contact:</TextBlock>
+                    <ComboBox Name="cmboContactSelection" Grid.Column="1" Grid.Row="0" SelectionChanged="cmboContactSelection_SelectionChanged" Margin="5" SelectedIndex="0">
+                        <ComboBoxItem>Foreman</ComboBoxItem>
+                        <ComboBoxItem>Supervisor 1</ComboBoxItem>
+                        <ComboBoxItem>Supervisor 2</ComboBoxItem>
+                        <ComboBoxItem>Supply Authority</ComboBoxItem>
+                    </ComboBox>
+
+                    <TextBlock Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right">Name:</TextBlock>
+                    <TextBox Grid.Column="1" Grid.Row="1" Margin="5" Name="txtContactName" TextChanged="txtFieldChanged"/>
+
+                    <TextBlock Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right">Phone:</TextBlock>
+                    <TextBox Grid.Column="1" Grid.Row="2" Margin="5" Name="txtContactPhone" TextChanged="txtFieldChanged"/>
+
+                    <TextBlock Grid.Column="0" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Right">Email:</TextBlock>
+                    <TextBox Grid.Column="1" Grid.Row="3" Margin="5" Name="txtContactEmail" TextChanged="txtFieldChanged"/>
+                </Grid>
+            </GroupBox>
+            <GroupBox Name="grpNotes" Grid.Column="1" Grid.Row="1" FontSize="14" Foreground="#FFFFFFFF" Margin="5">
+                <GroupBox.Header>
+                    <TextBlock Text="Notes" Foreground="White" Width="{Binding Path=Width, ElementName=grpSuperInfo, Mode=Default}"/>
+                </GroupBox.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <TextBox Name="txtNotes" Grid.Row="0" Margin="5" HorizontalScrollBarVisibility="Disabled" AcceptsReturn="True" TextWrapping="WrapWithOverflow" TextChanged="txtFieldChanged" VerticalScrollBarVisibility="Auto"/>
+                    <StackPanel Orientation="Horizontal" Grid.Row="1">
+                        <Button Margin="5" Padding="10,5,10,5" Name="cmdSaveEdit" Click="cmdSaveEdit_Click">Save Changes</Button>
+                        <Button Name="cmdCancel" Padding="10,5,10,5" Margin="5" Click="cmdCancel_Click">Cancel</Button>
+                    </StackPanel>
+                </Grid>
+            </GroupBox>
+            <toolkit:DataGrid AutoGenerateColumns="True" Margin="5" Name="lotGridView"  Grid.Row="2" Grid.ColumnSpan="2" 
+                              CanUserAddRows="False" 
+                              CanUserDeleteRows="False" 
+                              IsReadOnly="True" 
+                              ColumnWidth=".5*"
+                              RowHeaderWidth="17" RowHeight="20" 
+                              SelectionMode="Extended" HorizontalScrollBarVisibility="Hidden"
+                              FontSize="12"
+                              SelectionUnit="FullRow"
+                              MouseDown="lotGridView_MouseDown"
+                              AutoGeneratedColumns="lotGridView_AutoGeneratedColumns"/>
+        </Grid>
+    </Border>
+</UserControl>

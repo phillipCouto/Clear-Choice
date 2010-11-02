@@ -1,0 +1,8 @@
+﻿<UserControl x:Class="Stemstudios.UIControls.SNumberBox"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    >
+    <Grid>
+        <TextBox Name="txtValue" TextChanged="txtValue_TextChanged" PreviewTextInput="txtValue_PreviewTextInput" DataObject.Pasting="txtValue_Pasting"/>
+    </Grid>
+</UserControl>

@@ -1,0 +1,33 @@
+C:\Users\Phillip Couto\Documents\Stemstudios\Clear Choice\branches\phillipCouto\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\Phillip Couto\Documents\Stemstudios\Clear Choice\branches\phillipCouto\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\Phillip Couto\Documents\Stemstudios\Clear Choice\branches\phillipCouto\DataAccessLayer\bin\Debug\mysql.data.dll
+C:\Users\Phillip Couto\Documents\Stemstudios\Clear Choice\branches\phillipCouto\DataAccessLayer\bin\Debug\WPFToolkit.dll
+C:\Users\Phillip Couto\Documents\Stemstudios\Clear Choice\branches\phillipCouto\DataAccessLayer\bin\Debug\WPFToolkit.pdb
+C:\Users\Phillip Couto\Documents\Stemstudios\Clear Choice\branches\phillipCouto\DataAccessLayer\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Phillip Couto\Documents\Stemstudios\Clear Choice\branches\phillipCouto\DataAccessLayer\obj\Debug\Stemstudios.DataAccessLayer.ConnInfo.resources
+C:\Users\Phillip Couto\Documents\Stemstudios\Clear Choice\branches\phillipCouto\DataAccessLayer\obj\Debug\Stemstudios.DataAccessLayer.Properties.Resources.resources
+C:\Users\Phillip Couto\Documents\Stemstudios\Clear Choice\branches\phillipCouto\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.GenerateResource.Cache
+C:\Users\Phillip Couto\Documents\Stemstudios\Clear Choice\branches\phillipCouto\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\Users\Phillip Couto\Documents\Stemstudios\Clear Choice\branches\phillipCouto\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+C:\Users\Phillip Couto\Documents\Stemstudios\phillipCouto\DataAccessLayer\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Phillip Couto\Documents\Stemstudios\phillipCouto\DataAccessLayer\obj\Debug\Stemstudios.DataAccessLayer.ConnInfo.resources
+C:\Users\Phillip Couto\Documents\Stemstudios\phillipCouto\DataAccessLayer\obj\Debug\Stemstudios.DataAccessLayer.Properties.Resources.resources
+C:\Users\Phillip Couto\Documents\Stemstudios\phillipCouto\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.GenerateResource.Cache
+C:\Users\Phillip Couto\Documents\Stemstudios\phillipCouto\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\Phillip Couto\Documents\Stemstudios\phillipCouto\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\Phillip Couto\Documents\Stemstudios\phillipCouto\DataAccessLayer\bin\Debug\mysql.data.dll
+C:\Users\Phillip Couto\Documents\Stemstudios\phillipCouto\DataAccessLayer\bin\Debug\WPFToolkit.dll
+C:\Users\Phillip Couto\Documents\Stemstudios\phillipCouto\DataAccessLayer\bin\Debug\WPFToolkit.pdb
+C:\Users\Phillip Couto\Documents\Stemstudios\phillipCouto\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\Users\Phillip Couto\Documents\Stemstudios\phillipCouto\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+C:\Users\Anthony\Documents\Git\Clear-Choice\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\Anthony\Documents\Git\Clear-Choice\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\Anthony\Documents\Git\Clear-Choice\DataAccessLayer\bin\Debug\mysql.data.dll
+C:\Users\Anthony\Documents\Git\Clear-Choice\DataAccessLayer\bin\Debug\WPFToolkit.dll
+C:\Users\Anthony\Documents\Git\Clear-Choice\DataAccessLayer\bin\Debug\WPFToolkit.pdb
+C:\Users\Anthony\Documents\Git\Clear-Choice\DataAccessLayer\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Anthony\Documents\Git\Clear-Choice\DataAccessLayer\obj\Debug\Stemstudios.DataAccessLayer.ConnInfo.resources
+C:\Users\Anthony\Documents\Git\Clear-Choice\DataAccessLayer\obj\Debug\Stemstudios.DataAccessLayer.Properties.Resources.resources
+C:\Users\Anthony\Documents\Git\Clear-Choice\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.GenerateResource.Cache
+C:\Users\Anthony\Documents\Git\Clear-Choice\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\Users\Anthony\Documents\Git\Clear-Choice\DataAccessLayer\obj\Debug\DataAccessLayer.pdb

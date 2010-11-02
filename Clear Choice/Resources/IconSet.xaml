@@ -1,0 +1,25 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Image Source="/Resources/Icons/customers.png" x:Key="customers"/>
+    <Image Source="/Resources/Icons/customer1.png" x:Key="customer1"/>
+    <Image Source="/Resources/Icons/Home.png" x:Key="home"/>
+    <Image Source="/Resources/Icons/Symbol-Check.png" x:Key="symbol-check"/>
+    <Image Source="/Resources/Icons/Symbol-Add.png" x:Key="symbol-add"/>
+    <Image Source="/Resources/Icons/Symbol-Delete.png" x:Key="symbol-delete"/>
+    <Image Source="/Resources/Icons/Save.png" x:Key="symbol-save"/>
+    <Image Source="/Resources/Icons/Login.png" x:Key="symbol-unlock"/>
+    <Image Source="/Resources/Icons/Logout.png" x:Key="symbol-lock"/>
+    <Image Source="/Resources/Icons/Trashcan_empty.png" x:Key="symbol-trash-empty"/>
+    <Image Source="/Resources/Icons/symbol-inventory.png" x:Key="symbol-inventory"/>
+    <Image Source="/Resources/Icons/tab-show.png" x:Key="tab-show"/>
+    <Image Source="/Resources/Icons/tab-hide.png" x:Key="tab-hide"/>
+    <Image Source="/Resources/Icons/symbol-gmaps.png" x:Key="symbol-gmaps"/>
+    <Image Source="/Resources/Icons/Under-construction.png" x:Key="symbol-site"/>
+    <Image Source="/Resources/Icons/My-Documents.png" x:Key="symbol-extras"/>
+    <Image Source="/Resources/Icons/symbol-transactions.png" x:Key="symbol-transactions"/>
+    <Image Source="/Resources/Icons/symbol-emptycart.png" x:Key="symbol-emptycart"/>
+    <Image Source="/Resources/Icons/symbol-transaction.png" x:Key="symbol-transaction"/>
+    <Image Source="/Resources/Icons/symbol-repair.png" x:Key="symbol-repair"/>
+    <Image Source="/Resources/Icons/symbol-timesheet.png" x:Key="symbol-timesheet"/>
+    <Image Source="/Resources/Icons/symbol-timesheets.png" x:Key="symbol-timesheets"/>
+</ResourceDictionary>
