@@ -10,7 +10,6 @@ using Stemstudios.DataAccessLayer.DataObjects;
 using Stemstudios.DataAccessLayer.DataObjects.Bindings;
 using ClearChoice;
 using System.Collections;
-using Microsoft.Windows.Controls;
 
 namespace Clear_Choice.Views
 {

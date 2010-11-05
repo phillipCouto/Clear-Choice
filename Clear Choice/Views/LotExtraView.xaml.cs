@@ -13,7 +13,6 @@ using System.Windows.Media.Animation;
 using System.Windows.Threading;
 using ClearChoice;
 using ExceptionLogging;
-using Microsoft.Windows.Controls;
 using Stemstudios.DataAccessLayer;
 using Stemstudios.DataAccessLayer.DataObjects;
 using Stemstudios.DataAccessLayer.DataObjects.Bindings;

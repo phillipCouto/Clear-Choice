@@ -1,7 +1,6 @@
 ﻿<UserControl x:Class="Clear_Choice.Views.InventoryTransactionsView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:toolkit="http://schemas.microsoft.com/wpf/2008/toolkit"
     xmlns:UIControls="clr-namespace:Stemstudios.UIControls;assembly=UIControls" IsVisibleChanged="UserControl_IsVisibleChanged">
     <UserControl.Resources>
         <ResourceDictionary>
@@ -45,7 +44,7 @@
             </ComboBox>
         </Grid>
             </GroupBox>
-            <toolkit:DataGrid x:Name="dgTransactions" Grid.Row="1"
+            <DataGrid x:Name="dgTransactions" Grid.Row="1"
                           AutoGenerateColumns="True" Margin="5"
                           CanUserAddRows="False" 
                               CanUserDeleteRows="False" 

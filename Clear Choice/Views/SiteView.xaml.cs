@@ -12,7 +12,6 @@ using System.Windows.Threading;
 using ClearChoice;
 using ClearChoice.Views;
 using ExceptionLogging;
-using Microsoft.Windows.Controls;
 using Stemstudios.DataAccessLayer;
 using Stemstudios.DataAccessLayer.DataObjects;
 using Stemstudios.DataAccessLayer.DataObjects.Bindings;

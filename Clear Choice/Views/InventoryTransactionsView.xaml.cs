@@ -1,18 +1,17 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using System.Collections.ObjectModel;
+using System.Resources;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using ClearChoice;
-using Stemstudios.UIControls;
 using Clear_Choice.Windows;
-using Stemstudios.DataAccessLayer.DataObjects;
-using Stemstudios.DataAccessLayer;
-using Stemstudios.DataAccessLayer.DataObjects.Bindings;
-using System.Collections.ObjectModel;
-using System;
-using System.Resources;
+using ClearChoice;
 using ExceptionLogging;
-using Microsoft.Windows.Controls;
+using Stemstudios.DataAccessLayer;
+using Stemstudios.DataAccessLayer.DataObjects;
+using Stemstudios.DataAccessLayer.DataObjects.Bindings;
+using Stemstudios.UIControls;
 
 namespace Clear_Choice.Views
 {

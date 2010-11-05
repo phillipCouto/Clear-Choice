@@ -14,7 +14,6 @@ using Stemstudios.DataAccessLayer.DataObjects.Bindings;
 using Stemstudios.UIControls;
 using System.Windows;
 using System.Text;
-using Microsoft.Windows.Controls;
 
 namespace Clear_Choice.Views
 {

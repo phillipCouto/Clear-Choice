@@ -4,7 +4,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:toolkit="http://schemas.microsoft.com/wpf/2008/toolkit"
              mc:Ignorable="d" 
              IsVisibleChanged="UserControl_IsVisibleChanged" Loaded="UserControl_Loaded">
     <UserControl.Resources>
@@ -148,7 +147,7 @@
                     </StackPanel>
                 </Grid>
             </GroupBox>
-            <toolkit:DataGrid AutoGenerateColumns="True" Margin="5" Name="lotGridView"  Grid.Row="2" Grid.ColumnSpan="2" 
+            <DataGrid AutoGenerateColumns="True" Margin="5" Name="lotGridView"  Grid.Row="2" Grid.ColumnSpan="2" 
                               CanUserAddRows="False" 
                               CanUserDeleteRows="False" 
                               IsReadOnly="True" 
