@@ -116,3 +116,4 @@ C:\Users\Anthony\Documents\Git\Clear-Choice\Clear Choice\obj\Debug\Clear Choice.
 C:\Users\Anthony\Documents\Git\Clear-Choice\Clear Choice\obj\Debug\Clear Choice.application
 C:\Users\Anthony\Documents\Git\Clear-Choice\Clear Choice\obj\Debug\Clear Choice.exe
 C:\Users\Anthony\Documents\Git\Clear-Choice\Clear Choice\obj\Debug\Clear Choice.pdb
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\bin\Debug\Clear Choice.exe.config
