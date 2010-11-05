@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Clear Choice.exe" size="1435136">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Clear Choice.exe" size="1423872">
       <assemblyIdentity name="Clear Choice" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>KdHLrj1IpYtBZAMR/7/RYfR73HU=</dsig:DigestValue>
+        <dsig:DigestValue>RzLTiys06hnvSxWj3teLBZHSv4E=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -62,7 +62,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>rUStM8CmL6NYxzPwc+ffulDMRAg=</dsig:DigestValue>
+        <dsig:DigestValue>vjS9hjwhJjcHaibpvP3Ts9+Ou4U=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -74,7 +74,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>Rp2R9utNrAbRjpBnsa1Bcg3fZKs=</dsig:DigestValue>
+        <dsig:DigestValue>uUyH8gWTSp/K69J5ODoKc8yDqkc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -98,7 +98,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>LuGy/Fghf6sazaAgCnvidLT2NzQ=</dsig:DigestValue>
+        <dsig:DigestValue>RdLt9rx8cVy6mmuQyJvQ9x+Yf9A=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -111,13 +111,13 @@
       <dsig:DigestValue>1MarUy3RuVvHLdw5ozZo3o7j39I=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Resources\logo2.ico" size="22382">
+  <file name="Resources\logo2.ico" size="16958">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>mx1yytF2tprEEl2vTHUMwRQEpPs=</dsig:DigestValue>
+      <dsig:DigestValue>Buoml56+W17sgKtpcabkTgPmpaI=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>
