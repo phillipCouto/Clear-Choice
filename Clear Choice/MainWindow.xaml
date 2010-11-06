@@ -2,9 +2,9 @@
         xmlns:my="clr-namespace:Stemstudios.UIControls;assembly=UIControls"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="800" Width="1024" AllowsTransparency="False" WindowStyle="None" Icon="/Clear Choice;component/Resources/logo2.ico">
+        Title="MainWindow" Height="800" Width="1024" AllowsTransparency="False" WindowStyle="None" Icon="/Resources/logo2.ico">
     <Window.Background>
-        <ImageBrush ImageSource="/Clear Choice;component/Resources/Background.png" Stretch="UniformToFill"/>
+        <ImageBrush ImageSource="/Resources/Background.png" Stretch="UniformToFill"/>
     </Window.Background>
     <Window.Resources>
         <ResourceDictionary>
@@ -38,8 +38,7 @@
                         <ColumnDefinition Width="230"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <StackPanel Height="36" Orientation="Horizontal" Grid.Column="0"  MouseMove="TopStackPanel_MouseMove" MouseDown="TopStackPanel_MouseDown">
-                        <Image Source="Resources/logo2.ico" Height="32" Width="32" Margin="10,2,5,2"/>
-                        <TextBlock Text="Clear Choice" FontSize="20" Foreground="White" FontStyle="Italic" Margin="0,2,5,2">
+                        <TextBlock Text="Clear Choice" FontSize="20" Foreground="White" FontStyle="Italic" Margin="20,2,5,2">
                         </TextBlock>
                         <Rectangle Width="1" Fill="#8897c3dc" Margin="5,5,5,5"></Rectangle>
                     </StackPanel>
