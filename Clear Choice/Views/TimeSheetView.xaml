@@ -56,7 +56,18 @@
                     <TextBlock Text="Job Code:" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
                     <UIControls:SComboBox Name="cmboCode" Grid.Column="3" Grid.Row="0" Margin="5" SelectionChanged="cmboCode_SelectionChanged">
                         <UIControls:SComboBox.Items>
-                            <ComboBoxItem>RI</ComboBoxItem>
+                            <ComboBoxItem>RO</ComboBoxItem>
+                            <ComboBoxItem>BA</ComboBoxItem>
+                            <ComboBoxItem>SE</ComboBoxItem>
+                            <ComboBoxItem>PA</ComboBoxItem>
+                            <ComboBoxItem>TI</ComboBoxItem>
+                            <ComboBoxItem>FU</ComboBoxItem>
+                            <ComboBoxItem>SP</ComboBoxItem>
+                            <ComboBoxItem>F1</ComboBoxItem>
+                            <ComboBoxItem>PT</ComboBoxItem>
+                            <ComboBoxItem>R1</ComboBoxItem>
+                            <ComboBoxItem>R3</ComboBoxItem>
+                            <ComboBoxItem>OT</ComboBoxItem>
                         </UIControls:SComboBox.Items>
                     </UIControls:SComboBox>
 
