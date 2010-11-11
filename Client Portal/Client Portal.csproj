@@ -58,6 +58,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Default.aspx" />
+    <Content Include="images\Ragno-logo.png" />
+    <Content Include="PageStyle.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

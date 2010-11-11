@@ -7,6 +7,8 @@ using System.Text;
 using MySql.Data.MySqlClient;
 using System.Reflection;
 using System.Resources;
+using System.Threading;
+using Stemstudios.DataAccessLayer.DataObjects;
 
 namespace Stemstudios.DataAccessLayer
 {
@@ -21,6 +23,8 @@ namespace Stemstudios.DataAccessLayer
         private MySqlConnection conn;
         private MD5 md5Hasher = MD5.Create();
         static readonly Database instance = new Database();
+        private Thread bgThread;
+        private const int KeepAliveTime = 5;
         #endregion
 
         static Database()
@@ -43,6 +47,8 @@ namespace Stemstudios.DataAccessLayer
             connStr.Add("port", ConnInfo.Port);
             connStr.Add("password", ConnInfo.Password);
             conn = new MySqlConnection(connStr.GetConnectionString(true));
+            bgThread = new Thread(KeepAlive);
+            bgThread.SetApartmentState(ApartmentState.STA);
         }
         /// <summary>
         /// The instance of the Database object.
@@ -339,8 +345,8 @@ namespace Stemstudios.DataAccessLayer
             {
                 try
                 {
-
                     conn.Open();
+                    bgThread.Start();
                 }
                 catch (MySqlException e)
                 {
@@ -414,6 +420,15 @@ namespace Stemstudios.DataAccessLayer
             cmd.ExecuteNonQuery();
             cmd.Dispose();
         }
+
+        private static void KeepAlive()
+        {
+            while (true)
+            {
+                instance.Select("*", "audit_events", null, null, "1");
+                Thread.Sleep(KeepAliveTime * 60 * 1000);
+            }
+        }
         #endregion
 
         #region IDisposable Members
@@ -422,6 +437,7 @@ namespace Stemstudios.DataAccessLayer
         /// </summary>
         void IDisposable.Dispose()
         {
+            bgThread.Abort();
             connStr = null;
             conn.Close();
             conn.Dispose();
