@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head runat="server">
     <title>Ragno Eletric</title>
-    <link type="text/css" rel="stylesheet" href="PageStyle.css">
+    <link type="text/css" rel="stylesheet" href="PageStyle.css"/>
 </head>
 <body>
 <div style="width:100%;">
@@ -28,8 +28,8 @@
     <td><hr/></td>
     </tr>
     <tr>
-    <td id="pageContent">
-    Welcome to the Home page for the Ragno Eletric Web Portal.
+    <td id="pageContent" runat="server">
+        Welcome to the Home page for the Ragno Eletric Web Portal.
     </td>
     </tr>
 </table>
