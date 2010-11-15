@@ -99,7 +99,7 @@
     <Reference Include="WPFToolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App.xaml.cs">
+    <Compile Include="Views\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
@@ -117,6 +117,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Views\ActiveLotReport.xaml.cs">
+      <DependentUpon>ActiveLotReport.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CityReport.xaml.cs">
       <DependentUpon>CityReport.xaml</DependentUpon>
@@ -163,6 +166,9 @@
     <Compile Include="Views\RepairsCompletedReport.xaml.cs">
       <DependentUpon>RepairsCompletedReport.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ScheduledRepairs.xaml.cs">
+      <DependentUpon>ScheduledRepairs.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\SiteView.xaml.cs">
       <DependentUpon>SiteView.xaml</DependentUpon>
     </Compile>
@@ -191,7 +197,7 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="App.xaml">
+    <Page Include="Views\App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -234,6 +240,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Resources\Views\TimeSheetViewDict.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ActiveLotReport.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -312,6 +322,10 @@
     <Page Include="Views\RepairsCompletedReport.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ScheduledRepairs.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SiteView.xaml">
       <SubType>Designer</SubType>
@@ -440,54 +454,57 @@
   <ItemGroup>
     <PublishFile Include="libs\mysql.data.dll">
       <Visible>False</Visible>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="libs\mysql.data.entity.dll">
       <Visible>False</Visible>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="libs\mysql.visualstudio.dll">
       <Visible>False</Visible>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="libs\mysql.web.dll">
       <Visible>False</Visible>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="Microsoft.Windows.Design">
       <Visible>False</Visible>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Themes\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

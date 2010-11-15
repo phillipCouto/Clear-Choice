@@ -16,6 +16,7 @@ C:\Users\Anthony\Documents\Git\Clear-Choice\ExceptionLogging\bin\Debug\Exception
 C:\Users\Anthony\Documents\Git\Clear-Choice\ExceptionLogging\bin\Debug\ExceptionLogging.pdb
 C:\Users\Anthony\Documents\Git\Clear-Choice\ExceptionLogging\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Anthony\Documents\Git\Clear-Choice\ExceptionLogging\obj\Debug\ExceptionLogging.MessageCodes.resources
-C:\Users\Anthony\Documents\Git\Clear-Choice\ExceptionLogging\obj\Debug\ExceptionLogging.csproj.GenerateResource.Cache
+C:\Users\Anthony\Documents\Git\Clear-Choice\ExceptionLogging\obj\Debug\ResGen.read.1.tlog
+C:\Users\Anthony\Documents\Git\Clear-Choice\ExceptionLogging\obj\Debug\ResGen.write.1.tlog
 C:\Users\Anthony\Documents\Git\Clear-Choice\ExceptionLogging\obj\Debug\ExceptionLogging.dll
 C:\Users\Anthony\Documents\Git\Clear-Choice\ExceptionLogging\obj\Debug\ExceptionLogging.pdb

@@ -124,10 +124,10 @@
     <value>admin1234</value>
   </data>
   <data name="Port" xml:space="preserve">
-    <value>10001</value>
+    <value>3306</value>
   </data>
   <data name="Server" xml:space="preserve">
-    <value>beta.stemstudios.com</value>
+    <value>cc.stemstudios.com</value>
   </data>
   <data name="Username" xml:space="preserve">
     <value>clear-choice</value>

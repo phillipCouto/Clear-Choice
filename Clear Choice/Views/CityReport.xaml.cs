@@ -114,5 +114,11 @@ namespace Clear_Choice.Views
                 MainWindow.setActionList(new ArrayList());
             }
         }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            PrintDialog printDlg = new PrintDialog();
+            printDlg.PrintVisual(dgLots, "Grid Printing.");
+        }
     }
 }

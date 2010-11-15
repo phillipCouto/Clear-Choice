@@ -28,6 +28,7 @@ C:\Users\Anthony\Documents\Git\Clear-Choice\DataAccessLayer\bin\Debug\WPFToolkit
 C:\Users\Anthony\Documents\Git\Clear-Choice\DataAccessLayer\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Anthony\Documents\Git\Clear-Choice\DataAccessLayer\obj\Debug\Stemstudios.DataAccessLayer.ConnInfo.resources
 C:\Users\Anthony\Documents\Git\Clear-Choice\DataAccessLayer\obj\Debug\Stemstudios.DataAccessLayer.Properties.Resources.resources
-C:\Users\Anthony\Documents\Git\Clear-Choice\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.GenerateResource.Cache
+C:\Users\Anthony\Documents\Git\Clear-Choice\DataAccessLayer\obj\Debug\ResGen.read.1.tlog
+C:\Users\Anthony\Documents\Git\Clear-Choice\DataAccessLayer\obj\Debug\ResGen.write.1.tlog
 C:\Users\Anthony\Documents\Git\Clear-Choice\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 C:\Users\Anthony\Documents\Git\Clear-Choice\DataAccessLayer\obj\Debug\DataAccessLayer.pdb

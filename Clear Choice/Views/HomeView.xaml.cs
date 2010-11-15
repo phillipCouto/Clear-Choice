@@ -100,5 +100,10 @@ namespace ClearChoice.Views
         {
             MainWindow.OpenTab(new LowAmountInvReport(), (Image)App.iconSet["symbol-emptycart"], "Low Stock Report");
         }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow.OpenTab(new ScheuledRepairs(), (Image)App.iconSet["symbol-emptycart"], "Low Stock Report");
+        }
     }
 }
