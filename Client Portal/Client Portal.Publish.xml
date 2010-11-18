@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="G:\websites" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FileSystem" replaceMatchingFiles="True" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="images/blue_sky_500.png" publishTime="11/17/2010 19:58:52" />
+    <file relUrl="images/Ragno-logo.png" publishTime="11/10/2010 22:26:26" />
+    <file relUrl="Portal.Master" publishTime="11/17/2010 20:32:05" />
+    <file relUrl="Web.config" publishTime="11/17/2010 20:22:57" />
+    <file relUrl="bin/Client Portal.pdb" publishTime="11/17/2010 20:31:17" />
+    <file relUrl="bin/Client Portal.dll" publishTime="11/17/2010 20:31:17" />
+    <file relUrl="Default.aspx" publishTime="11/17/2010 20:31:15" />
+    <file relUrl="PageStyle.css" publishTime="11/17/2010 20:12:55" />
+  </publishProfile>
+</publishData>

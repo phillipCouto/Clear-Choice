@@ -1,0 +1,42 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Portal.master.cs" Inherits="Client_Portal.Portal" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>
+    </title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="PageStyle.css" rel="Stylesheet" type="text/css" />
+</head>
+<body>
+<div style="width:100%;">
+<table id="pageBody" width="900px">
+<tr><td>
+    <img src="images/Ragno-logo.png" alt="Ragno Eletric Logo"/>
+    </td>
+    </tr>
+    <tr>
+    <td id="pageNavigation">
+    <a id="lnkHome" href="/default.aspx">home</a>
+    <a id="lnkAbout" href="/default.aspx">about us</a>
+    <a id="lnkCustomer" href="/default.aspx">customers</a>
+    <a id="lnkServices" href="/default.aspx">service</a>
+    <a id="lnkContact" href="/default.aspx">contact us</a>
+    <a id="lnkPortal" href="/default.aspx">client portal</a>
+    </td>
+    </tr>
+    <tr>
+    <td><hr/></td>
+    </tr>
+    <tr>
+    <td id="pageContent">
+        <asp:ContentPlaceHolder ID="pageContentPlaceHolder" runat="server">
+        </asp:ContentPlaceHolder>
+    </td>
+    </tr>
+</table>
+</div>
+</body>
+</html>
