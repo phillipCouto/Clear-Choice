@@ -150,3 +150,7 @@ C:\Users\Anthony\Documents\Git\Clear-Choice\Clear Choice\obj\Debug\Views\App.g.c
 C:\Users\Anthony\Documents\Git\Clear-Choice\Clear Choice\obj\Debug\Views\ActiveLotReport.g.cs
 C:\Users\Anthony\Documents\Git\Clear-Choice\Clear Choice\obj\Debug\Views\ScheduledRepairs.baml
 C:\Users\Anthony\Documents\Git\Clear-Choice\Clear Choice\obj\Debug\Views\ScheduledRepairs.g.cs
+C:\Users\Anthony\Documents\Git\Clear-Choice\Clear Choice\obj\Debug\Views\ActiveLotsReport.baml
+C:\Users\Anthony\Documents\Git\Clear-Choice\Clear Choice\obj\Debug\Views\LotServicesAmountReport.baml
+C:\Users\Anthony\Documents\Git\Clear-Choice\Clear Choice\obj\Debug\Views\ActiveLotsReport.g.cs
+C:\Users\Anthony\Documents\Git\Clear-Choice\Clear Choice\obj\Debug\Views\LotServicesAmountReport.g.cs

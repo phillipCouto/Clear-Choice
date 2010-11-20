@@ -25,7 +25,6 @@ namespace Clear_Choice.Views
 
         public CompletedLotsReport()
         {
-            InitializeComponent();
             loadTable();
             this.Name = "CompletedLotReport";
         }
