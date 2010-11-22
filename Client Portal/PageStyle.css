@@ -1,0 +1,39 @@
+﻿body
+{
+	background-color:#EEEEEE;
+}
+
+#pageBody
+{
+	margin-left:auto;
+	margin-right:auto;
+	border: 1px solid #999999;
+	padding: 10px 10px 30px 10px;
+	background-color:#FFFFFF;
+}
+#pageNavigation a
+{
+	font-family:Verdana;
+	font-size:14px;
+	color:#6a6a6a;
+	text-decoration:none;
+	padding: 0px 20px 2px 20px;
+}
+#pageNavigation a:hover
+{
+	color:#276ba5;
+}
+#pageNavigation a:visted
+{
+	color:#276ba5;
+}
+hr
+{
+	border-style:dashed;
+	color:#666666;
+}
+#pageContent
+{
+	font-family:Verdana;
+	font-size:12px;
+}
