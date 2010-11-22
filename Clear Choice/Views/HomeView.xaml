@@ -25,7 +25,7 @@
                         <my:IconButton Source="{StaticResource home}" Text="Active Lots" MouseDown="btnActiveLots_MouseDown"/>
                         <my:IconButton Source="{StaticResource home}" Text="Completed Lots" MouseDown="btnCompletedLots_MouseDown"/>
                         <my:IconButton Source="{StaticResource symbol-gmaps}" Text="City Report" MouseDown="btnCitys_MouseDown"/>
-                        <my:IconButton Source="{StaticResource symbol-repair}" Text="Completed Repairs" MouseDown="btnCompletedRepairs_MouseDown"/>
+                        <my:IconButton Source="{StaticResource symbol-repair}" Text="Scheduled Repairs" MouseDown="btnCompletedRepairs_MouseDown"/>
                     </WrapPanel>
                 </my:CategoryExpander.Children>
             </my:CategoryExpander>

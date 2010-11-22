@@ -86,6 +86,9 @@ namespace Clear_Choice.Views
             cmdSaveEdit.Content = unlockBtnTxt;
             isModified = false;
 
+            amtTotalValue.Background = backGround;
+            amtTotalValue.Foreground = foreGround;
+
         }
 
         private void unlockFields()
@@ -127,50 +130,15 @@ namespace Clear_Choice.Views
         /// </summary>
         private void loadExtras()
         {
-            Thread extraThread = new Thread(threadLoadExtrasData);
-            extraThread.SetApartmentState(ApartmentState.STA);
-            extraThread.Start();
-        }
-        /// <summary>
-        /// The thread entrypoint for loading the inventory data from the database.
-        /// </summary>
-        [MethodImpl(MethodImplOptions.Synchronized)]
-        private void threadLoadExtrasData()
-        {
-            try
-            {
-                DataSet data = db.Select("*", LotExtra.Table, LotExtra.Fields.lotID + " = '" + mLot.GetLotID() + "'");
+            DataSet data = db.Select("*", LotExtra.Table, LotExtra.Fields.lotID + " = '" + mLot.GetLotID() + "'");
+            extraItemsDataSet = db.Select("DISTINCT " + LotExtra.Fields.ExtraItem.ToString(), LotExtra.Table);
+            data.BuildPrimaryKeyIndex(LotExtra.PrimaryKey);
 
-                extraItemsDataSet = db.Select("DISTINCT " + LotExtra.Fields.ExtraItem.ToString(), LotExtra.Table);
-
-                Collection<LotExtraBinding> gridData = data.getBindableCollection<LotExtraBinding>();
-                DispatcherOperation dataOp = Dispatcher.BeginInvoke(DispatcherPriority.Normal, new Action<Collection<LotExtraBinding>>(setDataGridViewData), gridData);
-                DispatcherOperationStatus status = dataOp.Status;
-                while (status != DispatcherOperationStatus.Completed)
-                {
-                    status = dataOp.Wait(TimeSpan.FromMilliseconds(1000));
-                    if (status == DispatcherOperationStatus.Aborted)
-                    {
-                        Console.WriteLine("Failed");
-                    }
-                }
-                extrasDataSet = data;
-                extrasDataSet.BuildPrimaryKeyIndex(LotExtra.PrimaryKey);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Loading Extra Items - " + msgCodes.GetString("M2102") + ex.Message, "Error - 2102", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-        /// <summary>
-        /// This is the call back method so the thread can set the items source for the grid view.
-        /// </summary>
-        /// <param name="data"></param>
-        private void setDataGridViewData(Collection<LotExtraBinding> data)
-        {
-            this.ExtraGridView.ItemsSource = data;
-
+            Collection<LotExtraBinding> gridData = data.getBindableCollection<LotExtraBinding>();
+            ExtraGridView.ItemsSource = gridData;
+            extrasDataSet = data;
             cmboExtra.Items.Clear();
+
             while (extraItemsDataSet.Read())
             {
                 ComboBoxItem item = new ComboBoxItem();
@@ -455,6 +423,16 @@ namespace Clear_Choice.Views
                     MainWindow.setActionList(getExtraButtons());
                 }
                 loadExtras();
+                if (ExtraGridView.Items.Count > 0)
+                {
+                    DataSet qty = db.Select("SUM(" + LotExtra.Fields.Quantity.ToString() + ")", LotExtra.Table, LotExtra.Fields.lotID.ToString() + " = '" + mLot.GetLotID() + "'");
+                    qty.Read();
+                    txtTotalQuantity.Text = "" + qty.getString(0);
+
+                    qty = db.Select("SUM(" + LotExtra.Fields.TotalPrice.ToString() + ")", LotExtra.Table, LotExtra.Fields.lotID.ToString() + " = '" + mLot.GetLotID() + "'");
+                    qty.Read();
+                    amtTotalValue.Amount = Single.Parse(qty.getString(0));
+                }
             }
             else
             {
@@ -623,6 +601,38 @@ namespace Clear_Choice.Views
                 if (isFormHidden)
                 {
                     displayOrHideForm();
+                }
+            }
+        }
+
+        private void cmboExtra_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (!isModified && cmdSaveEdit.Content.Equals(saveBtnTxt))
+            {
+                isModified = true;
+                cmdSaveEdit.IsEnabled = true;
+            }
+            if (e.AddedItems.Count > 0 && cmdSaveEdit.Content.Equals(saveBtnTxt))
+            {
+                String extra = ((ComboBoxItem)e.AddedItems[0]).Content.ToString();
+                DataSet assocData = db.Select("*", Site.Table, Site.Fields.siteID.ToString() + " = '" + mLot.GetAssociationID() + "'");
+                DataSet priceData;
+                if (assocData.NumberOfRows() > 0)
+                {
+                    priceData = db.Select("lot_extras.UnitPrice", "sites,lots,lot_extras", "sites.siteID = lots.assocID AND lots.lotID = lot_extras.lotID AND sites.siteID = '" + mLot.GetAssociationID() + "' AND lot_extras.ExtraItem = '" + extra.ToUpper() + "'", "lot_extras.extraID");
+                }
+                else
+                {
+                    priceData = db.Select("lot_extras.UnitPrice", "clients,lots,lot_extras", "clients.clientID = lots.assocID AND lots.lotID = lot_extras.lotID AND clients.clientID = '" + mLot.GetAssociationID() + "' AND lot_extras.ExtraItem = '" + extra.ToUpper() + "'", "lot_extras.extraID");
+                }
+                if (priceData.NumberOfRows() > 0)
+                {
+                    priceData.Read();
+                    txtUnitPrice.Amount = Single.Parse(priceData.getString(0));
+                }
+                else
+                {
+                    txtUnitPrice.Amount = 0;
                 }
             }
         }

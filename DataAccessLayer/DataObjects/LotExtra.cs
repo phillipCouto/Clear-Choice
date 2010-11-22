@@ -27,16 +27,11 @@ namespace Stemstudios.DataAccessLayer.DataObjects
             : base(Table, db)
         {
             PrimaryKeyColumns = new String[1] { PrimaryKey };
-            //Generate random number for primary Key
-            Random ranNum = new Random();
             Boolean tryAgain = true;
-            int id = 0;
             String hashedKey = null;
             while (tryAgain)
             {
-                id = ranNum.Next(10);
-                String textKey = Table + ":" + DateTime.Now.Ticks + ":" + id;
-                hashedKey = db.GetMD5Hash(textKey);
+                hashedKey = "" + DateTime.Now.Ticks;
                 DataSet res = db.Select(PrimaryKey, Table, PrimaryKey + " = '" + hashedKey + "'");
                 if (res.NumberOfRows() == 0)
                 {

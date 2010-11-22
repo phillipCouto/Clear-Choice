@@ -79,7 +79,7 @@ namespace Stemstudios.DataAccessLayer {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 10001.
+        ///   Looks up a localized string similar to 3306.
         /// </summary>
         internal static string Port {
             get {
@@ -88,7 +88,7 @@ namespace Stemstudios.DataAccessLayer {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to beta.stemstudios.com.
+        ///   Looks up a localized string similar to cc.stemstudios.com.
         /// </summary>
         internal static string Server {
             get {

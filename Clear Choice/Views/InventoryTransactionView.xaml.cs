@@ -168,6 +168,16 @@ namespace Clear_Choice.Views
                 {
                     MainWindow.setActionList(getExistingTransactionActions());
                 }
+                if (dgTransactionItems.Items.Count > 0)
+                {
+                    DataSet qty = db.Select("SUM(" + InventoryTransactionItem.Fields.Quantity.ToString() + ")", InventoryTransactionItem.Table, InventoryTransactionItem.Fields.transactionID.ToString() + " = '" + mTransaction.GetTransactionID() + "'");
+                    qty.Read();
+                    txtTotalQuantity.Text = "" + qty.getString(0);
+
+                    qty = db.Select("SUM(" + InventoryTransactionItem.Fields.Quantity.ToString() + " * "+InventoryTransactionItem.Fields.UnitPrice.ToString()+")", InventoryTransactionItem.Table, InventoryTransactionItem.Fields.transactionID.ToString() + " = '" + mTransaction.GetTransactionID() + "'");
+                    qty.Read();
+                    amtTotalValue.Amount = Single.Parse(qty.getString(0));
+                }
             }
         }
 
@@ -350,6 +360,9 @@ namespace Clear_Choice.Views
             txtAverageCost.Foreground = foreGround;
             txtAverageCost.Background = backGround;
 
+            amtTotalValue.Foreground = foreGround;
+            amtTotalValue.Background = backGround;
+
         }
 
         private void unlockItemFields()
@@ -438,7 +451,7 @@ namespace Clear_Choice.Views
             foreach (Object key in mTransactionItems.Keys)
             {
                 InventoryTransactionItem transItem = (InventoryTransactionItem)mTransactionItems[key];
-                totalPrice += transItem.GetUnitPrice();
+                totalPrice += transItem.GetUnitPrice() * transItem.GetQuantity();
                 totalQuantity += transItem.GetQuantity();
             }
             mTransaction.SetDateOfTransaction(dpTransactionDate.SelectedDate);
@@ -640,11 +653,15 @@ namespace Clear_Choice.Views
                         item.SaveObject(db);
                     }
                     db.Delete(InventoryTransactionItem.Table, InventoryTransactionItem.Fields.transactionID.ToString() + " = '" + mTransactionItem.GetTransactionID() + "' AND " + InventoryTransactionItem.Fields.itemID.ToString() + " = '" + mTransactionItem.GetItemID() + "'");
+                    AuditEvent aEvent = new AuditEvent(db);
+                    aEvent.EventDescription(InventoryTransactionItem.Table, "Item " + mTransactionItem.GetItemID() + " with a quantity " + mTransactionItem.GetQuantity() + " has been removed from transaction " + mTransaction.GetTransactionID());
+                    aEvent.SaveEvent();
                     isTransactionModified = true;
                     LoadDateGrid();
                     ClearFields();
                     lockItemFields();
                     displayOrHideForm();
+                    UserControl_IsVisibleChanged(this, new DependencyPropertyChangedEventArgs());
                 }
             }
             else

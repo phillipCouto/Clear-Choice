@@ -31,6 +31,7 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="27"/>
                 <RowDefinition/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <GroupBox Grid.Row="0" Name="grpTimeInfo" FontSize="14" Foreground="#FFFFFFFF" Margin="5,5,5,0" Height="210.0">
                 <GroupBox.Header>
@@ -111,6 +112,12 @@
                               SelectionChanged="dgTimeSheets_SelectionChanged">
 
             </DataGrid>
+            <StackPanel Orientation="Horizontal" Grid.Row="3" HorizontalAlignment="Right">
+                <TextBlock Text="Total Hours" Margin="5" FontSize="14" Foreground="#FFFFFFFF"/>
+                <TextBox Name="txtTotalHours" Margin="5" Background="#00FFFFFF" Foreground="#FFFFFFFF" IsReadOnly="True" Text="0"/>
+                <TextBlock Text="Total Labour Cost" Margin="5" FontSize="14" Foreground="#FFFFFFFF"/>
+                <UIControls:SNumberBox Name="amtTotalCost" Margin="5" IsCurrency="True" IsReadOnly="True" Amount="0"/>
+            </StackPanel>
         </Grid>
     </Border>
 </UserControl>
