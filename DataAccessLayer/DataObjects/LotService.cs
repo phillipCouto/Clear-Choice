@@ -15,6 +15,7 @@ namespace Stemstudios.DataAccessLayer.DataObjects
             Notes
         }
         public const String Table = "lot_services";
+        public const String PrimaryKey = "lotID";
         public readonly String[] PrimaryKeys = new String[2] { "lotID", "ServiceType" };
 
         public LotService(Database db,Lot.LotServices serviceType,String lotID)

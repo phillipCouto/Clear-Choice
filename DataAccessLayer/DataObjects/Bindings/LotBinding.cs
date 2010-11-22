@@ -14,7 +14,6 @@ namespace Stemstudios.DataAccessLayer.DataObjects.Bindings
         public int LotNumber { get; set; }
         [BindableProperty]
         public int BlockNumber { get; set; }
-
         [BindableProperty]
         public String Address { get; set; }
         [BindableProperty]

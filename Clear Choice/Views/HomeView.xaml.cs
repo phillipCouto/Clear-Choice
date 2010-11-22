@@ -103,7 +103,7 @@ namespace ClearChoice.Views
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow.OpenTab(new ScheuledRepairs(), (Image)App.iconSet["symbol-emptycart"], "Low Stock Report");
+            MainWindow.OpenTab(new TotalExtraBilling(), (Image)App.iconSet["symbol-emptycart"], "Avg Labour Hours  Per House");
         }
     }
 }

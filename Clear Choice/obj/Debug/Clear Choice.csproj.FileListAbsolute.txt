@@ -144,13 +144,11 @@ C:\Users\Anthony\Documents\Git\Clear-Choice\Clear Choice\obj\Debug\Clear Choice.
 C:\Users\Anthony\Documents\Git\Clear-Choice\Clear Choice\obj\Debug\Clear Choice.application
 C:\Users\Anthony\Documents\Git\Clear-Choice\Clear Choice\obj\Debug\Clear Choice.exe
 C:\Users\Anthony\Documents\Git\Clear-Choice\Clear Choice\obj\Debug\Clear Choice.pdb
-C:\Users\Anthony\Documents\Git\Clear-Choice\Clear Choice\obj\Debug\Views\App.baml
-C:\Users\Anthony\Documents\Git\Clear-Choice\Clear Choice\obj\Debug\Views\ActiveLotReport.baml
-C:\Users\Anthony\Documents\Git\Clear-Choice\Clear Choice\obj\Debug\Views\App.g.cs
-C:\Users\Anthony\Documents\Git\Clear-Choice\Clear Choice\obj\Debug\Views\ActiveLotReport.g.cs
-C:\Users\Anthony\Documents\Git\Clear-Choice\Clear Choice\obj\Debug\Views\ScheduledRepairs.baml
-C:\Users\Anthony\Documents\Git\Clear-Choice\Clear Choice\obj\Debug\Views\ScheduledRepairs.g.cs
-C:\Users\Anthony\Documents\Git\Clear-Choice\Clear Choice\obj\Debug\Views\ActiveLotsReport.baml
-C:\Users\Anthony\Documents\Git\Clear-Choice\Clear Choice\obj\Debug\Views\LotServicesAmountReport.baml
-C:\Users\Anthony\Documents\Git\Clear-Choice\Clear Choice\obj\Debug\Views\ActiveLotsReport.g.cs
-C:\Users\Anthony\Documents\Git\Clear-Choice\Clear Choice\obj\Debug\Views\LotServicesAmountReport.g.cs
+C:\Users\Anthony\Documents\Git\Clear-Choice\Clear Choice\obj\Debug\App.baml
+C:\Users\Anthony\Documents\Git\Clear-Choice\Clear Choice\obj\Debug\App.g.cs
+C:\Users\Anthony\Documents\Git\Clear-Choice\Clear Choice\obj\Debug\Views\AvgLabourHoursPerHouse.baml
+C:\Users\Anthony\Documents\Git\Clear-Choice\Clear Choice\obj\Debug\Views\AvgLabourHoursPerHouse.g.cs
+C:\Users\Anthony\Documents\Git\Clear-Choice\Clear Choice\obj\Debug\Views\TotalBilling.baml
+C:\Users\Anthony\Documents\Git\Clear-Choice\Clear Choice\obj\Debug\Views\TotalBilling.g.cs
+C:\Users\Anthony\Documents\Git\Clear-Choice\Clear Choice\obj\Debug\Views\TotalExtraBilling.baml
+C:\Users\Anthony\Documents\Git\Clear-Choice\Clear Choice\obj\Debug\Views\TotalExtraBilling.g.cs
