@@ -4,7 +4,6 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:UIControls="clr-namespace:Stemstudios.UIControls;assembly=UIControls"
-             xmlns:toolkit="http://schemas.microsoft.com/wpf/2008/toolkit"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300" IsVisibleChanged="UserControl_IsVisibleChanged">
     <UserControl.Resources>
@@ -139,7 +138,7 @@
                     </StackPanel>
                 </Grid>
             </GroupBox>
-            <toolkit:DataGrid AutoGenerateColumns="True" Margin="5" Name="dgRepairActions"  Grid.Row="2" Grid.ColumnSpan="2" 
+            <DataGrid AutoGenerateColumns="True" Margin="5" Name="dgRepairActions"  Grid.Row="2" Grid.ColumnSpan="2" 
                               CanUserAddRows="False" 
                               CanUserDeleteRows="False" 
                               IsReadOnly="True" 

@@ -6,7 +6,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
 using ExceptionLogging;
-using Microsoft.Windows.Controls;
 using Stemstudios.DataAccessLayer;
 using Stemstudios.DataAccessLayer.DataObjects;
 using Stemstudios.DataAccessLayer.DataObjects.Bindings;
@@ -34,7 +33,7 @@ namespace Clear_Choice.Views
         {
             try
             {
-                DataSet data = db.Select("*, SUM(TotalPrice)", LotExtra.Table);
+                DataSet data = db.Select("*", LotExtra.Table);
                 data.BuildPrimaryKeyIndex(LotExtra.PrimaryKey);
                 Collection<LotExtraBinding> gridData = data.getBindableCollection<LotExtraBinding>();
                 this.dgExtrabill.ItemsSource = gridData;

@@ -6,7 +6,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
 using ExceptionLogging;
-using Microsoft.Windows.Controls;
 using Stemstudios.DataAccessLayer;
 using Stemstudios.DataAccessLayer.DataObjects;
 using Stemstudios.DataAccessLayer.DataObjects.Bindings;
@@ -34,11 +33,9 @@ namespace Clear_Choice.Views
         {
             try
             {
-                DataSet data = db.Select("Sum(Amount)", LotService.Table, "Billed Is Not Null");
-                data.BuildPrimaryKeyIndex(LotService.PrimaryKey);
-                //Need a binding for this part
-                //Collection<> gridData = data.getBindableCollection<>();
-                //this.dgHours.ItemsSource = gridData;
+                DataSet data = db.Select("*, SUM(Amount)", LotService.Table, "Billed Is Not Null Group By lotID");
+                Collection<LotServiceBinding> gridData = data.getBindableCollection<LotServiceBinding>();
+                this.dgHours.ItemsSource = gridData;
 
                 itemRecords = data;
             }

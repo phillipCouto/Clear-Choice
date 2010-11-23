@@ -25,7 +25,7 @@
                         <my:IconButton Source="{StaticResource home}" Text="Active Lots" MouseDown="btnActiveLots_MouseDown"/>
                         <my:IconButton Source="{StaticResource home}" Text="Completed Lots" MouseDown="btnCompletedLots_MouseDown"/>
                         <my:IconButton Source="{StaticResource symbol-gmaps}" Text="City Report" MouseDown="btnCitys_MouseDown"/>
-                        <my:IconButton Source="{StaticResource symbol-repair}" Text="Completed Repairs" MouseDown="btnCompletedRepairs_MouseDown"/>
+                        <my:IconButton Source="{StaticResource symbol-repair}" Text="Scheduled Repairs" MouseDown="btnCompletedRepairs_MouseDown"/>
                     </WrapPanel>
                 </my:CategoryExpander.Children>
             </my:CategoryExpander>
@@ -39,7 +39,9 @@
                     </WrapPanel>
                 </my:CategoryExpander.Children>
             </my:CategoryExpander>
-            <Button Content="Button" Height="23" Name="button1" Width="75" Click="button1_Click" />
+            <Button Content="Total Extra Billed" Height="23" Name="button1" Width="103" Click="button1_Click" />
+            <Button Content="Total Billed" Height="23" Name="button2" Width="103" Click="button2_Click" />
+            <Button Content="AvgLabour Hour report" Height="23" Name="button3" Width="133" Click="button3_Click" />
         </StackPanel>
     </Grid>
 </UserControl>

@@ -511,6 +511,7 @@ namespace Stemstudios.DataAccessLayer
                 dataRows.Add((T)data);
             }
             fresh = true;
+            pos = 0;
             return dataRows;
         }
         #endregion

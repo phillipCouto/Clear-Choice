@@ -103,7 +103,17 @@ namespace ClearChoice.Views
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow.OpenTab(new TotalExtraBilling(), (Image)App.iconSet["symbol-emptycart"], "Avg Labour Hours  Per House");
+            MainWindow.OpenTab(new TotalExtraBilling(), (Image)App.iconSet["symbol-emptycart"], "Total Extra Billed Report");
+        }
+
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow.OpenTab(new TotalBilling(), (Image)App.iconSet["symbol-emptycart"], "Total Billed Report");
+        }
+
+        private void button3_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow.OpenTab(new AvgLabourHoursPerHouse(), (Image)App.iconSet["symbol-emptycart"], "Total Billed Report");
         }
     }
 }

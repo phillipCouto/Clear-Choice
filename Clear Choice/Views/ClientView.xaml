@@ -93,7 +93,7 @@
                     </StackPanel>
                 </Grid>
             </GroupBox>
-            <toolkit:DataGrid Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Name="siteLotsView" Margin="5" 
+            <DataGrid Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Name="siteLotsView" Margin="5" 
                               CanUserAddRows="False" 
                               CanUserDeleteRows="False" 
                               IsReadOnly="True" 
@@ -104,7 +104,7 @@
                               FontSize="14"
                               MouseDown="siteLotsView_MouseDown" SelectionUnit="FullRow">
 
-            </toolkit:DataGrid>
+            </DataGrid>
         </Grid>
     </Border>
 </UserControl>

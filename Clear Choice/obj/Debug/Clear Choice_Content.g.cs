@@ -13,3 +13,4 @@
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("libs/mysql.visualstudio.dll")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("libs/mysql.web.dll")]
 
+

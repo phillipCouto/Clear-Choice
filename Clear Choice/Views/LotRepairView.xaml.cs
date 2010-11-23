@@ -21,7 +21,6 @@ using Stemstudios.DataAccessLayer.DataObjects.Bindings;
 using System.Collections.ObjectModel;
 using ClearChoice;
 using Clear_Choice.Windows;
-using Microsoft.Windows.Controls;
 
 namespace Clear_Choice.Views
 {

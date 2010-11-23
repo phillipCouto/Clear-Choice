@@ -6,7 +6,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
 using ExceptionLogging;
-using Microsoft.Windows.Controls;
 using Stemstudios.DataAccessLayer;
 using Stemstudios.DataAccessLayer.DataObjects;
 using Stemstudios.DataAccessLayer.DataObjects.Bindings;
@@ -113,12 +112,6 @@ namespace Clear_Choice.Views
             {
                 MainWindow.setActionList(new ArrayList());
             }
-        }
-
-        private void button1_Click(object sender, RoutedEventArgs e)
-        {
-            PrintDialog printDlg = new PrintDialog();
-            printDlg.PrintVisual(dgLots, "Grid Printing.");
         }
     }
 }

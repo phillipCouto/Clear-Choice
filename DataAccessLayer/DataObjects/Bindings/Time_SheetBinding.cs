@@ -20,12 +20,9 @@ namespace Stemstudios.DataAccessLayer.DataObjects.Bindings
         [BindableProperty]
         public float    Hours   { get; set; }
         [BindableProperty]
-        public string JobCode { get; set; }
+        public String JobCode    { get; set; }
         [BindableProperty]
         public float Wage { get; set; }
-        [BindableProperty]
-        public string Notes { get; set; }
-
 
         public static Hashtable GetDisplayTextMap()
         {

@@ -14,7 +14,6 @@ using Stemstudios.DataAccessLayer.DataObjects.Bindings;
 using Stemstudios.UIControls;
 using System.Windows;
 using System.Text;
-using Microsoft.Windows.Controls;
 
 namespace Clear_Choice.Views
 {
@@ -110,6 +109,16 @@ namespace Clear_Choice.Views
                 else
                 {
                     MainWindow.setActionList(GetViewModeActions());
+                }
+                if (dgTimeSheets.Items.Count > 0)
+                {
+                    DataSet qty = db.Select("SUM(" + TimeSheet.Fields.Hours.ToString() + ")", TimeSheet.Table, TimeSheet.Fields.lotID.ToString() + " = '" + mLot.GetLotID() + "'");
+                    qty.Read();
+                    txtTotalHours.Text = "" + qty.getString(0);
+
+                    qty = db.Select("SUM(" + TimeSheet.Fields.Hours.ToString() + " * " + TimeSheet.Fields.Wage.ToString() + ")", TimeSheet.Table, TimeSheet.Fields.lotID.ToString() + " = '" + mLot.GetLotID() + "'");
+                    qty.Read();
+                    amtTotalCost.Amount = Single.Parse(qty.getString(0));
                 }
             }
         }
@@ -410,6 +419,9 @@ namespace Clear_Choice.Views
             cmboName.IsReadOnly = true;
             cmboName.Foreground = foreGround;
             cmboName.Background = backGround;
+
+            amtTotalCost.Foreground = foreGround;
+            amtTotalCost.Background = backGround;
         }
 
         private void ClearFields()

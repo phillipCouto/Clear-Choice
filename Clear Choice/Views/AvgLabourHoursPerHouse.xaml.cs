@@ -6,7 +6,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
 using ExceptionLogging;
-using Microsoft.Windows.Controls;
 using Stemstudios.DataAccessLayer;
 using Stemstudios.DataAccessLayer.DataObjects;
 using Stemstudios.DataAccessLayer.DataObjects.Bindings;
@@ -34,7 +33,8 @@ namespace Clear_Choice.Views
         {
             try
             {
-                DataSet data = db.Select("lotID, SUM(AVG(Hours))", TimeSheet.Table);
+                //lotID, SUM(AVG(Hours))
+                DataSet data = db.Select("*", TimeSheet.Table);
                 data.BuildPrimaryKeyIndex(TimeSheet.PrimaryKey);
                 Collection<Time_SheetBinding> gridData = data.getBindableCollection<Time_SheetBinding>();
                 this.dgLabourHours.ItemsSource = gridData;
