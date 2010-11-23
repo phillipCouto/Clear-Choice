@@ -33,7 +33,7 @@ namespace Clear_Choice.Views
         {
             try
             {
-                DataSet data = db.Select("*", LotExtra.Table);
+                DataSet data = db.Select("*, SUM(TotalPrice)", LotExtra.Table, "PO IS NOT NULL GROUP BY lotID");
                 data.BuildPrimaryKeyIndex(LotExtra.PrimaryKey);
                 Collection<LotExtraBinding> gridData = data.getBindableCollection<LotExtraBinding>();
                 this.dgExtrabill.ItemsSource = gridData;
