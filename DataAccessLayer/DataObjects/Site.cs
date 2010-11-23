@@ -21,7 +21,9 @@ namespace Stemstudios.DataAccessLayer.DataObjects
             InspectorCellPhone,
             InspectorEmail,
             ServiceSize,
-            Notes
+            Notes,
+            PortalPassword,
+            IsTempPassword
         }
         #region Fields
         public const String Table = "sites";
@@ -63,6 +65,40 @@ namespace Stemstudios.DataAccessLayer.DataObjects
         {
             PrimaryKeyColumns = new String[1] { PrimaryKey };
             base.SetTable(Table);
+        }
+        /// <summary>
+        /// Sets the new password for the site account.
+        /// </summary>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        public int SetPassword(String password)
+        {
+            if (Formating.ItemIDCheck(password))
+            {
+                SetValue(Fields.PortalPassword.ToString(), password);
+                SetValue(Fields.IsTempPassword.ToString(), 0);
+                return 0;
+            }
+            return 1104;
+        }
+        /// <summary>
+        /// Returns the encrypted password.
+        /// </summary>
+        /// <returns></returns>
+        public String GetPassword()
+        {
+            return getString(Fields.PortalPassword.ToString());
+        }
+        /// <summary>
+        /// Generates a Temporary Password and returns the generated password.
+        /// </summary>
+        /// <returns></returns>
+        public String GenerateTempPassword()
+        {
+            String password = "test1234";
+            SetValue(Fields.PortalPassword.ToString(), password);
+            SetValue(Fields.IsTempPassword.ToString(), 1);
+            return password;
         }
         /// <summary>
         /// Retrieves the contact object from the database.

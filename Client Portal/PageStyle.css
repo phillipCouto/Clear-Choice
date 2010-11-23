@@ -37,3 +37,7 @@ hr
 	font-family:Verdana;
 	font-size:12px;
 }
+.ErrorMsgs
+{
+	color:#FF0000;
+}
