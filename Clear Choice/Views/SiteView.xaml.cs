@@ -9,6 +9,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Threading;
+using Clear_Choice.Windows;
 using ClearChoice;
 using ClearChoice.Views;
 using ExceptionLogging;
@@ -165,6 +166,7 @@ namespace Clear_Choice.Views
             else if (!newSite)
             {
                 mSite.ClearField(Site.Fields.SiteEmail.ToString());
+                mSite.RemovePortalAccess();
             }
             if (txtInspectorName.Text.Length > 0)
             {
@@ -293,6 +295,8 @@ namespace Clear_Choice.Views
             txtAddress.Text = mSite.GetAddress();
             txtCity.Text = mSite.GetCity();
             txtServiceSize.Text = ((mSite.GetServiceSize() == 0) ? "" : "" + mSite.GetServiceSize());
+
+            txtSiteEmail.Text = mSite.GetSiteEmail();
 
             txtInspectorName.Text = mSite.GetInspectorName();
             txtInspectorOffice.Text = mSite.GetInspectorOffice();
@@ -493,9 +497,87 @@ namespace Clear_Choice.Views
                 viewTransactions.MouseDown += new MouseButtonEventHandler(viewTransactions_Click);
                 actions.Add(viewTransactions);
 
+                if (mSite.GetPassword().Length > 0)
+                {
+                    IconButton btnResetPassword = new IconButton();
+                    btnResetPassword.Text = "Reset Portal Password";
+                    btnResetPassword.Source = (Image)App.iconSet["symbol-Refresh"];
+                    btnResetPassword.MouseDown += new MouseButtonEventHandler(btnResetPassword_MouseDown);
+                    actions.Add(btnResetPassword);
+
+                    IconButton btnRemoveAccess = new IconButton();
+                    btnRemoveAccess.Text = "Remove Portal Access";
+                    btnRemoveAccess.Source = (Image)App.iconSet["symbol-Restricted"];
+                    btnRemoveAccess.MouseDown += new MouseButtonEventHandler(btnRemoveAccess_MouseDown);
+                    actions.Add(btnRemoveAccess);
+                }
+                else if(mSite.GetSiteEmail().Length > 0)
+                {
+                   IconButton btnGrantAccess = new IconButton();
+                    btnGrantAccess.Text = "Grant Portal Access";
+                    btnGrantAccess.Source = (Image)App.iconSet["symbol-Check"];
+                    btnGrantAccess.MouseDown += new MouseButtonEventHandler(btnGrantAccess_MouseDown);
+                    actions.Add(btnGrantAccess);
+                }
 
             }
             return actions;
+        }
+
+        private void btnGrantAccess_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            MessageBoxResult res = MessageBox.Show(msgCodes.GetString("M4202"),"Warning - 4202",MessageBoxButton.YesNo,MessageBoxImage.Warning);
+            if (res == MessageBoxResult.Yes)
+            {
+                String password = mSite.GenerateTempPassword();
+                try
+                {
+                    mSite.SaveObject(db);
+                    new GeneratedPasswordDisplay(password,mSite.GetSiteEmail()).ShowDialog();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Granting Portal Access - "+msgCodes.GetString("M2102")+ex.Message, "Error - 2102", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            UserControl_IsVisibleChanged(null, new DependencyPropertyChangedEventArgs());
+        }
+
+        private void btnRemoveAccess_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            MessageBoxResult res = MessageBox.Show(msgCodes.GetString("M4203"), "Warning - 4203", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if (res == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    mSite.RemovePortalAccess();
+                    mSite.SaveObject(db);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Removing Portal Access - " + msgCodes.GetString("M2102") + ex.Message, "Error - 2102", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            UserControl_IsVisibleChanged(null, new DependencyPropertyChangedEventArgs());
+        }
+
+        private void btnResetPassword_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            MessageBoxResult res = MessageBox.Show(msgCodes.GetString("M4201"), "Warning - 4201", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if (res == MessageBoxResult.Yes)
+            {
+                String password = mSite.GenerateTempPassword();
+                try
+                {
+                    mSite.SaveObject(db);
+                    new GeneratedPasswordDisplay(password, mSite.GetSiteEmail()).ShowDialog();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Resting Portal Password - " + msgCodes.GetString("M2102") + ex.Message, "Error - 2102", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            UserControl_IsVisibleChanged(null, new DependencyPropertyChangedEventArgs());
         }
 
         private void viewTransactions_Click(object sender, MouseButtonEventArgs e)

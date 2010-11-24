@@ -36,9 +36,11 @@ namespace Client_Portal
                                 if (loginRes.NumberOfRows() > 0)
                                 {
                                     Stemstudios.DataAccessLayer.DataObjects.Site siteObj = new Stemstudios.DataAccessLayer.DataObjects.Site(loginRes.GetRecordDataSet(0));
-                                    //Create the session
-                                    //Check if the pass is temporary if so redirect to change password.
-                                    //Else redirect to Portal Home.
+                                    ErrorMsg.Text = "Logged In!";
+                                }
+                                else
+                                {
+                                    ErrorMsg.Text = "Error the account credientials provided do not match an account in the system.";
                                 }
                             }
                             catch (Exception ex)

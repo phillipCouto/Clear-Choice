@@ -22,4 +22,7 @@
     <Image Source="/Resources/Icons/symbol-repair.png" x:Key="symbol-repair"/>
     <Image Source="/Resources/Icons/symbol-timesheet.png" x:Key="symbol-timesheet"/>
     <Image Source="/Resources/Icons/symbol-timesheets.png" x:Key="symbol-timesheets"/>
+    <Image Source="/Resources/Icons/symbol-Refresh.png" x:Key="symbol-Refresh"/>
+    <Image Source="/Resources/Icons/symbol-Restricted.png" x:Key="symbol-Restricted"/>
+    <Image Source="/Resources/Icons/symbol-Check.png" x:Key="symbol-Check"/>
 </ResourceDictionary>

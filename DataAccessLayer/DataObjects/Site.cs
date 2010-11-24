@@ -385,6 +385,14 @@ namespace Stemstudios.DataAccessLayer.DataObjects
         {
             return getString(Fields.siteID.ToString());
         }
+        /// <summary>
+        /// Removes portal access.
+        /// </summary>
+        public void RemovePortalAccess()
+        {
+            this.ClearField(Fields.PortalPassword.ToString());
+            this.ClearField(Fields.IsTempPassword.ToString());
+        }
     }
 
 

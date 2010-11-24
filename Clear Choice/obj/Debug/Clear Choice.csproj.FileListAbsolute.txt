@@ -116,3 +116,79 @@ C:\Users\Anthony\Documents\Git\Clear-Choice\Clear Choice\obj\Debug\Clear Choice.
 C:\Users\Anthony\Documents\Git\Clear-Choice\Clear Choice\obj\Debug\Clear Choice.application
 C:\Users\Anthony\Documents\Git\Clear-Choice\Clear Choice\obj\Debug\Clear Choice.exe
 C:\Users\Anthony\Documents\Git\Clear-Choice\Clear Choice\obj\Debug\Clear Choice.pdb
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\bin\Debug\Clear Choice.exe.config
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\bin\Debug\Clear Choice.exe.manifest
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\bin\Debug\Clear Choice.application
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\bin\Debug\Clear Choice.exe
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\bin\Debug\Clear Choice.pdb
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\bin\Debug\DataAccessLayer.dll
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\bin\Debug\ExceptionLogging.dll
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\bin\Debug\UIControls.dll
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\bin\Debug\MySql.Data.dll
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\bin\Debug\DataAccessLayer.pdb
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\bin\Debug\ExceptionLogging.pdb
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\bin\Debug\UIControls.pdb
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\App.baml
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\MainWindow.baml
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\Resources\Brushes.baml
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\Resources\IconSet.baml
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\Resources\Views\InventoryTransactionViewDict.baml
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\Resources\Views\InventoryViewDict.baml
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\Resources\Views\LotExtraViewDict.baml
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\Resources\Views\TimeSheetViewDict.baml
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\Views\CityReport.baml
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\Views\ClientsView.baml
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\Views\ClientView.baml
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\Views\HomeView.baml
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\Views\IncompleteLotsReport.baml
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\Views\InventoryTransactionsView.baml
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\Views\InventoryTransactionView.baml
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\Views\InventoryView.baml
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\Views\CompletedLotsReport.baml
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\Views\LotExtraView.baml
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\Views\LotRepairsView.baml
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\Views\LotRepairView.baml
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\Views\LotView.baml
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\Views\LowAmountInvReport.baml
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\Views\RepairsCompletedReport.baml
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\Views\SiteView.baml
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\Resources\Theme.baml
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\Views\TimeSheetView.baml
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\Windows\GeneratedPasswordDisplay.baml
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\Windows\InventoryItemSelector.baml
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\Windows\LotRepairActionWindow.baml
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\Windows\SiteLotSelector.baml
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\App.g.cs
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\MainWindow.g.cs
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\Views\CityReport.g.cs
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\Views\ClientsView.g.cs
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\Views\ClientView.g.cs
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\Views\HomeView.g.cs
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\Views\IncompleteLotsReport.g.cs
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\Views\InventoryTransactionsView.g.cs
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\Views\InventoryTransactionView.g.cs
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\Views\InventoryView.g.cs
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\Views\CompletedLotsReport.g.cs
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\Views\LotExtraView.g.cs
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\Views\LotRepairsView.g.cs
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\Views\LotRepairView.g.cs
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\Views\LotView.g.cs
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\Views\LowAmountInvReport.g.cs
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\Views\RepairsCompletedReport.g.cs
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\Views\SiteView.g.cs
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\Views\TimeSheetView.g.cs
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\Windows\GeneratedPasswordDisplay.g.cs
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\Windows\InventoryItemSelector.g.cs
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\Windows\LotRepairActionWindow.g.cs
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\Windows\SiteLotSelector.g.cs
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\Clear Choice_Content.g.cs
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\Clear Choice_MarkupCompile.cache
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\Clear Choice.g.resources
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\Clear_Choice.Properties.Resources.resources
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\GenerateResource.read.1.tlog
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\GenerateResource.write.1.tlog
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\Clear Choice.exe.manifest
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\Clear Choice.application
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\Clear Choice.exe
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\Clear Choice.pdb

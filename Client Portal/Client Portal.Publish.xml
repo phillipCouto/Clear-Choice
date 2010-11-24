@@ -1,13 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <publishData>
   <publishProfile publishUrl="G:\websites" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FileSystem" replaceMatchingFiles="True" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
-    <file relUrl="images/blue_sky_500.png" publishTime="11/17/2010 19:58:52" />
-    <file relUrl="images/Ragno-logo.png" publishTime="11/10/2010 22:26:26" />
-    <file relUrl="Portal.Master" publishTime="11/17/2010 20:32:05" />
-    <file relUrl="Web.config" publishTime="11/17/2010 20:22:57" />
-    <file relUrl="bin/Client Portal.pdb" publishTime="11/17/2010 20:31:17" />
-    <file relUrl="bin/Client Portal.dll" publishTime="11/17/2010 20:31:17" />
-    <file relUrl="Default.aspx" publishTime="11/17/2010 20:31:15" />
-    <file relUrl="PageStyle.css" publishTime="11/17/2010 20:12:55" />
+    <file relUrl="images/blue_sky_500.png" publishTime="11/21/2010 22:16:07" />
+    <file relUrl="Default.aspx" publishTime="11/24/2010 12:51:28" />
+    <file relUrl="bin/DataAccessLayer.dll" publishTime="11/24/2010 12:54:59" />
+    <file relUrl="images/Ragno-logo.png" publishTime="11/21/2010 22:16:07" />
+    <file relUrl="bin/DataAccessLayer.pdb" publishTime="11/24/2010 12:54:59" />
+    <file relUrl="Web.config" publishTime="11/21/2010 22:16:06" />
+    <file relUrl="bin/Client Portal.pdb" publishTime="11/24/2010 12:54:59" />
+    <file relUrl="bin/Client Portal.dll" publishTime="11/24/2010 12:54:59" />
+    <file relUrl="Portal.Master" publishTime="11/24/2010 09:07:34" />
+    <file relUrl="portal/Login.aspx" publishTime="11/24/2010 09:07:34" />
+    <file relUrl="bin/MySql.Data.dll" publishTime="11/02/2010 00:51:04" />
+    <file relUrl="PageStyle.css" publishTime="11/24/2010 12:47:28" />
   </publishProfile>
 </publishData>

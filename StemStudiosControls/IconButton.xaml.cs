@@ -12,7 +12,7 @@ namespace Stemstudios.UIControls
         public Image Source
         {
             get { return this.IconImage as Image; }
-            set { this.IconImage.SetValue(Image.SourceProperty, value.GetValue(Image.SourceProperty)); }
+            set {this.IconImage.SetValue(Image.SourceProperty, value.GetValue(Image.SourceProperty));}
         }
         public String Text
         {

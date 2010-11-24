@@ -19,9 +19,7 @@ namespace ClearChoice
         #region Variables used by the form.
         private Point lastClick; //Holds where the Form was clicked
         private Boolean isLeftExpanded = true;
-        private Boolean UpComingExpanded = true;
         private Boolean CommonTasksExpanded = true;
-        private Boolean NotificationsExpanded = true;
         private Boolean isWindowed = true;
         internal static STabControl mainTabControl;
         internal static ActionList actionList;
@@ -190,13 +188,11 @@ namespace ClearChoice
                 CommonTasksExpanded = false;
                 CommonTasksExpanderBorder.CornerRadius = new CornerRadius(3, 3, 3, 3);
                 Double newSize = LeftContentGrid.ActualHeight;
-                newSize -= 75;
                 newSize = NewSizeForExpansion(newSize,0);
             }
             else
             {
                 Double newSize = LeftContentGrid.ActualHeight;
-                newSize -= 75;
                 newSize = NewSizeForExpansion(newSize,1);
                 GridLengthAnimation gla = new GridLengthAnimation();
                 gla.From = new GridLength(0);
@@ -277,20 +273,6 @@ namespace ClearChoice
         private double NewSizeForExpansion(Double totalSize, Double startingPoint)
         {
             Double newSize = totalSize;
-            Double divider = startingPoint;
-            if (UpComingExpanded)
-            {
-                divider++;
-            }
-            if (CommonTasksExpanded)
-            {
-                divider++;
-            }
-            if (NotificationsExpanded)
-            {
-                divider++;
-            }
-            newSize = newSize / divider;
             if (CommonTasksExpanded)
             {
                 GridLengthAnimation gla = new GridLengthAnimation();

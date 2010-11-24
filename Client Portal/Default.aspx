@@ -2,7 +2,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="pageContentPlaceHolder" runat="server">
-    <img alt="Home Page Image" src="images/blue_sky_500.png" align="left" style="width:300px; height:225px; padding:2px;border: 2px solid #999999; margin:5px;"/>
+    <img alt="Home Page Image" src="images/blue_sky_500.png" align="left" style="width:300px; height:225px; padding:2px;border: 2px solid #999999; margin:10px;"/>
         <br />Welcome to the online home of Ragno Electric Ltd.
         <br />
         <br />

@@ -212,5 +212,32 @@ namespace ExceptionLogging {
                 return ResourceManager.GetString("M3207", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You are about to replace the accounts current password with a new random password. Are you sure you want to continue?.
+        /// </summary>
+        public static string M4201 {
+            get {
+                return ResourceManager.GetString("M4201", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You are about to grant access to this site via the web portal. Are you sure you want to continue?.
+        /// </summary>
+        public static string M4202 {
+            get {
+                return ResourceManager.GetString("M4202", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You are about to remove access to this site via the web portal. Are you sure you want to continue?.
+        /// </summary>
+        public static string M4203 {
+            get {
+                return ResourceManager.GetString("M4203", resourceCulture);
+            }
+        }
     }
 }

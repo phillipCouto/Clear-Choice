@@ -79,3 +79,35 @@ C:\Users\Anthony\Documents\Git\Clear-Choice\StemStudiosControls\obj\Debug\Stemst
 C:\Users\Anthony\Documents\Git\Clear-Choice\StemStudiosControls\obj\Debug\UIControls.csproj.GenerateResource.Cache
 C:\Users\Anthony\Documents\Git\Clear-Choice\StemStudiosControls\obj\Debug\UIControls.dll
 C:\Users\Anthony\Documents\Git\Clear-Choice\StemStudiosControls\obj\Debug\UIControls.pdb
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\StemStudiosControls\bin\Debug\UIControls.dll
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\StemStudiosControls\bin\Debug\UIControls.pdb
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\StemStudiosControls\bin\Debug\DataAccessLayer.dll
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\StemStudiosControls\bin\Debug\mysql.data.dll
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\StemStudiosControls\bin\Debug\DataAccessLayer.pdb
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\StemStudiosControls\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\StemStudiosControls\obj\Debug\ActionList.baml
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\StemStudiosControls\obj\Debug\CategoryExpander.baml
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\StemStudiosControls\obj\Debug\SComboBox.baml
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\StemStudiosControls\obj\Debug\SNumberBox.baml
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\StemStudiosControls\obj\Debug\IconButton.baml
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\StemStudiosControls\obj\Debug\SDatePicker.baml
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\StemStudiosControls\obj\Debug\STabItem.baml
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\StemStudiosControls\obj\Debug\ActionList.g.cs
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\StemStudiosControls\obj\Debug\CategoryExpander.g.cs
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\StemStudiosControls\obj\Debug\SComboBox.g.cs
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\StemStudiosControls\obj\Debug\SNumberBox.g.cs
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\StemStudiosControls\obj\Debug\IconButton.g.cs
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\StemStudiosControls\obj\Debug\SDatePicker.g.cs
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\StemStudiosControls\obj\Debug\STabControl.g.cs
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\StemStudiosControls\obj\Debug\STabItem.g.cs
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\StemStudiosControls\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\StemStudiosControls\obj\Debug\UIControls_MarkupCompile.cache
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\StemStudiosControls\obj\Debug\UIControls_MarkupCompile.lref
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\StemStudiosControls\obj\Debug\STabControl.baml
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\StemStudiosControls\obj\Debug\Themes\Generic.baml
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\StemStudiosControls\obj\Debug\UIControls.g.resources
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\StemStudiosControls\obj\Debug\Stemstudios.UIControls.Properties.Resources.resources
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\StemStudiosControls\obj\Debug\GenerateResource.read.1.tlog
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\StemStudiosControls\obj\Debug\GenerateResource.write.1.tlog
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\StemStudiosControls\obj\Debug\UIControls.dll
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\StemStudiosControls\obj\Debug\UIControls.pdb
