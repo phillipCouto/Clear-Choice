@@ -19,11 +19,3 @@ C:\Users\Anthony\Documents\Git\Clear-Choice\ExceptionLogging\obj\Debug\Exception
 C:\Users\Anthony\Documents\Git\Clear-Choice\ExceptionLogging\obj\Debug\ExceptionLogging.csproj.GenerateResource.Cache
 C:\Users\Anthony\Documents\Git\Clear-Choice\ExceptionLogging\obj\Debug\ExceptionLogging.dll
 C:\Users\Anthony\Documents\Git\Clear-Choice\ExceptionLogging\obj\Debug\ExceptionLogging.pdb
-C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\ExceptionLogging\bin\Debug\ExceptionLogging.dll
-C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\ExceptionLogging\bin\Debug\ExceptionLogging.pdb
-C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\ExceptionLogging\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\ExceptionLogging\obj\Debug\ExceptionLogging.MessageCodes.resources
-C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\ExceptionLogging\obj\Debug\GenerateResource.read.1.tlog
-C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\ExceptionLogging\obj\Debug\GenerateResource.write.1.tlog
-C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\ExceptionLogging\obj\Debug\ExceptionLogging.dll
-C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\ExceptionLogging\obj\Debug\ExceptionLogging.pdb

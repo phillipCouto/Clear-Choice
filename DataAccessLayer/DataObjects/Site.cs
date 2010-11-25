@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace Stemstudios.DataAccessLayer.DataObjects
 {
@@ -75,7 +76,7 @@ namespace Stemstudios.DataAccessLayer.DataObjects
         {
             if (Formating.ItemIDCheck(password))
             {
-                SetValue(Fields.PortalPassword.ToString(), password);
+                SetValue(Fields.PortalPassword.ToString(), Database.Instance.GetSHA256Hash(password));
                 SetValue(Fields.IsTempPassword.ToString(), 0);
                 return 0;
             }
@@ -95,10 +96,25 @@ namespace Stemstudios.DataAccessLayer.DataObjects
         /// <returns></returns>
         public String GenerateTempPassword()
         {
-            String password = "test1234";
-            SetValue(Fields.PortalPassword.ToString(), password);
+            Random ranNum = new Random();
+            int id = 0;
+            int letterMin = 97;
+            StringBuilder Key = new StringBuilder();
+            id = ranNum.Next(25);
+            Key.Append(Convert.ToChar(65 + id));
+            for (int i = 0; i < 6; i++)
+            {
+                id = ranNum.Next(25);
+                Key.Append(Convert.ToChar(letterMin + id));
+            }
+            for (int i = 0; i < 2; i++)
+            {
+                id = ranNum.Next(9);
+                Key.Append(id);
+            }
+            SetValue(Fields.PortalPassword.ToString(), Database.Instance.GetSHA256Hash(Key.ToString()));
             SetValue(Fields.IsTempPassword.ToString(), 1);
-            return password;
+            return Key.ToString();
         }
         /// <summary>
         /// Retrieves the contact object from the database.
@@ -392,6 +408,14 @@ namespace Stemstudios.DataAccessLayer.DataObjects
         {
             this.ClearField(Fields.PortalPassword.ToString());
             this.ClearField(Fields.IsTempPassword.ToString());
+        }
+        /// <summary>
+        /// Returns if the password is temporary or not.
+        /// </summary>
+        /// <returns></returns>
+        public bool IsTempPassword()
+        {
+            return ((getInt(Fields.IsTempPassword.ToString()) == 1) ? true : false);
         }
     }
 

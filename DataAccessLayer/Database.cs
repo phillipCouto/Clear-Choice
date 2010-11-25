@@ -382,6 +382,26 @@ namespace Stemstudios.DataAccessLayer
             //Return assembled String
             return sBuilder.ToString();
         }
+        /// <summary>
+        /// Takes the provided String and returns a hexidecimal SHA256 hash.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public String GetSHA256Hash(String value)
+        {
+            //Hash the provided String
+
+            byte[] data = new SHA256Managed().ComputeHash(Encoding.Default.GetBytes(value));
+            //Use StringBuilder to assemble the new String
+            StringBuilder sBuilder = new StringBuilder();
+            //Iterate through each byte and convert to Hexidecimal value
+            for (int i = 0; i < data.Length; i++)
+            {
+                sBuilder.Append(data[i].ToString("x2", CultureInfo.InvariantCulture));
+            }
+            //Return assembled String
+            return sBuilder.ToString();
+        }
 
         /// <summary>
         /// Begins the transaction. All Modifications after this method will not commit until a CommitTransaction

@@ -5,7 +5,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="pageContentPlaceHolder" runat="server">
     <form action="Login.aspx" method="post">
-    <table style="margin:20px auto;">
+    <table style="margin:auto auto;">
+    <tr><td colspan="2" align="center"><h1>Portal Login</h1></td></tr>
         <tr>
             <td>
                 Email Address:

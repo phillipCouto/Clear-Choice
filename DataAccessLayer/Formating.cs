@@ -9,6 +9,16 @@ namespace Stemstudios.DataAccessLayer
     public class Formating
     {
         /// <summary>
+        /// Checks if password is between 6-16 characters and if there is one lower case, one upper case and digit.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static Boolean PasswordCheck(String value)
+        {
+            Regex exp = new Regex("^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{6,16}$");
+            return exp.IsMatch(value);
+        }
+        /// <summary>
         /// Checks if the Value is only alphabetic Characters.
         /// </summary>
         /// <param name="value"></param>

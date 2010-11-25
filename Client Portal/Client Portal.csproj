@@ -60,9 +60,12 @@
     <Content Include="images\blue_sky_500.png" />
     <Content Include="images\Ragno-logo.png" />
     <Content Include="PageStyle.css" />
+    <Content Include="PageStyle7.css" />
     <Content Include="Web.config" />
     <Content Include="Default.aspx" />
     <Content Include="portal\Login.aspx" />
+    <Content Include="portal\DisplayRepairs.aspx" />
+    <Content Include="portal\ChangePassword.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Portal.Master.cs">
@@ -86,6 +89,20 @@
     </Compile>
     <Compile Include="portal\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="portal\DisplayRepairs.aspx.cs">
+      <DependentUpon>DisplayRepairs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="portal\DisplayRepairs.aspx.designer.cs">
+      <DependentUpon>DisplayRepairs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="portal\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="portal\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

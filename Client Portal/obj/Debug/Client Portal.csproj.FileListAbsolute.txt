@@ -8,11 +8,3 @@ C:\Users\Phillip Couto\Documents\Stemstudios\GIT\Clear-Choice\Client Portal\bin\
 C:\Users\Phillip Couto\Documents\Stemstudios\GIT\Clear-Choice\Client Portal\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Phillip Couto\Documents\Stemstudios\GIT\Clear-Choice\Client Portal\obj\Debug\Client Portal.dll
 C:\Users\Phillip Couto\Documents\Stemstudios\GIT\Clear-Choice\Client Portal\obj\Debug\Client Portal.pdb
-C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Client Portal\bin\Client Portal.dll
-C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Client Portal\bin\Client Portal.pdb
-C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Client Portal\bin\DataAccessLayer.dll
-C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Client Portal\bin\MySql.Data.dll
-C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Client Portal\bin\DataAccessLayer.pdb
-C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Client Portal\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Client Portal\obj\Debug\Client Portal.dll
-C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Client Portal\obj\Debug\Client Portal.pdb
