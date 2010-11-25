@@ -36,12 +36,12 @@
                         <my:IconButton Source="{StaticResource symbol-inventory}" Text="View Inventory" MouseDown="btnViewInventory_MouseDown" />
                         <my:IconButton Source="{StaticResource symbol-transactions}" Text="View Transactions" MouseDown="btnViewTransactions_MouseDown"/>
                         <my:IconButton Source="{StaticResource symbol-emptycart}" Text="Low Stock Report" MouseDown="btnLowStock_MouseDown"/>
+                        <my:IconButton Source="{StaticResource symbol-emptycart}" Text="Total Extra Billed Report" MouseDown="IconButton_MouseDown_1" />
+                        <my:IconButton Source="{StaticResource symbol-emptycart}" Text="Total Billed Report" MouseDown="IconButton_MouseDown_2" />
+                        <my:IconButton Source="{StaticResource symbol-emptycart}" Text="Avg Labour Hour Report" MouseDown="IconButton_MouseDown_3" />
                     </WrapPanel>
                 </my:CategoryExpander.Children>
             </my:CategoryExpander>
-            <Button Content="Total Extra Billed" Height="23" Name="button1" Width="103" Click="button1_Click" />
-            <Button Content="Total Billed" Height="23" Name="button2" Width="103" Click="button2_Click" />
-            <Button Content="AvgLabour Hour report" Height="23" Name="button3" Width="133" Click="button3_Click" />
         </StackPanel>
     </Grid>
 </UserControl>
