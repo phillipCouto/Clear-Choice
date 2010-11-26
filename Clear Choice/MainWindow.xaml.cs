@@ -42,7 +42,7 @@ namespace ClearChoice
             actionList = new ActionList();
             this.CommonTasksContent.Children.Add(actionList);
 
-            Image tabIcon = (Image)App.iconSet["home"];
+            Image tabIcon = (Image)App.iconSet["logo"];
             OpenTab(new HomeView(), tabIcon, "Home");
         }
         /// <summary>

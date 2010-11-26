@@ -4,7 +4,7 @@
 library
 C#
 .cs
-C:\Users\Anthony\Documents\Git\Clear-Choice\StemStudiosControls\obj\Debug\
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\StemStudiosControls\obj\Debug\
 Stemstudios.UIControls
 none
 false
@@ -12,8 +12,8 @@ DEBUG;TRACE
 
 91894507427
 
-14-749056580
-16-1105019947
+14851696111
+161593122670
 ActionList.xaml;CategoryExpander.xaml;SComboBox.xaml;SNumberBox.xaml;IconButton.xaml;SDatePicker.xaml;STabControl.xaml;STabItem.xaml;Themes\Generic.xaml;
 
 True

@@ -22,4 +22,5 @@
     <Image Source="/Resources/Icons/symbol-repair.png" x:Key="symbol-repair"/>
     <Image Source="/Resources/Icons/symbol-timesheet.png" x:Key="symbol-timesheet"/>
     <Image Source="/Resources/Icons/symbol-timesheets.png" x:Key="symbol-timesheets"/>
+    <Image Source="/Resources/logo2.ico" x:Key="logo"/>
 </ResourceDictionary>

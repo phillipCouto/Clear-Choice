@@ -1,0 +1,21 @@
+﻿<Window x:Class="Clear_Choice.Windows.DocumentPreviewer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Preview" Height="800" Width="600">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <FlowDocumentReader Name="docViewer" Grid.Row="0" >
+        </FlowDocumentReader>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="5" >
+            <TextBlock Text="Page Orientation: " Margin="5" VerticalAlignment="Center"/>
+            <ComboBox Name="cmboOrientation" Margin="5" SelectedIndex="0" SelectionChanged="cmboOrientation_SelectionChanged">
+                <ComboBoxItem>Landscape</ComboBoxItem>
+                <ComboBoxItem>Portrait</ComboBoxItem>
+            </ComboBox>
+            <Button Name="cmdPrint" Margin="5" Padding="10,3,10,3" Content="Print" Click="cmdPrint_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

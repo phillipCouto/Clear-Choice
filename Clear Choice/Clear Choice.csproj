@@ -73,11 +73,13 @@
   <ItemGroup>
     <Reference Include="Microsoft.Windows.Design, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="ReachFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Printing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq">
@@ -180,6 +182,9 @@
     </Compile>
     <Compile Include="Views\TotalExtraBilling.xaml.cs">
       <DependentUpon>TotalExtraBilling.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\DocumentPreviewer.xaml.cs">
+      <DependentUpon>DocumentPreviewer.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\InventoryItemSelector.xaml.cs">
       <DependentUpon>InventoryItemSelector.xaml</DependentUpon>
@@ -353,6 +358,10 @@
     <Page Include="Views\TotalExtraBilling.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\DocumentPreviewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\InventoryItemSelector.xaml">
       <SubType>Designer</SubType>
