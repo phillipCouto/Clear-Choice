@@ -77,3 +77,25 @@ a.item
 	font-size:12px;
 	text-decoration:none;
 }
+.itemRow
+{
+	font-size:12px;
+	font-family:Verdana;
+	text-align:center;
+}
+.itemRowOdd
+{
+	background-color:#DDDDDD;
+}
+.rowHeader
+{
+	font-size:14px;
+	font-family:Verdana;
+	text-align:center;
+	background-color:#444444;
+	color:#FFFFFF;
+}
+.rowHeader td
+{
+	padding:3px;
+}

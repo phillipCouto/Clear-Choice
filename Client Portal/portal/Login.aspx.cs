@@ -25,7 +25,7 @@ namespace Client_Portal
                 }
                 else
                 {
-                    Response.Redirect("http://" + req.Authority + "/portal/Home.aspx");
+                    Response.Redirect("http://" + req.Authority + "/portal/DisplayRepairs.aspx");
                 }
             }
             else if (this.Request.HttpMethod.Equals("POST"))

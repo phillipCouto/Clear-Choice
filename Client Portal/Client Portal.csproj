@@ -66,6 +66,7 @@
     <Content Include="portal\Login.aspx" />
     <Content Include="portal\DisplayRepairs.aspx" />
     <Content Include="portal\ChangePassword.aspx" />
+    <Content Include="portal\ViewRepair.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Portal.Master.cs">
@@ -103,6 +104,13 @@
     </Compile>
     <Compile Include="portal\ChangePassword.aspx.designer.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="portal\ViewRepair.aspx.cs">
+      <DependentUpon>ViewRepair.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="portal\ViewRepair.aspx.designer.cs">
+      <DependentUpon>ViewRepair.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

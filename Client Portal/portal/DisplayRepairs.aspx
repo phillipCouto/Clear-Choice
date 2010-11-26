@@ -6,13 +6,13 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="pageContentPlaceHolder" runat="server">
     <table width="100%">
         <tr>
-            <td width="200px" style="padding: 0px 10px;" valign="top">
+            <td width="150px" style="padding: 0px 10px;" valign="top">
                 <h1>
                     Menu</h1>
-                <a href="">View Repairs</a><br />
-                <a href="">View Lots</a><br />
+                <a href="/portal/DisplayRepairs.aspx">View Repairs</a><br />
+                <a href="/portal/DisplayLots.aspx">View Lots</a><br />
                 <a href="/portal/ChangePassword.aspx">Change Password</a><br />
-                <a href="">Logout</a>
+                <a href="/portal/Logout.aspx">Logout</a>
             </td>
             <td align="center" valign="top">
                 <h1>
