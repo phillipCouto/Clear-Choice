@@ -22,31 +22,121 @@ namespace Client_Portal {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl pageTitle;
         
         /// <summary>
-        /// pageLotInfo control.
+        /// tdLotNum control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableCell pageLotInfo;
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell tdLotNum;
         
         /// <summary>
-        /// cellIncompleteRepairs control.
+        /// tdLotAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableCell cellIncompleteRepairs;
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell tdLotAddress;
         
         /// <summary>
-        /// pageOwnerInfo control.
+        /// tdLotModel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableCell pageOwnerInfo;
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell tdLotModel;
+        
+        /// <summary>
+        /// tdtLotWorkOrder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell tdtLotWorkOrder;
+        
+        /// <summary>
+        /// tdApptDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell tdApptDate;
+        
+        /// <summary>
+        /// tdApptWindow control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell tdApptWindow;
+        
+        /// <summary>
+        /// tdApptRequested control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell tdApptRequested;
+        
+        /// <summary>
+        /// tdApptInspection control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell tdApptInspection;
+        
+        /// <summary>
+        /// tdApptSourceCode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell tdApptSourceCode;
+        
+        /// <summary>
+        /// tdClientName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell tdClientName;
+        
+        /// <summary>
+        /// tdClientPhone control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell tdClientPhone;
+        
+        /// <summary>
+        /// tdClientAltPhone control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell tdClientAltPhone;
+        
+        /// <summary>
+        /// tdClientEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell tdClientEmail;
         
         /// <summary>
         /// pageNotes control.
@@ -55,7 +145,7 @@ namespace Client_Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableCell pageNotes;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pageNotes;
         
         /// <summary>
         /// pageRepairActions control.

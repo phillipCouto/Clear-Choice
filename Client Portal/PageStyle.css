@@ -87,6 +87,10 @@ a.item
 {
 	background-color:#DDDDDD;
 }
+.itemRowActions
+{
+	font-size:10px;
+}
 .rowHeader
 {
 	font-size:14px;
@@ -98,4 +102,15 @@ a.item
 .rowHeader td
 {
 	padding:3px;
+}
+td.columnLabel
+{
+	text-align: right;
+}
+.pageNotes
+{
+	height: 75px;
+	overflow: auto;
+	border: 1px solid #666;
+	margin:5px;
 }
