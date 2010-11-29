@@ -100,6 +100,7 @@ namespace Clear_Choice.Views
                 ArrayList hideFields = new ArrayList();
                 ArrayList currenyField = new ArrayList();
                 hideFields.Add("lotID");
+                hideFields.Add("timeID");
 
                 FlowDocument doc = itemRecords.GetFlowDocument(title, hideFields, Time_SheetBinding.GetDisplayTextMap(), currenyField);
 
