@@ -8,14 +8,17 @@
     </title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    <link href="PageStyle.css" rel="Stylesheet" type="text/css" />
+        <link href="PageStyle.css" rel="Stylesheet" type="text/css" />
+    <!--[if lte IE 7]>
+	    <link href="PageStyle7.css" rel="Stylesheet" type="text/css" />
+    <![endif]-->
     <meta http-equiv="Content-type" content="text/html;charset=ISO-8859-1" />
 </head>
 <body>
 <div style="width:100%;">
 <table id="pageBody" width="900px">
 <tr><td>
-    <img src="images/Ragno-logo.png" alt="Ragno Eletric Logo"/>
+    <img src="/images/Ragno-logo.png" alt="Ragno Eletric Logo" width="300px" height="150px"/>
     </td>
     </tr>
     <tr>
@@ -25,7 +28,7 @@
     <a id="lnkCustomer" href="/default.aspx">customers</a>
     <a id="lnkServices" href="/default.aspx">service</a>
     <a id="lnkContact" href="/default.aspx">contact us</a>
-    <a id="lnkPortal" href="/default.aspx">client portal</a>
+    <a id="lnkPortal" href="/portal/Login.aspx">client portal</a>
     </td>
     </tr>
     <tr>

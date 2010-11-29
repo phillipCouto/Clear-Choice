@@ -60,8 +60,14 @@
     <Content Include="images\blue_sky_500.png" />
     <Content Include="images\Ragno-logo.png" />
     <Content Include="PageStyle.css" />
+    <Content Include="PageStyle7.css" />
     <Content Include="Web.config" />
     <Content Include="Default.aspx" />
+    <Content Include="portal\Login.aspx" />
+    <Content Include="portal\DisplayRepairs.aspx" />
+    <Content Include="portal\ChangePassword.aspx" />
+    <Content Include="portal\ViewRepair.aspx" />
+    <Content Include="portal\Logout.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Portal.Master.cs">
@@ -79,14 +85,54 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="portal\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="portal\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="portal\DisplayRepairs.aspx.cs">
+      <DependentUpon>DisplayRepairs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="portal\DisplayRepairs.aspx.designer.cs">
+      <DependentUpon>DisplayRepairs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="portal\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="portal\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="portal\ViewRepair.aspx.cs">
+      <DependentUpon>ViewRepair.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="portal\ViewRepair.aspx.designer.cs">
+      <DependentUpon>ViewRepair.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="portal\Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="portal\Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="pages\" />
-    <Folder Include="portal\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Portal.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
+      <Project>{DBD6A892-9A83-4063-85F6-B8D2FE6AD396}</Project>
+      <Name>DataAccessLayer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

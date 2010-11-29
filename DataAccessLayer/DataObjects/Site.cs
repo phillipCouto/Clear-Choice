@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace Stemstudios.DataAccessLayer.DataObjects
 {
@@ -21,7 +22,9 @@ namespace Stemstudios.DataAccessLayer.DataObjects
             InspectorCellPhone,
             InspectorEmail,
             ServiceSize,
-            Notes
+            Notes,
+            PortalPassword,
+            IsTempPassword
         }
         #region Fields
         public const String Table = "sites";
@@ -63,6 +66,55 @@ namespace Stemstudios.DataAccessLayer.DataObjects
         {
             PrimaryKeyColumns = new String[1] { PrimaryKey };
             base.SetTable(Table);
+        }
+        /// <summary>
+        /// Sets the new password for the site account.
+        /// </summary>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        public int SetPassword(String password)
+        {
+            if (Formating.ItemIDCheck(password))
+            {
+                SetValue(Fields.PortalPassword.ToString(), Database.Instance.GetSHA256Hash(password));
+                SetValue(Fields.IsTempPassword.ToString(), 0);
+                return 0;
+            }
+            return 1104;
+        }
+        /// <summary>
+        /// Returns the encrypted password.
+        /// </summary>
+        /// <returns></returns>
+        public String GetPassword()
+        {
+            return getString(Fields.PortalPassword.ToString());
+        }
+        /// <summary>
+        /// Generates a Temporary Password and returns the generated password.
+        /// </summary>
+        /// <returns></returns>
+        public String GenerateTempPassword()
+        {
+            Random ranNum = new Random();
+            int id = 0;
+            int letterMin = 97;
+            StringBuilder Key = new StringBuilder();
+            id = ranNum.Next(25);
+            Key.Append(Convert.ToChar(65 + id));
+            for (int i = 0; i < 6; i++)
+            {
+                id = ranNum.Next(25);
+                Key.Append(Convert.ToChar(letterMin + id));
+            }
+            for (int i = 0; i < 2; i++)
+            {
+                id = ranNum.Next(9);
+                Key.Append(id);
+            }
+            SetValue(Fields.PortalPassword.ToString(), Database.Instance.GetSHA256Hash(Key.ToString()));
+            SetValue(Fields.IsTempPassword.ToString(), 1);
+            return Key.ToString();
         }
         /// <summary>
         /// Retrieves the contact object from the database.
@@ -348,6 +400,22 @@ namespace Stemstudios.DataAccessLayer.DataObjects
         public String GetSiteID()
         {
             return getString(Fields.siteID.ToString());
+        }
+        /// <summary>
+        /// Removes portal access.
+        /// </summary>
+        public void RemovePortalAccess()
+        {
+            this.ClearField(Fields.PortalPassword.ToString());
+            this.ClearField(Fields.IsTempPassword.ToString());
+        }
+        /// <summary>
+        /// Returns if the password is temporary or not.
+        /// </summary>
+        /// <returns></returns>
+        public bool IsTempPassword()
+        {
+            return ((getInt(Fields.IsTempPassword.ToString()) == 1) ? true : false);
         }
     }
 

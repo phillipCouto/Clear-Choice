@@ -172,6 +172,9 @@
     <Compile Include="Views\TimeSheetView.xaml.cs">
       <DependentUpon>TimeSheetView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\GeneratedPasswordDisplay.xaml.cs">
+      <DependentUpon>GeneratedPasswordDisplay.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\InventoryItemSelector.xaml.cs">
       <DependentUpon>InventoryItemSelector.xaml</DependentUpon>
     </Compile>
@@ -333,6 +336,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\GeneratedPasswordDisplay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\InventoryItemSelector.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -382,6 +389,8 @@
     <Content Include="libs\mysql.data.entity.dll" />
     <Content Include="libs\mysql.visualstudio.dll" />
     <Content Include="libs\mysql.web.dll" />
+    <Resource Include="Resources\Icons\Symbol-Refresh.png" />
+    <Resource Include="Resources\Icons\Symbol-Restricted.png" />
     <Resource Include="Resources\Icons\symbol-emptycart.png" />
     <Resource Include="Resources\Icons\symbol-timesheet.png" />
     <Resource Include="Resources\Icons\symbol-timesheets.png" />
@@ -449,52 +458,52 @@
   <ItemGroup>
     <PublishFile Include="libs\mysql.data.dll">
       <Visible>False</Visible>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="libs\mysql.data.entity.dll">
       <Visible>False</Visible>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="libs\mysql.visualstudio.dll">
       <Visible>False</Visible>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="libs\mysql.web.dll">
       <Visible>False</Visible>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="Microsoft.Windows.Design">
       <Visible>False</Visible>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
   </ItemGroup>

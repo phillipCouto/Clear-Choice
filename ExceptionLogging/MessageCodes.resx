@@ -112,10 +112,10 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="M1101" xml:space="preserve">
     <value>This field is marked as required. Please fill in the field and try again.</value>
@@ -184,5 +184,17 @@
   <data name="M3207" xml:space="preserve">
     <value>This tab is considered  a transactional tab and requires that you either Save or Cancel you changes to the current object before selecting a new tab.</value>
     <comment>Related to Complex Transaction Tabs.</comment>
+  </data>
+  <data name="M4201" xml:space="preserve">
+    <value>You are about to replace the accounts current password with a new random password. Are you sure you want to continue?</value>
+    <comment>Generating new password for site account.</comment>
+  </data>
+  <data name="M4202" xml:space="preserve">
+    <value>You are about to grant access to this site via the web portal. Are you sure you want to continue?</value>
+    <comment>Granting access to Site via web portal</comment>
+  </data>
+  <data name="M4203" xml:space="preserve">
+    <value>You are about to remove access to this site via the web portal. Are you sure you want to continue?</value>
+    <comment>Removing access to Site via web portal</comment>
   </data>
 </root>
