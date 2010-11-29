@@ -100,7 +100,11 @@
     <Compile Include="DataObjects\Bindings\LotSelectorBinding.cs" />
     <Compile Include="DataObjects\Bindings\LotExtraBinding.cs" />
     <Compile Include="DataObjects\Bindings\TimeSheetBinding.cs" />
+    <Compile Include="DataObjects\Bindings\TotalBilledExtraBinding.cs" />
     <Compile Include="DataObjects\Bindings\TotalBillingBinding.cs" />
+    <Compile Include="DataObjects\Bindings\TotalLabourBinding.cs" />
+    <Compile Include="DataObjects\Bindings\TotalMaterialCostLotBinding.cs" />
+    <Compile Include="DataObjects\Bindings\TotalMaterialCostSiteBinding.cs" />
     <Compile Include="DataObjects\InventoryTransaction.cs" />
     <Compile Include="DataObjects\InventoryTransactionItem.cs" />
     <Compile Include="DataObjects\LotRepair.cs" />

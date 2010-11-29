@@ -20,15 +20,15 @@ namespace Clear_Choice.Views
     /// <summary>
     /// Interaction logic for InventoryRecordReport.xaml
     /// </summary>
-    public partial class AvgLabourHoursPerHouse : UserControl
+    public partial class TotalLabourCost : UserControl
     {
         private Database db = Database.Instance;
         private DataSet itemRecords = null;
         private ResourceManager msgCodes = MessageCodes.ResourceManager;
 
-        public AvgLabourHoursPerHouse()
+        public TotalLabourCost()
         {
-            this.Name = "AvgHoursPerHouse";
+            this.Name = "TotalLabourCost";
             InitializeComponent();
             LoadGrid();
         }
@@ -38,12 +38,12 @@ namespace Clear_Choice.Views
             try
             {
 
-                DataSet data = db.Select("*, AVG(Hours)AS Total", TimeSheet.Table);
-                data.BuildPrimaryKeyIndex(TimeSheet.PrimaryKey);
-                Collection<Time_SheetBinding> gridData = data.getBindableCollection<Time_SheetBinding>();
+                DataSet data = db.Select("lots.LotNumber,lots.Address,lots.City, SUM(time_sheets.Hours) As Hours, SUM(time_sheets.Hours*time_sheets.Wage) As LabourCost", Lot.Table + "," + TimeSheet.Table, "lots.lotID = time_sheets.lotID", "lots.City, lots.Address, lots.LotNumber");
+                Collection<TotalLabourBinding> gridData = data.getBindableCollection<TotalLabourBinding>();
                 this.dgLabourHours.ItemsSource = gridData;
 
                 itemRecords = data;
+                LoadAverageTotalStats();
             }
             catch (Exception ex)
             {
@@ -96,13 +96,11 @@ namespace Clear_Choice.Views
         {
             try
             {
-                String title = "Average Labour Hours Per";
-                ArrayList hideFields = new ArrayList();
+                String title = "Total Labour Report";
                 ArrayList currenyField = new ArrayList();
-                hideFields.Add("lotID");
-                hideFields.Add("timeID");
+                currenyField.Add("LabourCost");
 
-                FlowDocument doc = itemRecords.GetFlowDocument(title, hideFields, Time_SheetBinding.GetDisplayTextMap(), currenyField);
+                FlowDocument doc = itemRecords.GetFlowDocument(title, null, TotalLabourBinding.GetDisplayTextMap(), currenyField);
 
                 DocumentPreviewer preview = new DocumentPreviewer(doc, title);
                 preview.ShowDialog();
@@ -111,6 +109,24 @@ namespace Clear_Choice.Views
             {
                 MessageBox.Show("Nothing to print", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void LoadAverageTotalStats()
+        {
+            float totalHours = 0;
+            float totalCost = 0;
+
+            while (itemRecords.Read())
+            {
+                totalHours += Single.Parse(itemRecords.getObject("Hours").ToString());
+                totalCost += Single.Parse(itemRecords.getObject("LabourCost").ToString());
+            }
+            itemRecords.ResetDataSet();
+            txtTotalHours.Text = "" + totalHours;
+            txtAvgHours.Text = ""+ Single.Parse(""+(totalHours/itemRecords.NumberOfRows())).ToString("#0.00");
+            amtTotalCost.Amount = totalCost;
+            Math.Round(totalCost);
+            amtAvgCost.Amount = (float)Math.Round(totalCost / itemRecords.NumberOfRows(),2);
         }
     }
 }

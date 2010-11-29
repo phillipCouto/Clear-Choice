@@ -521,10 +521,10 @@ namespace Stemstudios.DataAccessLayer
                 }
                 dataRows.Add((T)data);
             }
-            fresh = true;
-            pos = 0;
+            ResetDataSet();
             return dataRows;
         }
+
         /// <summary>
         /// Creates a flow document which can be passed to the Document Previewer.
         /// </summary>
@@ -658,7 +658,7 @@ namespace Stemstudios.DataAccessLayer
             }
             dataGrid.RowGroups.Add(rowGroup);
             doc.Blocks.Add(dataGrid);
-
+            ResetDataSet();
             return doc;
         }
         #endregion
@@ -1046,6 +1046,14 @@ namespace Stemstudios.DataAccessLayer
         public void BuildPrimaryKeyIndex(String field)
         {
             BuildPrimaryKeyIndex(new String[1] { field });
+        }
+        /// <summary>
+        /// Resets the dataset to being fresh and ready from processing.
+        /// </summary>
+        public void ResetDataSet()
+        {
+            pos = 0;
+            fresh = true;
         }
         /// <summary>
         /// Returns the list of Keys in the Primary Key Index.

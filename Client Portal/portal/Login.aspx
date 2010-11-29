@@ -8,7 +8,7 @@
     <table style="margin:auto auto;">
     <tr><td colspan="2" align="center"><h1>Portal Login</h1></td></tr>
         <tr>
-            <td>
+            <td align="right">
                 Email Address:
             </td>
             <td>
@@ -16,7 +16,7 @@
             </td>
         </tr>
         <tr>
-            <td>
+            <td align="right">
                 Password:
             </td>
             <td>

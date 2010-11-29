@@ -5,6 +5,7 @@ using System.Resources;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
+using System.Windows.Input;
 using Clear_Choice.Windows;
 using ClearChoice;
 using ExceptionLogging;
@@ -12,22 +13,21 @@ using Stemstudios.DataAccessLayer;
 using Stemstudios.DataAccessLayer.DataObjects;
 using Stemstudios.DataAccessLayer.DataObjects.Bindings;
 using Stemstudios.UIControls;
-using System.Windows.Input;
 
 namespace Clear_Choice.Views
 {
     /// <summary>
     /// Interaction logic for InventoryRecordReport.xaml
     /// </summary>
-    public partial class TotalBilling : UserControl
+    public partial class LotsTotalBilled : UserControl
     {
         private Database db = Database.Instance;
         private DataSet itemRecords = null;
         private ResourceManager msgCodes = MessageCodes.ResourceManager;
 
-        public TotalBilling()
+        public LotsTotalBilled()
         {
-            this.Name = "TotalBilling";
+            this.Name = "LotsTotalBilled";
             InitializeComponent();
             LoadGrid();
         }
@@ -94,11 +94,11 @@ namespace Clear_Choice.Views
         {
             try
             {
-                String title = "Total Billing";
+                String title = "Lots Total Billed Report";
                 ArrayList hideFields = new ArrayList();
                 ArrayList currenyField = new ArrayList();
                 hideFields.Add("lotID");
-
+                currenyField.Add("Amount");
                 FlowDocument doc = itemRecords.GetFlowDocument(title, hideFields, TotalBillingBinding.GetDisplayTextMap(), currenyField);
 
                 DocumentPreviewer preview = new DocumentPreviewer(doc, title);

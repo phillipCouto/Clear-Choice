@@ -20,25 +20,32 @@
             <my:CategoryExpander Source="/Resources/Icons/customers.png" Text="Client Actions" Margin="0,5,0,5">
                 <my:CategoryExpander.Children>
                     <WrapPanel HorizontalAlignment="Left">
-                        <my:IconButton Source="{StaticResource customers}" Text="View Clients" MouseDown="IconButton_MouseDown" />
-                        <my:IconButton Source="{StaticResource customer1}" Text="New Client" MouseDown="AddNewClientButton_MouseDown" />
-                        <my:IconButton Source="{StaticResource home}" Text="Active Lots" MouseDown="btnActiveLots_MouseDown"/>
-                        <my:IconButton Source="{StaticResource home}" Text="Completed Lots" MouseDown="btnCompletedLots_MouseDown"/>
-                        <my:IconButton Source="{StaticResource symbol-gmaps}" Text="City Report" MouseDown="btnCitys_MouseDown"/>
-                        <my:IconButton Source="{StaticResource symbol-repair}" Text="Scheduled Repairs" MouseDown="btnCompletedRepairs_MouseDown"/>
+                        <my:IconButton Source="{StaticResource customers}" Text="View Clients" MouseDown="IconButton_MouseDown" Margin="5"/>
+                        <my:IconButton Source="{StaticResource customer1}" Text="New Client" MouseDown="AddNewClientButton_MouseDown" Margin="5"/>
+                        <my:IconButton Source="{StaticResource home}" Text="Active Lots" MouseDown="btnActiveLots_MouseDown" Margin="5"/>
+                        <my:IconButton Source="{StaticResource home}" Text="Completed Lots" MouseDown="btnCompletedLots_MouseDown" Margin="5"/>
+                        <my:IconButton Source="{StaticResource symbol-gmaps}" Text="Lots by City" MouseDown="btnCitys_MouseDown" Margin="5"/>
+                        <my:IconButton Source="{StaticResource symbol-repair}" Text="Scheduled Repairs" MouseDown="btnCompletedRepairs_MouseDown" Margin="5"/>
                     </WrapPanel>
                 </my:CategoryExpander.Children>
             </my:CategoryExpander>
             <my:CategoryExpander Source="/Resources/Icons/symbol-inventory.png" Text="Inventory Actions" Margin="0,5,0,5">
                 <my:CategoryExpander.Children>
                     <WrapPanel HorizontalAlignment="Left">
-                        <my:IconButton Source="{StaticResource symbol-add}" Text="Add Item" MouseDown="btnAddInventoryItem_MouseDown" />
-                        <my:IconButton Source="{StaticResource symbol-inventory}" Text="View Inventory" MouseDown="btnViewInventory_MouseDown" />
-                        <my:IconButton Source="{StaticResource symbol-transactions}" Text="View Transactions" MouseDown="btnViewTransactions_MouseDown"/>
-                        <my:IconButton Source="{StaticResource symbol-emptycart}" Text="Low Stock Report" MouseDown="btnLowStock_MouseDown"/>
-                        <my:IconButton Source="{StaticResource symbol-emptycart}" Text="Total Extra Billed Report" MouseDown="IconButton_MouseDown_1" />
-                        <my:IconButton Source="{StaticResource symbol-emptycart}" Text="Total Billed Report" MouseDown="IconButton_MouseDown_2" />
-                        <my:IconButton Source="{StaticResource symbol-emptycart}" Text="Avg Labour Hour Report" MouseDown="IconButton_MouseDown_3" />
+                        <my:IconButton Source="{StaticResource symbol-add}" Text="Add Item" MouseDown="btnAddInventoryItem_MouseDown" Margin="5"/>
+                        <my:IconButton Source="{StaticResource symbol-inventory}" Text="View Inventory" MouseDown="btnViewInventory_MouseDown" Margin="5"/>
+                        <my:IconButton Source="{StaticResource symbol-transactions}" Text="View Transactions" MouseDown="btnViewTransactions_MouseDown" Margin="5"/>
+                    </WrapPanel>
+                </my:CategoryExpander.Children>
+            </my:CategoryExpander>
+            <my:CategoryExpander Source="/Resources/Icons/symbol-inventory.png" Text="Reports" Margin="0,5,0,5">
+                <my:CategoryExpander.Children>
+                    <WrapPanel HorizontalAlignment="Left">
+                        <my:IconButton Source="{StaticResource symbol-emptycart}" Text="Low Stock Report" MouseDown="btnLowStock_MouseDown" Margin="5"/>
+                        <my:IconButton Source="{StaticResource check-icon}" Text="Total Extras Billed Report" MouseDown="IconButton_MouseDown_1" Margin="5"/>
+                        <my:IconButton Source="{StaticResource check-icon}" Text="Lots Total Billed Report" MouseDown="IconButton_MouseDown_2" Margin="5"/>
+                        <my:IconButton Source="{StaticResource clock-icon}" Text="Total Labour Report" MouseDown="IconButton_MouseDown_3" Margin="5"/>
+                        <my:IconButton Source="{StaticResource symbol-transactions}" Text="Total Material Report" MouseDown="IconButton_MouseDown_4" Margin="5"/>
                     </WrapPanel>
                 </my:CategoryExpander.Children>
             </my:CategoryExpander>

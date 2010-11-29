@@ -74,7 +74,7 @@ namespace Clear_Choice.Views
             {
                 int index = dgLots.Columns.IndexOf(column);
                 String headerText = column.Header.ToString();
-                if (headerText.Contains("ID"))
+                if (headerText.Contains("ID") || headerText.Contains(Lot.Fields.City.ToString()))
                 {
                     dgLots.Columns[index].Visibility = System.Windows.Visibility.Collapsed;
                 }
@@ -96,7 +96,7 @@ namespace Clear_Choice.Views
                 {
 
                     String city = ((ComboBoxItem)cmboCities.Items[cmboCities.SelectedIndex]).Content.ToString();
-                    DataSet data = db.Select("*", Lot.Table, Lot.Fields.City.ToString()+" = '" + city + "'");
+                    DataSet data = db.Select("*", Lot.Table, Lot.Fields.City.ToString()+" = '" + city + "'",Lot.Fields.Address.ToString()+","+Lot.Fields.LotNumber.ToString());
 
                     data.BuildPrimaryKeyIndex(Lot.PrimaryKey);
                     Collection<LotBinding> gridData = data.getBindableCollection<LotBinding>();
@@ -125,7 +125,8 @@ namespace Clear_Choice.Views
             savenewRepairBtn.Text = "Print";
             savenewRepairBtn.Source = (Image)App.iconSet["symbol-save"];
             savenewRepairBtn.MouseDown += new MouseButtonEventHandler(button1_Click);
-            actions.Add(savenewRepairBtn);
+            //Disabled for the time being. Must be approved by client.
+            //actions.Add(savenewRepairBtn);
 
             return actions;
         }

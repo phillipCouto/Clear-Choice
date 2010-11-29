@@ -283,6 +283,20 @@ namespace ClearChoice
             }
             return newSize;
         }
+        /// <summary>
+        /// Handles the closing of the window using Windows OS
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            MessageBoxResult results = MessageBox.Show("You are about to exit the application. Any unsaved work will be lost. Are you sure you want to continue?", "Application Closing", MessageBoxButton.YesNo, MessageBoxImage.Exclamation);
+            if (results == MessageBoxResult.Yes)
+            {
+                db.CloseConnection();
+                Environment.Exit(0);
+            }
+        }
 
     }
 }
