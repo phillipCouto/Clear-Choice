@@ -10,6 +10,10 @@ using Stemstudios.DataAccessLayer;
 using Stemstudios.DataAccessLayer.DataObjects;
 using Stemstudios.DataAccessLayer.DataObjects.Bindings;
 using ClearChoice;
+using Stemstudios.UIControls;
+using System.Windows.Input;
+using System.Windows.Documents;
+using Clear_Choice.Windows;
 
 namespace Clear_Choice.Views
 {
@@ -33,7 +37,7 @@ namespace Clear_Choice.Views
         {
             try
             {
-                DataSet data = db.Select("*, SUM(TotalPrice)", LotExtra.Table, "PO IS NOT NULL GROUP BY lotID");
+                DataSet data = db.Select("LotExtra.*, SUM(LotExtra.TotalPrice) as Total", LotExtra.Table, "LotExtra.PO IS NOT NULL GROUP BY LotExtra.lotID");
                 data.BuildPrimaryKeyIndex(LotExtra.PrimaryKey);
                 Collection<LotExtraBinding> gridData = data.getBindableCollection<LotExtraBinding>();
                 this.dgExtrabill.ItemsSource = gridData;
@@ -71,14 +75,43 @@ namespace Clear_Choice.Views
         {
             if (IsVisible)
             {
-                MainWindow.setActionList(new ArrayList());
+                MainWindow.setActionList(Print());
             }
+        }
+
+        private ArrayList Print()
+        {
+            ArrayList actions = new ArrayList();
+            IconButton savenewRepairBtn = new IconButton();
+            savenewRepairBtn.Text = "Print";
+            savenewRepairBtn.Source = (Image)App.iconSet["symbol-save"];
+            savenewRepairBtn.MouseDown += new MouseButtonEventHandler(button1_Click);
+            actions.Add(savenewRepairBtn);
+
+            return actions;
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            PrintDialog printDlg = new PrintDialog();
-            printDlg.PrintVisual(dgExtrabill, "Grid Printing.");
+            try
+            {
+                String title = "Total Extra Billing Report";
+                ArrayList hideFields = new ArrayList();
+                ArrayList currenyField = new ArrayList();
+                hideFields.Add("lotID");
+                    hideFields.Add("extraID");
+                    hideFields.Add("SUM(TotalPrice)");
+                    hideFields.Add("Notes");
+
+                FlowDocument doc = itemRecords.GetFlowDocument(title, hideFields, LotExtraBinding.GetDisplayTextMap(), currenyField);
+
+                DocumentPreviewer preview = new DocumentPreviewer(doc, title);
+                preview.ShowDialog();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Nothing to print", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

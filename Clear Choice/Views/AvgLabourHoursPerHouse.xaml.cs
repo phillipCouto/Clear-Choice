@@ -10,6 +10,10 @@ using Stemstudios.DataAccessLayer;
 using Stemstudios.DataAccessLayer.DataObjects;
 using Stemstudios.DataAccessLayer.DataObjects.Bindings;
 using ClearChoice;
+using Stemstudios.UIControls;
+using System.Windows.Input;
+using System.Windows.Documents;
+using Clear_Choice.Windows;
 
 namespace Clear_Choice.Views
 {
@@ -34,7 +38,7 @@ namespace Clear_Choice.Views
             try
             {
 
-                DataSet data = db.Select("lotID, SUM(AVG(Hours))", TimeSheet.Table);
+                DataSet data = db.Select("lotID, SUM(AVG(TimeSheet.Hours) )AS Total", TimeSheet.Table);
                 data.BuildPrimaryKeyIndex(TimeSheet.PrimaryKey);
                 Collection<Time_SheetBinding> gridData = data.getBindableCollection<Time_SheetBinding>();
                 this.dgLabourHours.ItemsSource = gridData;
@@ -72,14 +76,40 @@ namespace Clear_Choice.Views
         {
             if (IsVisible)
             {
-                MainWindow.setActionList(new ArrayList());
+                MainWindow.setActionList(Print());
             }
+        }
+
+        private ArrayList Print()
+        {
+            ArrayList actions = new ArrayList();
+            IconButton savenewRepairBtn = new IconButton();
+            savenewRepairBtn.Text = "Print";
+            savenewRepairBtn.Source = (Image)App.iconSet["symbol-save"];
+            savenewRepairBtn.MouseDown += new MouseButtonEventHandler(button1_Click);
+            actions.Add(savenewRepairBtn);
+
+            return actions;
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            PrintDialog printDlg = new PrintDialog();
-            printDlg.PrintVisual(dgLabourHours, "Grid Printing.");
+            try
+            {
+                String title = "Average Labour Hours Per";
+                ArrayList hideFields = new ArrayList();
+                ArrayList currenyField = new ArrayList();
+                hideFields.Add("lotID");
+
+                FlowDocument doc = itemRecords.GetFlowDocument(title, hideFields, Time_SheetBinding.GetDisplayTextMap(), currenyField);
+
+                DocumentPreviewer preview = new DocumentPreviewer(doc, title);
+                preview.ShowDialog();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Nothing to print", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

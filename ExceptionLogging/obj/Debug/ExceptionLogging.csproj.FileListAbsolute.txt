@@ -27,3 +27,11 @@ C:\Users\Anthony\Documents\Git\phillipCouto-Clear-Choice-d9bdc624118498712a9d4b6
 C:\Users\Anthony\Documents\Git\phillipCouto-Clear-Choice-d9bdc624118498712a9d4b6d33e9e8fa6dd96e8a\ExceptionLogging\obj\Debug\GenerateResource.write.1.tlog
 C:\Users\Anthony\Documents\Git\phillipCouto-Clear-Choice-d9bdc624118498712a9d4b6d33e9e8fa6dd96e8a\ExceptionLogging\obj\Debug\ExceptionLogging.dll
 C:\Users\Anthony\Documents\Git\phillipCouto-Clear-Choice-d9bdc624118498712a9d4b6d33e9e8fa6dd96e8a\ExceptionLogging\obj\Debug\ExceptionLogging.pdb
+C:\Users\Anthony\Documents\Git\New folder\Clear-Choice\ExceptionLogging\bin\Debug\ExceptionLogging.dll
+C:\Users\Anthony\Documents\Git\New folder\Clear-Choice\ExceptionLogging\bin\Debug\ExceptionLogging.pdb
+C:\Users\Anthony\Documents\Git\New folder\Clear-Choice\ExceptionLogging\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Anthony\Documents\Git\New folder\Clear-Choice\ExceptionLogging\obj\Debug\ExceptionLogging.MessageCodes.resources
+C:\Users\Anthony\Documents\Git\New folder\Clear-Choice\ExceptionLogging\obj\Debug\GenerateResource.read.1.tlog
+C:\Users\Anthony\Documents\Git\New folder\Clear-Choice\ExceptionLogging\obj\Debug\GenerateResource.write.1.tlog
+C:\Users\Anthony\Documents\Git\New folder\Clear-Choice\ExceptionLogging\obj\Debug\ExceptionLogging.dll
+C:\Users\Anthony\Documents\Git\New folder\Clear-Choice\ExceptionLogging\obj\Debug\ExceptionLogging.pdb

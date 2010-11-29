@@ -11,6 +11,8 @@ using ExceptionLogging;
 using Stemstudios.DataAccessLayer;
 using Stemstudios.DataAccessLayer.DataObjects;
 using Stemstudios.DataAccessLayer.DataObjects.Bindings;
+using Stemstudios.UIControls;
+using System.Windows.Input;
 
 namespace Clear_Choice.Views
 {
@@ -71,24 +73,41 @@ namespace Clear_Choice.Views
         {
             if (IsVisible)
             {
-                MainWindow.setActionList(new ArrayList());
+                MainWindow.setActionList(Print());
             }
+        }
+
+        private ArrayList Print()
+        {
+            ArrayList actions = new ArrayList();
+            IconButton savenewRepairBtn = new IconButton();
+            savenewRepairBtn.Text = "Print";
+            savenewRepairBtn.Source = (Image)App.iconSet["symbol-save"];
+            savenewRepairBtn.MouseDown += new MouseButtonEventHandler(button1_Click);
+            actions.Add(savenewRepairBtn);
+
+
+            return actions;
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            String title = "Total Lot Billing";
-            ArrayList hideFields = new ArrayList();
-            ArrayList currenyField = new ArrayList();
-            hideFields.Add("lotID");
-            currenyField.Add("Amount");
+            try
+            {
+                String title = "Total Billing";
+                ArrayList hideFields = new ArrayList();
+                ArrayList currenyField = new ArrayList();
+                hideFields.Add("lotID");
 
-            FlowDocument doc = itemRecords.GetFlowDocument(title, hideFields, TotalBillingBinding.GetDisplayTextMap(), currenyField);
+                FlowDocument doc = itemRecords.GetFlowDocument(title, hideFields, TotalBillingBinding.GetDisplayTextMap(), currenyField);
 
-            DocumentPreviewer preview = new DocumentPreviewer(doc, title);
-            preview.ShowDialog();
-
-
+                DocumentPreviewer preview = new DocumentPreviewer(doc, title);
+                preview.ShowDialog();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Nothing to print", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }
