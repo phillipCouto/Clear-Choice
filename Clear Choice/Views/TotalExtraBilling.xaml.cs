@@ -28,7 +28,7 @@ namespace Clear_Choice.Views
 
         public TotalExtraBilling()
         {
-            this.Name = "TotalBilling";
+            this.Name = "TotalExtraBilling";
             InitializeComponent();
             LoadGrid();
         }
@@ -37,7 +37,7 @@ namespace Clear_Choice.Views
         {
             try
             {
-                DataSet data = db.Select("LotExtra.*, SUM(LotExtra.TotalPrice) as Total", LotExtra.Table, "LotExtra.PO IS NOT NULL GROUP BY LotExtra.lotID");
+                DataSet data = db.Select("*, SUM(TotalPrice) as Total", LotExtra.Table, "PO IS NOT NULL GROUP BY lotID");
                 data.BuildPrimaryKeyIndex(LotExtra.PrimaryKey);
                 Collection<LotExtraBinding> gridData = data.getBindableCollection<LotExtraBinding>();
                 this.dgExtrabill.ItemsSource = gridData;
