@@ -9,14 +9,3 @@ C:\Users\Anthony\Documents\Git\phillipCouto-Clear-Choice-d9bdc624118498712a9d4b6
 C:\Users\Anthony\Documents\Git\phillipCouto-Clear-Choice-d9bdc624118498712a9d4b6d33e9e8fa6dd96e8a\DataImporter\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Anthony\Documents\Git\phillipCouto-Clear-Choice-d9bdc624118498712a9d4b6d33e9e8fa6dd96e8a\DataImporter\obj\Debug\DataImporter.exe
 C:\Users\Anthony\Documents\Git\phillipCouto-Clear-Choice-d9bdc624118498712a9d4b6d33e9e8fa6dd96e8a\DataImporter\obj\Debug\DataImporter.pdb
-C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\DataImporter\bin\Debug\DataImporter.exe.config
-C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\DataImporter\bin\Debug\DataImporter.exe
-C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\DataImporter\bin\Debug\DataImporter.pdb
-C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\DataImporter\bin\Debug\DataAccessLayer.dll
-C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\DataImporter\bin\Debug\ExceptionLogging.dll
-C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\DataImporter\bin\Debug\MySql.Data.dll
-C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\DataImporter\bin\Debug\DataAccessLayer.pdb
-C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\DataImporter\bin\Debug\ExceptionLogging.pdb
-C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\DataImporter\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\DataImporter\obj\Debug\DataImporter.exe
-C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\DataImporter\obj\Debug\DataImporter.pdb

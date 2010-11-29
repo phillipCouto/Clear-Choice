@@ -13,11 +13,3 @@ C:\Users\Anthony\Documents\Git\phillipCouto-Clear-Choice-d9bdc624118498712a9d4b6
 C:\Users\Anthony\Documents\Git\phillipCouto-Clear-Choice-d9bdc624118498712a9d4b6d33e9e8fa6dd96e8a\Client Portal\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Anthony\Documents\Git\phillipCouto-Clear-Choice-d9bdc624118498712a9d4b6d33e9e8fa6dd96e8a\Client Portal\obj\Debug\Client Portal.dll
 C:\Users\Anthony\Documents\Git\phillipCouto-Clear-Choice-d9bdc624118498712a9d4b6d33e9e8fa6dd96e8a\Client Portal\obj\Debug\Client Portal.pdb
-C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Client Portal\bin\Client Portal.dll
-C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Client Portal\bin\Client Portal.pdb
-C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Client Portal\bin\DataAccessLayer.dll
-C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Client Portal\bin\MySql.Data.dll
-C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Client Portal\bin\DataAccessLayer.pdb
-C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Client Portal\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Client Portal\obj\Debug\Client Portal.dll
-C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Client Portal\obj\Debug\Client Portal.pdb
