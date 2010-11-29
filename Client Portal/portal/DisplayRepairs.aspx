@@ -10,7 +10,7 @@
                 <h1>
                     Menu</h1>
                 <a href="/portal/DisplayRepairs.aspx">View Repairs</a><br />
-                <a href="/portal/DisplayLots.aspx">View Lots</a><br />
+                <!--<a href="/portal/DisplayLots.aspx">View Lots</a><br />-->
                 <a href="/portal/ChangePassword.aspx">Change Password</a><br />
                 <a href="/portal/Logout.aspx">Logout</a>
             </td>
