@@ -11,6 +11,9 @@ using Stemstudios.DataAccessLayer;
 using Stemstudios.DataAccessLayer.DataObjects;
 using Stemstudios.DataAccessLayer.DataObjects.Bindings;
 using ClearChoice;
+using Stemstudios.UIControls;
+using System.Windows.Documents;
+using Clear_Choice.Windows;
 
 namespace Clear_Choice.Views
 {
@@ -89,7 +92,43 @@ try
         {
             if (IsVisible)
             {
-                MainWindow.setActionList(new System.Collections.ArrayList());
+                MainWindow.setActionList(Print());
+            }
+        }
+
+        private ArrayList Print()
+        {
+            ArrayList actions = new ArrayList();
+            IconButton savenewRepairBtn = new IconButton();
+            savenewRepairBtn.Text = "Print";
+            savenewRepairBtn.Source = (Image)App.iconSet["symbol-save"];
+            savenewRepairBtn.MouseDown += new MouseButtonEventHandler(button1_Click);
+            actions.Add(savenewRepairBtn);
+
+            return actions;
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                String title = "Low Amount Report";
+                ArrayList hideFields = new ArrayList();
+                ArrayList currenyField = new ArrayList();
+                hideFields.Add("itemID");
+                hideFields.Add("ItemDescription");
+                hideFields.Add("lastModified");
+                hideFields.Add("modifiedBy");
+
+                //works but wrong binding:S
+                FlowDocument doc = itemRecords.GetFlowDocument(title, hideFields, Time_SheetBinding.GetDisplayTextMap(), currenyField);
+
+                DocumentPreviewer preview = new DocumentPreviewer(doc, title);
+                preview.ShowDialog();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Nothing to print", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

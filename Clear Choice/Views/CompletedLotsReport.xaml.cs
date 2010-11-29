@@ -10,6 +10,9 @@ using ExceptionLogging;
 using Stemstudios.DataAccessLayer;
 using Stemstudios.DataAccessLayer.DataObjects;
 using Stemstudios.DataAccessLayer.DataObjects.Bindings;
+using Stemstudios.UIControls;
+using System.Windows.Documents;
+using Clear_Choice.Windows;
 
 namespace Clear_Choice.Views
 {
@@ -68,7 +71,57 @@ namespace Clear_Choice.Views
         {
             if (IsVisible)
             {
-                MainWindow.setActionList(new ArrayList());
+                MainWindow.setActionList(Print());
+            }
+        }
+
+        private ArrayList Print()
+        {
+            ArrayList actions = new ArrayList();
+            IconButton savenewRepairBtn = new IconButton();
+            savenewRepairBtn.Text = "Print";
+            savenewRepairBtn.Source = (Image)App.iconSet["symbol-save"];
+            savenewRepairBtn.MouseDown += new MouseButtonEventHandler(button1_Click);
+            actions.Add(savenewRepairBtn);
+
+            return actions;
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                String title = "Completed Lots Report";
+                ArrayList hideFields = new ArrayList();
+                ArrayList currenyField = new ArrayList();
+                hideFields.Add("lotID");
+                hideFields.Add("assocID");
+                hideFields.Add("PlanInfo");
+                hideFields.Add("PermitNumber");
+                hideFields.Add("LotSize");
+                hideFields.Add("ServiceSize");
+                hideFields.Add("PermitDate");
+                hideFields.Add("JobBC");
+                hideFields.Add("HoodColour");
+                hideFields.Add("Type");
+                hideFields.Add("SPColour");
+                hideFields.Add("SPType");
+                hideFields.Add("Notes");
+                hideFields.Add("last<odified");
+                hideFields.Add("modifiedBy");
+                //hideFields.Add("DisplayName");
+
+
+
+                //works but wrong binding:S
+                FlowDocument doc = itemRecords.GetFlowDocument(title, hideFields, Time_SheetBinding.GetDisplayTextMap(), currenyField);
+
+                DocumentPreviewer preview = new DocumentPreviewer(doc, title);
+                preview.ShowDialog();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Nothing to print", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
