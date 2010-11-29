@@ -38,7 +38,7 @@ namespace Clear_Choice.Views
             try
             {
 
-                DataSet data = db.Select("lotID, SUM(AVG(TimeSheet.Hours) )AS Total", TimeSheet.Table);
+                DataSet data = db.Select("*, AVG(Hours)AS Total", TimeSheet.Table);
                 data.BuildPrimaryKeyIndex(TimeSheet.PrimaryKey);
                 Collection<Time_SheetBinding> gridData = data.getBindableCollection<Time_SheetBinding>();
                 this.dgLabourHours.ItemsSource = gridData;
