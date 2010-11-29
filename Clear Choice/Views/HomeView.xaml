@@ -36,6 +36,9 @@
                         <my:IconButton Source="{StaticResource symbol-inventory}" Text="View Inventory" MouseDown="btnViewInventory_MouseDown" />
                         <my:IconButton Source="{StaticResource symbol-transactions}" Text="View Transactions" MouseDown="btnViewTransactions_MouseDown"/>
                         <my:IconButton Source="{StaticResource symbol-emptycart}" Text="Low Stock Report" MouseDown="btnLowStock_MouseDown"/>
+                        <my:IconButton Source="{StaticResource symbol-emptycart}" Text="Total Extra Billed Report" MouseDown="IconButton_MouseDown_1" />
+                        <my:IconButton Source="{StaticResource symbol-emptycart}" Text="Total Billed Report" MouseDown="IconButton_MouseDown_2" />
+                        <my:IconButton Source="{StaticResource symbol-emptycart}" Text="Avg Labour Hour Report" MouseDown="IconButton_MouseDown_3" />
                     </WrapPanel>
                 </my:CategoryExpander.Children>
             </my:CategoryExpander>

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 
-30-564314558
+34-862455409
 4804764823
-272050236513
-19-1793610408
-App.xaml;MainWindow.xaml;Resources\Brushes.xaml;Resources\IconSet.xaml;Resources\Views\InventoryTransactionViewDict.xaml;Resources\Views\InventoryViewDict.xaml;Resources\Views\LotExtraViewDict.xaml;Resources\Views\TimeSheetViewDict.xaml;Views\CityReport.xaml;Views\ClientsView.xaml;Views\ClientView.xaml;Views\HomeView.xaml;Views\IncompleteLotsReport.xaml;Views\InventoryTransactionsView.xaml;Views\InventoryTransactionView.xaml;Views\InventoryView.xaml;Views\CompletedLotsReport.xaml;Views\LotExtraView.xaml;Views\LotRepairsView.xaml;Views\LotRepairView.xaml;Views\LotView.xaml;Views\LowAmountInvReport.xaml;Views\RepairsCompletedReport.xaml;Views\SiteView.xaml;Resources\Theme.xaml;Views\TimeSheetView.xaml;Windows\GeneratedPasswordDisplay.xaml;Windows\InventoryItemSelector.xaml;Windows\LotRepairActionWindow.xaml;Windows\SiteLotSelector.xaml;
+311579136368
+21-111710900
+App.xaml;MainWindow.xaml;Resources\Brushes.xaml;Resources\IconSet.xaml;Resources\Views\InventoryTransactionViewDict.xaml;Resources\Views\InventoryViewDict.xaml;Resources\Views\LotExtraViewDict.xaml;Resources\Views\TimeSheetViewDict.xaml;Views\AvgLabourHoursPerHouse.xaml;Views\CityReport.xaml;Views\ClientsView.xaml;Views\ClientView.xaml;Views\HomeView.xaml;Views\IncompleteLotsReport.xaml;Views\InventoryTransactionsView.xaml;Views\InventoryTransactionView.xaml;Views\InventoryView.xaml;Views\CompletedLotsReport.xaml;Views\LotExtraView.xaml;Views\LotRepairsView.xaml;Views\LotRepairView.xaml;Views\LotView.xaml;Views\LowAmountInvReport.xaml;Views\RepairsCompletedReport.xaml;Views\SiteView.xaml;Resources\Theme.xaml;Views\TimeSheetView.xaml;Views\TotalBilling.xaml;Views\TotalExtraBilling.xaml;Windows\DocumentPreviewer.xaml;Windows\GeneratedPasswordDisplay.xaml;Windows\InventoryItemSelector.xaml;Windows\LotRepairActionWindow.xaml;Windows\SiteLotSelector.xaml;
 
 False
 

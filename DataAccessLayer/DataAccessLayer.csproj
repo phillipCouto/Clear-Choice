@@ -91,6 +91,8 @@
     </Compile>
     <Compile Include="Database.cs" />
     <Compile Include="DatabaseConnectionException.cs" />
+    <Compile Include="DataObjects\Bindings\Time_SheetBinding.cs" />
+    <Compile Include="DataObjects\Bindings\LotServiceBinding.cs" />
     <Compile Include="DataObjects\Bindings\InventoryTransactionItemBinding.cs" />
     <Compile Include="DataObjects\Bindings\InventoryTransactionBinding.cs" />
     <Compile Include="DataObjects\Bindings\LotRepairActionBinding.cs" />
@@ -98,6 +100,7 @@
     <Compile Include="DataObjects\Bindings\LotSelectorBinding.cs" />
     <Compile Include="DataObjects\Bindings\LotExtraBinding.cs" />
     <Compile Include="DataObjects\Bindings\TimeSheetBinding.cs" />
+    <Compile Include="DataObjects\Bindings\TotalBillingBinding.cs" />
     <Compile Include="DataObjects\InventoryTransaction.cs" />
     <Compile Include="DataObjects\InventoryTransactionItem.cs" />
     <Compile Include="DataObjects\LotRepair.cs" />

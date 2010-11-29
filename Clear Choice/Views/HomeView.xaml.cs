@@ -100,5 +100,20 @@ namespace ClearChoice.Views
         {
             MainWindow.OpenTab(new LowAmountInvReport(), (Image)App.iconSet["symbol-emptycart"], "Low Stock Report");
         }
+
+        private void IconButton_MouseDown_1(object sender, MouseButtonEventArgs e)
+        {
+            MainWindow.OpenTab(new TotalExtraBilling(), (Image)App.iconSet["symbol-emptycart"], "Total Extra Billed Report");
+        }
+
+        private void IconButton_MouseDown_2(object sender, MouseButtonEventArgs e)
+        {
+            MainWindow.OpenTab(new TotalBilling(), (Image)App.iconSet["symbol-emptycart"], "Total Billed Report");
+        }
+
+        private void IconButton_MouseDown_3(object sender, MouseButtonEventArgs e)
+        {
+            MainWindow.OpenTab(new AvgLabourHoursPerHouse(), (Image)App.iconSet["symbol-emptycart"], "Total Billed Report");
+        }
     }
 }

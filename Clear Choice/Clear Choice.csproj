@@ -45,7 +45,7 @@
     <PublisherName>Stemstudios Ltd.</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>42</ApplicationRevision>
+    <ApplicationRevision>41</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -73,11 +73,13 @@
   <ItemGroup>
     <Reference Include="Microsoft.Windows.Design, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="ReachFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Printing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq">
@@ -120,6 +122,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Views\AvgLabourHoursPerHouse.xaml.cs">
+      <DependentUpon>AvgLabourHoursPerHouse.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CityReport.xaml.cs">
       <DependentUpon>CityReport.xaml</DependentUpon>
@@ -171,6 +176,15 @@
     </Compile>
     <Compile Include="Views\TimeSheetView.xaml.cs">
       <DependentUpon>TimeSheetView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TotalBilling.xaml.cs">
+      <DependentUpon>TotalBilling.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TotalExtraBilling.xaml.cs">
+      <DependentUpon>TotalExtraBilling.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\DocumentPreviewer.xaml.cs">
+      <DependentUpon>DocumentPreviewer.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\GeneratedPasswordDisplay.xaml.cs">
       <DependentUpon>GeneratedPasswordDisplay.xaml</DependentUpon>
@@ -243,6 +257,10 @@
     <Page Include="Resources\Views\TimeSheetViewDict.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AvgLabourHoursPerHouse.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\CityReport.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -336,9 +354,21 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\GeneratedPasswordDisplay.xaml">
+    <Page Include="Views\TotalBilling.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\TotalExtraBilling.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\DocumentPreviewer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\GeneratedPasswordDisplay.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Windows\InventoryItemSelector.xaml">
       <SubType>Designer</SubType>
@@ -389,8 +419,6 @@
     <Content Include="libs\mysql.data.entity.dll" />
     <Content Include="libs\mysql.visualstudio.dll" />
     <Content Include="libs\mysql.web.dll" />
-    <Resource Include="Resources\Icons\Symbol-Refresh.png" />
-    <Resource Include="Resources\Icons\Symbol-Restricted.png" />
     <Resource Include="Resources\Icons\symbol-emptycart.png" />
     <Resource Include="Resources\Icons\symbol-timesheet.png" />
     <Resource Include="Resources\Icons\symbol-timesheets.png" />
@@ -449,61 +477,61 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
       <Visible>False</Visible>
-      <ProductName>Windows Installer 4.5</ProductName>
+      <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
     <PublishFile Include="libs\mysql.data.dll">
       <Visible>False</Visible>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="libs\mysql.data.entity.dll">
       <Visible>False</Visible>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="libs\mysql.visualstudio.dll">
       <Visible>False</Visible>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="libs\mysql.web.dll">
       <Visible>False</Visible>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="Microsoft.Windows.Design">
       <Visible>False</Visible>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
   </ItemGroup>

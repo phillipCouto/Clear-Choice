@@ -6,6 +6,8 @@ using System.Reflection;
 using MySql.Data.MySqlClient;
 using Stemstudios.DataAccessLayer.DataObjects.Bindings;
 using System.Data;
+using System.Windows.Documents;
+using System.Windows.Media;
 
 namespace Stemstudios.DataAccessLayer
 {
@@ -486,7 +488,16 @@ namespace Stemstudios.DataAccessLayer
                                 }
                             }
                             else if (GetColoumnDataType(property.Name).Equals(typeof(Double)))
-                            { parameters[0] = this.getDouble(property.Name); }
+                            {
+                                if (property.PropertyType.Name.Equals("String"))
+                                {
+                                    parameters[0] = "$" + getDouble(property.Name).ToString("#0.00");
+                                }
+                                else
+                                {
+                                    parameters[0] = this.getDouble(property.Name);
+                                }
+                            }
                             else if (GetColoumnDataType(property.Name).Equals(typeof(float)))
                             {
                                 if (property.PropertyType.Name.Equals("String"))
@@ -513,6 +524,142 @@ namespace Stemstudios.DataAccessLayer
             fresh = true;
             pos = 0;
             return dataRows;
+        }
+        /// <summary>
+        /// Creates a flow document which can be passed to the Document Previewer.
+        /// </summary>
+        /// <param name="title"></param>
+        /// <returns></returns>
+        public FlowDocument GetFlowDocument(String title)
+        {
+            return GetFlowDocument(title, null, null, null);
+        }
+        /// <summary>
+        /// Creates a flow document which can be passed to the Document Previewer.
+        /// </summary>
+        /// <param name="title"></param>
+        /// <param name="hiddenColumns"></param>
+        /// <param name="displayTextMap"></param>
+        /// <returns></returns>
+        public FlowDocument GetFlowDocument(String title, ArrayList hiddenColumns)
+        {
+            return GetFlowDocument(title, hiddenColumns, null, null);
+        }
+        /// <summary>
+        /// Creates a flow document which can be passed to the Document Previewer.
+        /// </summary>
+        /// <param name="title"></param>
+        /// <param name="hiddenColumns"></param>
+        /// <param name="displayTextMap"></param>
+        /// <returns></returns>
+        public FlowDocument GetFlowDocument(String title, ArrayList hiddenColumns, Hashtable displayTextMap)
+        {
+            return GetFlowDocument(title, hiddenColumns, displayTextMap, null);
+        }
+        /// <summary>
+        /// Creates a flow document which can be passed to the Document Previewer.
+        /// </summary>
+        /// <param name="title"></param>
+        /// <param name="hiddenColumns"></param>
+        /// <param name="displayTextMap"></param>
+        /// <param name="currencyFields"></param>
+        /// <returns></returns>
+        public FlowDocument GetFlowDocument(String title, ArrayList hiddenColumns,Hashtable displayTextMap, ArrayList currencyFields)
+        {
+            if (hiddenColumns == null)
+            {
+                hiddenColumns = new ArrayList();
+            }
+            if (displayTextMap == null)
+            {
+                displayTextMap = new Hashtable();
+            }
+            if (currencyFields == null)
+            {
+                currencyFields = new ArrayList();
+            }
+            hiddenColumns.Add("lastModified");
+            hiddenColumns.Add("modifiedBy");
+
+            FlowDocument doc = new FlowDocument();
+
+            Paragraph pTitle = new Paragraph();
+            pTitle.FontSize = 18;
+            pTitle.Inlines.Add(new Run(title));
+            pTitle.TextAlignment = System.Windows.TextAlignment.Center;
+            pTitle.FontFamily = new FontFamily("Verdana");
+
+            doc.Blocks.Add(pTitle);
+
+            Table dataGrid = new Table();
+            dataGrid.FontFamily = new FontFamily("Verdana");
+
+            TableRowGroup rowGroup = new TableRowGroup();
+            TableRow hRow = new TableRow();
+            
+            for (int i = 0; i < NumberOfColumns(); i++)
+            {
+                if (!hiddenColumns.Contains(fields[i].ToString()))
+                {
+                    TableColumn tColumn = new TableColumn();
+                    tColumn.Width = System.Windows.GridLength.Auto;
+                    dataGrid.Columns.Add(tColumn);
+
+                    TableCell tCell = new TableCell();
+                    tCell.BorderBrush = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFFFF"));
+                    tCell.BorderThickness = new System.Windows.Thickness(1);
+                    tCell.Padding = new System.Windows.Thickness(4, 2, 2, 2);
+                    tCell.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFFFF"));
+                    tCell.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#333333"));
+
+                    Paragraph cell = new Paragraph();
+                    if (displayTextMap[fields[i].ToString()] != null)
+                    {
+                        cell.Inlines.Add(new Run(displayTextMap[fields[i].ToString()].ToString()));
+                    }
+                    else
+                    {
+                        cell.Inlines.Add(new Run(fields[i].ToString()));
+                    }
+                    tCell.Blocks.Add(cell);
+                    hRow.Cells.Add(tCell);
+                }
+            }
+            rowGroup.Rows.Add(hRow);
+            for (int i = 0; i < NumberOfRows(); i++)
+            {
+                TableRow row = new TableRow();
+                row.FontSize = 12;
+                for (int x = 0; x < NumberOfColumns(); x++)
+                {
+                    if (!hiddenColumns.Contains(fields[x].ToString()))
+                    {
+                        TableCell tCell = new TableCell();
+                        Paragraph cell = new Paragraph();
+                        tCell.Padding = new System.Windows.Thickness(4,2,2,2);
+                        if (!currencyFields.Contains(fields[x].ToString()))
+                        {
+                            cell.Inlines.Add(new Run(dataSet[i,x].ToString()));
+                        }
+                        else
+                        {
+                            cell.Inlines.Add(new Run("$"+Single.Parse(dataSet[i, x].ToString()).ToString("#0.00")));
+                        }
+                        tCell.Blocks.Add(cell);
+                        row.Cells.Add(tCell);
+                    }
+                }
+                if (i % 2 != 0)
+                {
+                    row.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#DDDDDD"));
+                }
+                
+                rowGroup.Rows.Add(row);
+            }
+            dataGrid.RowGroups.Add(rowGroup);
+            doc.Blocks.Add(dataGrid);
+
+            return doc;
         }
         #endregion
 
