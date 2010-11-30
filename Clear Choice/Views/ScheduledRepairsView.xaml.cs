@@ -16,16 +16,20 @@ namespace Clear_Choice.Views
     /// <summary>
     /// Interaction logic for RepairsCompletedReport.xaml
     /// </summary>
-    public partial class RepairsCompletedReport : UserControl
+    public partial class ScheduledRepairsView : UserControl
     {
         private Database db = Database.Instance;
         private DataSet itemRecords = null;
         private ResourceManager msgCodes = MessageCodes.ResourceManager;
 
-        public RepairsCompletedReport()
+        public ScheduledRepairsView()
         {
             InitializeComponent();
-            this.Name = "LotRepairReport";
+            this.Name = "ScheduledRepairsView";
+            DateTime now = DateTime.Now;
+            dpStart.SelectedDate = now;
+            dpEnd.SelectedDate = now.AddMonths(1);
+            cmdOkay_Click(null, new RoutedEventArgs());
         }
 
         private void cmdOkay_Click(object sender, RoutedEventArgs e)

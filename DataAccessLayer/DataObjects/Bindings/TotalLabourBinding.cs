@@ -16,7 +16,7 @@ namespace Stemstudios.DataAccessLayer.DataObjects.Bindings
         [BindableProperty]
         public String City { get; set; }
         [BindableProperty]
-        public String Hours { get; set; }
+        public double Hours { get; set; }
         [BindableProperty]
         public String LabourCost { get; set; }
 

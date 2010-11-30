@@ -88,7 +88,7 @@ namespace ClearChoice.Views
 
         private void btnCompletedRepairs_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            MainWindow.OpenTab(new RepairsCompletedReport(), (Image)App.iconSet["symbol-repair"], "Completed Repairs Report");
+            MainWindow.OpenTab(new ScheduledRepairsView(), (Image)App.iconSet["symbol-repair"], "Completed Repairs Report");
         }
 
         private void btnViewTransactions_MouseDown(object sender, MouseButtonEventArgs e)

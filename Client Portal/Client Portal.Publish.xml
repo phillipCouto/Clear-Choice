@@ -2,10 +2,9 @@
 <publishData>
   <publishProfile publishUrl="G:\websites" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FileSystem" replaceMatchingFiles="True" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
     <file relUrl="Web.config" publishTime="11/21/2010 22:16:06" />
-    <file relUrl="bin/DataAccessLayer.pdb" publishTime="11/29/2010 09:52:14" />
-    <file relUrl="bin/DataAccessLayer.dll" publishTime="11/29/2010 09:52:14" />
-    <file relUrl="bin/Client Portal.pdb" publishTime="11/29/2010 09:52:15" />
-    <file relUrl="Default.aspx" publishTime="11/29/2010 09:34:28" />
+    <file relUrl="bin/DataAccessLayer.pdb" publishTime="11/29/2010 23:41:54" />
+    <file relUrl="PageStyle.css" publishTime="11/29/2010 09:34:28" />
+    <file relUrl="bin/Client Portal.pdb" publishTime="11/29/2010 23:42:05" />
     <file relUrl="Portal.Master" publishTime="11/29/2010 09:34:28" />
     <file relUrl="portal/Login.aspx" publishTime="11/29/2010 09:53:11" />
     <file relUrl="portal/Logout.aspx" publishTime="11/29/2010 09:34:28" />
@@ -13,10 +12,11 @@
     <file relUrl="portal/ViewRepair.aspx" publishTime="11/29/2010 09:34:29" />
     <file relUrl="portal/DisplayRepairs.aspx" publishTime="11/29/2010 09:34:28" />
     <file relUrl="PageStyle7.css" publishTime="11/29/2010 09:34:28" />
+    <file relUrl="bin/Client Portal.dll" publishTime="11/29/2010 23:42:05" />
     <file relUrl="images/Ragno-logo.png" publishTime="11/21/2010 22:16:07" />
     <file relUrl="bin/MySql.Data.dll" publishTime="11/02/2010 00:51:04" />
-    <file relUrl="PageStyle.css" publishTime="11/29/2010 09:34:28" />
-    <file relUrl="bin/Client Portal.dll" publishTime="11/29/2010 09:52:15" />
+    <file relUrl="bin/DataAccessLayer.dll" publishTime="11/29/2010 23:41:54" />
+    <file relUrl="Default.aspx" publishTime="11/29/2010 09:34:28" />
     <file relUrl="images/blue_sky_500.png" publishTime="11/21/2010 22:16:07" />
   </publishProfile>
 </publishData>

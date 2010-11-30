@@ -133,6 +133,15 @@ namespace ExceptionLogging {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This field must be unique. Please confirm the value is correct and unqiue..
+        /// </summary>
+        public static string M1109 {
+            get {
+                return ResourceManager.GetString("M1109", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Failed to load object schema from database. Please contact administrator. Message:.
         /// </summary>
         public static string M2101 {

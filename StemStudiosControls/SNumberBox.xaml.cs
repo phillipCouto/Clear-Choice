@@ -61,7 +61,14 @@ namespace Stemstudios.UIControls
             {
                 if (txtValue.Text.Length > 0)
                 {
-                    mAmount = Single.Parse(txtValue.Text);
+                    if (txtValue.Text.Equals("."))
+                    {
+                        mAmount = Single.Parse("0.0");
+                    }
+                    else
+                    {
+                        mAmount = Single.Parse(txtValue.Text);
+                    }
                 }
             }
             TextChangedEventArgs newEvent = new TextChangedEventArgs(TextChangedEvent, e.UndoAction);

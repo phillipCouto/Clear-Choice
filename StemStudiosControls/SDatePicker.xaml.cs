@@ -44,6 +44,7 @@ namespace Stemstudios.UIControls
         public DateTime SelectedDate
         {
             get { if (dpDate.SelectedDate.HasValue) { return dpDate.SelectedDate.Value; } else { return DateTime.MinValue; } }
+            set { dpDate.Text = value.ToShortDateString(); }
         }
 
         public event SelectionChangedEventHandler SelectedDateChanged

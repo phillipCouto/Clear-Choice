@@ -37,7 +37,7 @@
             </Grid.RowDefinitions>
             <TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Margin="20,5,5,5" VerticalAlignment="Top" Text="Total Material Cost" FontSize="20" FontStretch="Normal" Foreground="White"/>
             <TextBlock Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" Margin="5" VerticalAlignment="Top" Text="Select a Client Type:" FontSize="14" FontStretch="Normal" Foreground="White"/>
-            <ComboBox Name="cmboType" Grid.Column="1" Grid.Row="1" Margin="5" SelectionChanged="cmboType_SelectionChanged" SelectedIndex="0" >
+            <ComboBox Name="cmboType" Grid.Column="1" Grid.Row="1" Margin="5" SelectionChanged="cmboType_SelectionChanged" SelectedIndex="0" FontSize="14">
                 <ComboBoxItem>Builder</ComboBoxItem>
                 <ComboBoxItem>Misc. Client</ComboBoxItem>
             </ComboBox>
@@ -51,6 +51,16 @@
                               SelectionMode="Extended" HorizontalScrollBarVisibility="Hidden"
                               FontSize="12">
             </DataGrid>
+            <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.ColumnSpan="3" HorizontalAlignment="Right">
+                <TextBlock Text="Average Quantity" Margin="5" FontSize="14" Foreground="#FFFFFFFF" />
+                <TextBox Name="txtAvgQty" Margin="5" Background="#00FFFFFF" Foreground="#FFFFFFFF" IsReadOnly="True" Text="0"/>
+                <TextBlock Text="Average Cost" Margin="5" FontSize="14" Foreground="#FFFFFFFF"/>
+                <UIControls:SNumberBox Name="amtAvgCost" Margin="5" IsCurrency="True" IsReadOnly="True" Amount="0"/>
+                <TextBlock Text="Total Quantity" Margin="5" FontSize="14" Foreground="#FFFFFFFF" />
+                <TextBox Name="txtTotalQty" Margin="5" Background="#00FFFFFF" Foreground="#FFFFFFFF" IsReadOnly="True" Text="0"/>
+                <TextBlock Text="Total Cost" Margin="5" FontSize="14" Foreground="#FFFFFFFF"/>
+                <UIControls:SNumberBox Name="amtTotalCost" Margin="5" IsCurrency="True" IsReadOnly="True" Amount="0"/>
+            </StackPanel>
         </Grid>
     </Border>
 </UserControl>

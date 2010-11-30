@@ -149,6 +149,10 @@
     <value>This field only accepts a number that has no decimal places or characters like $ or ,</value>
     <comment>Formatting of an Integer</comment>
   </data>
+  <data name="M1109" xml:space="preserve">
+    <value>This field must be unique. Please confirm the value is correct and unqiue.</value>
+    <comment>Unique fields.</comment>
+  </data>
   <data name="M2101" xml:space="preserve">
     <value>Failed to load object schema from database. Please contact administrator. Message:</value>
     <comment>Database failed to provide schema for object.</comment>

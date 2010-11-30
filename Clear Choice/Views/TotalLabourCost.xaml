@@ -34,7 +34,7 @@
                 <RowDefinition/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Margin="20,5,5,5" VerticalAlignment="Top" Text="Select a city:" FontSize="20" FontStretch="Normal" Foreground="White"/>
+            <TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Margin="20,5,5,5" VerticalAlignment="Top" Text="Total Labour Report" FontSize="20" FontStretch="Normal" Foreground="White"/>
             <DataGrid Name="dgLabourHours" Grid.Row="1" Grid.ColumnSpan="3"
                               Margin="5,16,5,5" 
                               CanUserAddRows="False" 

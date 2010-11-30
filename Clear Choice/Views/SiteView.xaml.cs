@@ -162,6 +162,20 @@ namespace Clear_Choice.Views
                     MessageBox.Show("Field 'Site Email' - " + msgCodes.GetString("M" + code), "Error - " + code, MessageBoxButton.OK, MessageBoxImage.Error);
                     return false;
                 }
+                try
+                {
+                    DataSet data = db.Select("*", Site.Table, Site.Fields.SiteEmail.ToString() + " = '" + txtSiteEmail.Text + "'");
+                    if (data.NumberOfRows() > 0)
+                    {
+                        MessageBox.Show("Field 'Site Email' - " + msgCodes.GetString("M1109"), "Error - 1109", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return false;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Checking Site Email - " + msgCodes.GetString("M2102")+" "+ex.Message, "Error - 2102", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return false;
+                }
             }
             else if (!newSite)
             {

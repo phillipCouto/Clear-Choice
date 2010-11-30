@@ -171,8 +171,8 @@
     <Compile Include="Views\LowAmountInvReport.xaml.cs">
       <DependentUpon>LowAmountInvReport.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\RepairsCompletedReport.xaml.cs">
-      <DependentUpon>RepairsCompletedReport.xaml</DependentUpon>
+    <Compile Include="Views\ScheduledRepairsView.xaml.cs">
+      <DependentUpon>ScheduledRepairsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SiteView.xaml.cs">
       <DependentUpon>SiteView.xaml</DependentUpon>
@@ -341,7 +341,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\RepairsCompletedReport.xaml">
+    <Page Include="Views\ScheduledRepairsView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

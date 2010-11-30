@@ -38,7 +38,7 @@ namespace Clear_Choice.Views
             try
             {
 
-                DataSet data = db.Select("lots.LotNumber,lots.Address,lots.City, SUM(time_sheets.Hours) As Hours, SUM(time_sheets.Hours*time_sheets.Wage) As LabourCost", Lot.Table + "," + TimeSheet.Table, "lots.lotID = time_sheets.lotID", "lots.City, lots.Address, lots.LotNumber");
+                DataSet data = db.Select("lots.LotNumber,lots.Address,lots.City, SUM(time_sheets.Hours) As Hours, SUM(time_sheets.Hours*time_sheets.Wage) As LabourCost", Lot.Table + "," + TimeSheet.Table, "lots.lotID = time_sheets.lotID Group By lots.lotID", "lots.City, lots.Address, lots.LotNumber");
                 Collection<TotalLabourBinding> gridData = data.getBindableCollection<TotalLabourBinding>();
                 this.dgLabourHours.ItemsSource = gridData;
 
