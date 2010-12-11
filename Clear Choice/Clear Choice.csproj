@@ -426,6 +426,7 @@
     <Content Include="libs\mysql.data.entity.dll" />
     <Content Include="libs\mysql.visualstudio.dll" />
     <Content Include="libs\mysql.web.dll" />
+    <Resource Include="Resources\Icons\Normal-Printer-icon.png" />
     <Resource Include="Resources\Icons\check-icon.png" />
     <Resource Include="Resources\Icons\clock-icon.png" />
     <Resource Include="Resources\Icons\Symbol-Refresh.png" />

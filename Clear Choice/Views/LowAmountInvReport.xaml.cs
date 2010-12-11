@@ -101,7 +101,7 @@ try
             ArrayList actions = new ArrayList();
             IconButton savenewRepairBtn = new IconButton();
             savenewRepairBtn.Text = "Print";
-            savenewRepairBtn.Source = (Image)App.iconSet["symbol-save"];
+            savenewRepairBtn.Source = (Image)App.iconSet["printer-icon"];
             savenewRepairBtn.MouseDown += new MouseButtonEventHandler(button1_Click);
             actions.Add(savenewRepairBtn);
 
