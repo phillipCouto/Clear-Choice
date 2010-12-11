@@ -7,24 +7,20 @@ using System.Collections;
 namespace Stemstudios.DataAccessLayer.DataObjects.Bindings
 {
     [BindableObject]
-    public class TotalBillingBinding
+    public class SiteMaterialCostsBinding
     {
         [BindableProperty]
-        public String lotID { get; set; }
+        public String SiteName { get; set; }
         [BindableProperty]
-        public int LotNumber { get; set; }
+        public String Quantity { get; set; }
         [BindableProperty]
-        public String Address { get; set; }
-        [BindableProperty]
-        public String City { get; set; }
-        [BindableProperty]
-        public String Amount { get; set; }
+        public String TotalValue { get; set; }
 
         public static Hashtable GetDisplayTextMap()
         {
             Hashtable textmap = new Hashtable();
-            textmap.Add("LotNumber", "Lot Number");
-
+            textmap.Add("SiteName", "Site Name");
+            textmap.Add("TotalValue", "Cost");
             return textmap;
         }
     }

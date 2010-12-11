@@ -123,8 +123,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Views\TotalLabourCost.xaml.cs">
-      <DependentUpon>TotalLabourCost.xaml</DependentUpon>
+    <Compile Include="Views\LotLabourCostReport.xaml.cs">
+      <DependentUpon>LotLabourCostReport.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CityReport.xaml.cs">
       <DependentUpon>CityReport.xaml</DependentUpon>
@@ -135,8 +135,8 @@
     <Compile Include="Views\ClientView.xaml.cs">
       <DependentUpon>ClientView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\TotalMaterialCost.xaml.cs">
-      <DependentUpon>TotalMaterialCost.xaml</DependentUpon>
+    <Compile Include="Views\LotSiteMaterialCostReport.xaml.cs">
+      <DependentUpon>LotSiteMaterialCostReport.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\HomeView.xaml.cs">
       <DependentUpon>HomeView.xaml</DependentUpon>
@@ -180,11 +180,11 @@
     <Compile Include="Views\TimeSheetView.xaml.cs">
       <DependentUpon>TimeSheetView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\LotsTotalBilled.xaml.cs">
-      <DependentUpon>LotsTotalBilled.xaml</DependentUpon>
+    <Compile Include="Views\LotServicesBilledReport.xaml.cs">
+      <DependentUpon>LotServicesBilledReport.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\TotalExtraBilling.xaml.cs">
-      <DependentUpon>TotalExtraBilling.xaml</DependentUpon>
+    <Compile Include="Views\LotExtrasBilledReport.xaml.cs">
+      <DependentUpon>LotExtrasBilledReport.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\DocumentPreviewer.xaml.cs">
       <DependentUpon>DocumentPreviewer.xaml</DependentUpon>
@@ -261,7 +261,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\TotalLabourCost.xaml">
+    <Page Include="Views\LotLabourCostReport.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -281,7 +281,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\TotalMaterialCost.xaml">
+    <Page Include="Views\LotSiteMaterialCostReport.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -361,11 +361,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\LotsTotalBilled.xaml">
+    <Page Include="Views\LotServicesBilledReport.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\TotalExtraBilling.xaml">
+    <Page Include="Views\LotExtrasBilledReport.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

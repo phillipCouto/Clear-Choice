@@ -7,7 +7,7 @@ using System.Collections;
 namespace Stemstudios.DataAccessLayer.DataObjects.Bindings
 {
     [BindableObject]
-    public class TotalLabourBinding
+    public class LotLabourCostsBinding
     {
         [BindableProperty]
         public int LotNumber { get; set; }

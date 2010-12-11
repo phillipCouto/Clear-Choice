@@ -103,22 +103,22 @@ namespace ClearChoice.Views
 
         private void IconButton_MouseDown_1(object sender, MouseButtonEventArgs e)
         {
-            MainWindow.OpenTab(new TotalExtraBilling(), (Image)App.iconSet["check-icon"], "Total Extra Billed Report");
+            MainWindow.OpenTab(new LotExtrasBilledReport(), (Image)App.iconSet["check-icon"], "Lot Extras Billed Report");
         }
 
         private void IconButton_MouseDown_2(object sender, MouseButtonEventArgs e)
         {
-            MainWindow.OpenTab(new LotsTotalBilled(), (Image)App.iconSet["check-icon"], "Lots Total Billed Report");
+            MainWindow.OpenTab(new LotServicesBilledReport(), (Image)App.iconSet["check-icon"], "Lot Services Billed");
         }
 
         private void IconButton_MouseDown_3(object sender, MouseButtonEventArgs e)
         {
-            MainWindow.OpenTab(new TotalLabourCost(), (Image)App.iconSet["clock-icon"], "Total Labour Report");
+            MainWindow.OpenTab(new LotLabourCostReport(), (Image)App.iconSet["clock-icon"], "Lot Labour Costs");
         }
 
         private void IconButton_MouseDown_4(object sender, MouseButtonEventArgs e)
         {
-            MainWindow.OpenTab(new TotalMaterialCost(), (Image)App.iconSet["symbol-transactions"], "Total Material Cost Report");
+            MainWindow.OpenTab(new LotSiteMaterialCostReport(), (Image)App.iconSet["symbol-transactions"], "Lot/Site Material Costs");
         }
     }
 }
