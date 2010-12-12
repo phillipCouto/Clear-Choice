@@ -109,6 +109,28 @@ namespace Clear_Choice.Views
                 MessageBox.Show("Nothing to print", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void dgHours_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (dgHours.SelectedItem != null)
+            {
+                LotServicesBilledBinding obj = (LotServicesBilledBinding)dgHours.SelectedItem;
+                try
+                {
+                    DataSet data = db.Select("*", Lot.Table, Lot.Fields.lotID.ToString() + " = '" + obj.lotID + "'");
+                    if (data.NumberOfRows() == 1)
+                    {
+                        data.Read();
+                        Lot lot = new Lot(data.GetRecordDataSet());
+                        MainWindow.OpenTab(new LotView(lot), (Image)App.iconSet["home"], lot.LotDisplayName());
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error loading selected lot - " + msgCodes.GetString("M2102") + " " + ex.Message, "Error - 2102", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
     }
 }
 

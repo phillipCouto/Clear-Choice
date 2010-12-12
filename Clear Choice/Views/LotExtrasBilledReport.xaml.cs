@@ -110,6 +110,28 @@ namespace Clear_Choice.Views
                 }
             }
         }
+
+        private void dgExtrabill_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (dgExtrabill.SelectedItem != null)
+            {
+                LotExtrasBilledBinding lot = (LotExtrasBilledBinding)dgExtrabill.SelectedItem;
+                try
+                {
+                    DataSet data = db.Select("*", Lot.Table, Lot.Fields.lotID.ToString() + " = '" + lot.lotID + "'");
+                    if (data.NumberOfRows() == 1)
+                    {
+                        data.Read();
+                        Lot obj = new Lot(data.GetRecordDataSet());
+                        MainWindow.OpenTab(new LotView(obj),(Image)App.iconSet["home"],obj.LotDisplayName());
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error loading selected lot - "+msgCodes.GetString("M2102")+" "+ex.Message,"Error - 2102",MessageBoxButton.OK,MessageBoxImage.Error);
+                }
+            }
+        }
     }
 }
 

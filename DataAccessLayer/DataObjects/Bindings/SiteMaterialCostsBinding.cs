@@ -10,6 +10,8 @@ namespace Stemstudios.DataAccessLayer.DataObjects.Bindings
     public class SiteMaterialCostsBinding
     {
         [BindableProperty]
+        public String siteID { get; set; }
+        [BindableProperty]
         public String SiteName { get; set; }
         [BindableProperty]
         public String Quantity { get; set; }

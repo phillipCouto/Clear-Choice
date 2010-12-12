@@ -10,6 +10,8 @@ namespace Stemstudios.DataAccessLayer.DataObjects.Bindings
     public class LotMaterialCostsBinding
     {
         [BindableProperty]
+        public String lotID { get; set; }
+        [BindableProperty]
         public int LotNumber { get; set; }
         [BindableProperty]
         public String Address { get; set; }

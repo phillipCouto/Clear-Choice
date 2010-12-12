@@ -78,5 +78,32 @@ namespace Clear_Choice.Views
                 }
             }
         }
+
+        private void dgRepair_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (dgRepair.SelectedItem != null)
+            {
+                LotRepairBinding obj = (LotRepairBinding)dgRepair.SelectedItem;
+                try
+                {
+                    DataSet data = db.Select("*", LotRepair.Table, LotRepair.Fields.repairID.ToString() + " = '" + obj.repairID + "'");
+                    if (data.NumberOfRows() == 1)
+                    {
+                        data.Read();
+                        LotRepair repair = new LotRepair(data.GetRecordDataSet());
+
+                        data = db.Select("*", Lot.Table, Lot.Fields.lotID.ToString() + " = '" + repair.GetLotID() + "'");
+                        data.Read();
+                        Lot lot = new Lot(data.GetRecordDataSet());
+
+                        MainWindow.OpenTab(new LotRepairView(repair, lot), (Image)App.iconSet["symbol-repair"], repair.GetWorkOrder());
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error loading selected repair - " + msgCodes.GetString("M2102") + " " + ex.Message, "Error - 2102", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
     }
 }
