@@ -21,12 +21,12 @@ namespace ClearChoice.Views
 
         private void IconButton_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            MainWindow.OpenTab(new ClientsView(), (Image)App.iconSet["customers"], "Clients");
+            MainWindow.OpenTab(new ClientsView());
         }
 
         private void AddNewClientButton_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            MainWindow.OpenTab(new ClientView(), (Image)App.iconSet["customer1"], "New Client");
+            MainWindow.OpenTab(new ClientView());
         }
 
         private void setupActionList()
@@ -83,7 +83,7 @@ namespace ClearChoice.Views
 
         private void btnCitys_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            MainWindow.OpenTab(new CityReport(), (Image)App.iconSet["symbol-gmaps"], "Lots By City Report");
+            MainWindow.OpenTab(new CityReport());
         }
 
         private void btnCompletedRepairs_MouseDown(object sender, MouseButtonEventArgs e)

@@ -18,7 +18,7 @@ namespace ClearChoice.Views
     /// <summary>
     /// Interaction logic for ClientsView.xaml
     /// </summary>
-    public partial class ClientsView : UserControl
+    public partial class ClientsView : UserControl,ISTabView
     {
         private Hashtable clientsTable = new Hashtable();
         private Database db = Database.Instance;
@@ -90,31 +90,8 @@ namespace ClearChoice.Views
             if (e.LeftButton == MouseButtonState.Pressed)
             {
                 Client selectedClick = (Client)clientsTable[((TextBlock)sender).Name];
-                Image icon = (Image)App.iconSet["customer1"];
-                MainWindow.OpenTab(new ClientView(selectedClick), icon, selectedClick.GetName());
+                MainWindow.OpenTab(new ClientView(selectedClick));
                 MainWindow.RemoveTab(this.Name);
-            }
-        }
-
-        private void UserControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            if (IsVisible)
-            {
-                ArrayList actions = new ArrayList();
-                IconButton newClientButton = new IconButton();
-                newClientButton.Text = "Add New Client";
-                newClientButton.Source = (Image)App.iconSet["customer1"];
-                newClientButton.MouseDown += new MouseButtonEventHandler(newClientButton_MouseDown);
-                actions.Add(newClientButton);
-                MainWindow.setActionList(actions);
-                if (IsLoaded)
-                {
-                    loadClientDataSet();
-                }
-            }
-            else
-            {
-                clientsTable.Clear();
             }
         }
 
@@ -186,5 +163,44 @@ namespace ClearChoice.Views
                 MainWindow.RemoveTab(this.Name);
             }
         }
+
+        #region ISTabView Members
+
+        public bool TabIsClosing()
+        {
+            return true;
+        }
+
+        public bool TabIsLosingFocus()
+        {
+            clientsTable.Clear();
+            return true;
+        }
+        public void TabIsGainingFocus()
+        {
+            ArrayList actions = new ArrayList();
+            IconButton newClientButton = new IconButton();
+            newClientButton.Text = "Add New Client";
+            newClientButton.Source = (Image)App.iconSet["customer1"];
+            newClientButton.MouseDown += new MouseButtonEventHandler(newClientButton_MouseDown);
+            actions.Add(newClientButton);
+            MainWindow.setActionList(actions);
+            if (IsLoaded)
+            {
+                loadClientDataSet();
+            }
+        }
+
+        public string TabTitle()
+        {
+            return "Clients";
+        }
+
+        public Image TabIcon()
+        {
+            return (Image)App.iconSet["customers"];
+        }
+
+        #endregion
     }
 }

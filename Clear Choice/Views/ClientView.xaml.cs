@@ -21,7 +21,7 @@ namespace ClearChoice.Views
     /// <summary>
     /// Interaction logic for ClientInfo.xaml
     /// </summary>
-    public partial class ClientView : UserControl
+    public partial class ClientView : UserControl,ISTabView
     {
         private Client mClient;
         private Boolean modified = true;
@@ -753,5 +753,62 @@ namespace ClearChoice.Views
                 //Handle right clicks
             }
         }
+
+        #region ISTabView Members
+
+        public bool TabIsClosing()
+        {
+            if (!cmdSaveEdit.Content.Equals("Unlock Form"))
+            {
+                if (modified & !newClient)
+                {
+                    MessageBoxResult res = MessageBox.Show("Modifications were made to this client. Are you sure you want to cancel this New Client?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Exclamation);
+                    if (res == MessageBoxResult.No)
+                    {
+                        return false;
+                    }
+                    PopulateAllFields();
+                }
+                else if (newClient)
+                {
+                    if (modified)
+                    {
+                        MessageBoxResult res = MessageBox.Show("Modifications were made to this client. Are you sure you want to cancel and close the tab?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Exclamation);
+                        if (res == MessageBoxResult.No)
+                        {
+                            return false;
+                        }
+                    }
+                    MainWindow.RemoveTab(this.Name);
+                }
+            }
+            return true;
+        }
+
+        public bool TabIsLosingFocus()
+        {
+            return true;
+        }
+
+        public void TabIsGainingFocus()
+        {
+            
+        }
+
+        public string TabTitle()
+        {
+            if (newClient)
+            {
+                return "New Client";
+            }
+            return this.mClient.GetName();
+        }
+
+        public Image TabIcon()
+        {
+            return (Image)App.iconSet["customer1"];
+        }
+
+        #endregion
     }
 }

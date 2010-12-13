@@ -116,6 +116,14 @@ namespace Stemstudios.UIControls
                     return;
                 }
             }
+            else if (this.TabContent is ISTabView)
+            {
+                if (!((ISTabView)this.TabContent).TabIsClosing())
+                {
+                    e.Handled = true;
+                    return;
+                }
+            }
             if (IconClosing != null)
             {
                 IconClosing(this, e);

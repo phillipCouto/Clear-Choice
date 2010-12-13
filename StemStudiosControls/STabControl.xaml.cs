@@ -112,6 +112,11 @@ namespace Stemstudios.UIControls
                 //Change the Internal SelectedTab postion and select the passed tab.
                 SelectedTab = index;
                 ((STabItem)TabHeaders.Children[SelectedTab]).IsSelected = true;
+
+                if (((STabItem)TabHeaders.Children[SelectedTab]).TabContent is ISTabView)
+                {
+                    ((ISTabView)((STabItem)TabHeaders.Children[SelectedTab]).TabContent).TabIsGainingFocus();
+                }
             }
             
         }
@@ -217,6 +222,13 @@ namespace Stemstudios.UIControls
             if (((STabItem)TabHeaders.Children[SelectedTab]).TabContent is ISTabContent)
             {
                 if (!((ISTabContent)((STabItem)TabHeaders.Children[SelectedTab]).TabContent).TabIsLosingFocusCallBack())
+                {
+                    return;
+                }
+            }
+            else if(((STabItem)TabHeaders.Children[SelectedTab]).TabContent is ISTabView)
+            {
+                if (!((ISTabView)((STabItem)TabHeaders.Children[SelectedTab]).TabContent).TabIsLosingFocus())
                 {
                     return;
                 }

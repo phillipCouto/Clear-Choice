@@ -95,6 +95,7 @@
     <Compile Include="CategoryExpander.xaml.cs">
       <DependentUpon>CategoryExpander.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ISTabView.cs" />
     <Compile Include="ISTabContent.cs" />
     <Compile Include="SComboBox.xaml.cs">
       <DependentUpon>SComboBox.xaml</DependentUpon>
