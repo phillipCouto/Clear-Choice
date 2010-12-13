@@ -18,7 +18,7 @@ namespace Clear_Choice.Views
     /// <summary>
     /// Interaction logic for InventoryTransactionsView.xaml
     /// </summary>
-    public partial class InventoryTransactionsView : UserControl
+    public partial class InventoryTransactionsView : UserControl,ISTabView
     {
         private SiteLotSelector siteLotSelectorWindow = null;
         private Database db = Database.Instance;
@@ -32,31 +32,9 @@ namespace Clear_Choice.Views
             LoadTransactions(cmboType.SelectedIndex);
         }
 
-        private void UserControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            if (IsVisible)
-            {
-                ArrayList actions = new ArrayList();
-
-                IconButton addItemBtn = new IconButton();
-                addItemBtn.Text = "New Transaction";
-                addItemBtn.Source = (Image)App.iconSet["symbol-add"];
-                addItemBtn.MouseDown += new MouseButtonEventHandler(addItemBtn_MouseDown);
-                actions.Add(addItemBtn);
-
-                IconButton addRestockTransBtn = new IconButton();
-                addRestockTransBtn.Text = "New Restock Transaction";
-                addRestockTransBtn.Source = (Image)App.iconSet["symbol-add"];
-                addRestockTransBtn.MouseDown += new MouseButtonEventHandler(addRestockTransBtn_MouseDown);
-                actions.Add(addRestockTransBtn);
-
-                MainWindow.setActionList(actions);
-            }
-        }
-
         private void addRestockTransBtn_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            MainWindow.OpenTab(new InventoryTransactionView(), (Image)App.iconSet["symbol-transaction"], "New Restock Transaction");
+            MainWindow.OpenTab(new InventoryTransactionView());
         }
 
         private void addItemBtn_MouseDown(object sender, MouseButtonEventArgs e)
@@ -76,11 +54,11 @@ namespace Clear_Choice.Views
             object selectedItem = ((SiteLotSelector)sender).SelectedItem;
             if (selectedItem.GetType().Equals(typeof(Site)))
             {
-                MainWindow.OpenTab(new InventoryTransactionView((Site)selectedItem), (Image)App.iconSet["symbol-transaction"], "New Transaction");
+                MainWindow.OpenTab(new InventoryTransactionView((Site)selectedItem));
             }
             else
             {
-                MainWindow.OpenTab(new InventoryTransactionView((Lot)selectedItem), (Image)App.iconSet["symbol-transaction"], "New Transaction");
+                MainWindow.OpenTab(new InventoryTransactionView((Lot)selectedItem));
             }
         }
 
@@ -132,9 +110,52 @@ namespace Clear_Choice.Views
                     InventoryTransactionBinding obj = (InventoryTransactionBinding)dgTransactions.SelectedCells[0].Item;
                     gridViewData.SeekToPrimaryKey(obj.transactionID);
                     InventoryTransaction trans = new InventoryTransaction(gridViewData.GetRecordDataSet());
-                    MainWindow.OpenTab(new InventoryTransactionView(trans), (Image)App.iconSet["symbol-transaction"], trans.GetTransactionID() + ": " + trans.GetDateOfTransaction().ToShortDateString());
+                    MainWindow.OpenTab(new InventoryTransactionView(trans));
                 }
             }
         }
+
+        #region ISTabView Members
+
+        public bool TabIsClosing()
+        {
+            return true;
+        }
+
+        public bool TabIsLosingFocus()
+        {
+            return true;
+        }
+
+        public void TabIsGainingFocus()
+        {
+            ArrayList actions = new ArrayList();
+
+            IconButton addItemBtn = new IconButton();
+            addItemBtn.Text = "New Transaction";
+            addItemBtn.Source = (Image)App.iconSet["symbol-add"];
+            addItemBtn.MouseDown += new MouseButtonEventHandler(addItemBtn_MouseDown);
+            actions.Add(addItemBtn);
+
+            IconButton addRestockTransBtn = new IconButton();
+            addRestockTransBtn.Text = "New Restock Transaction";
+            addRestockTransBtn.Source = (Image)App.iconSet["symbol-add"];
+            addRestockTransBtn.MouseDown += new MouseButtonEventHandler(addRestockTransBtn_MouseDown);
+            actions.Add(addRestockTransBtn);
+
+            MainWindow.setActionList(actions);
+        }
+
+        public string TabTitle()
+        {
+            return "Transactions";
+        }
+
+        public Image TabIcon()
+        {
+            return (Image)App.iconSet["symbol-transactions"];
+        }
+
+        #endregion
     }
 }

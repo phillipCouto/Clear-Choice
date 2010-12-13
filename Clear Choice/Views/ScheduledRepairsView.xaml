@@ -5,8 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:toolkit="http://schemas.microsoft.com/wpf/2008/toolkit"
              xmlns:UIControls="clr-namespace:Stemstudios.UIControls;assembly=UIControls"
-             mc:Ignorable="d"
-             IsVisibleChanged="UserControl_IsVisibleChanged">
+             mc:Ignorable="d">
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>

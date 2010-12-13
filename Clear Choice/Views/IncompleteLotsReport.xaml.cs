@@ -19,7 +19,7 @@ namespace Clear_Choice.Views
     /// <summary>
     /// Interaction logic for ListofInventory.xaml
     /// </summary>
-    public partial class IncompletedLotsReport : UserControl
+    public partial class IncompletedLotsReport : UserControl,ISTabView
     {
         private Database db = Database.Instance;
         private DataSet itemRecords = null;
@@ -61,14 +61,6 @@ namespace Clear_Choice.Views
                         Lot lotObj = new Lot(itemRecords.GetRecordDataSet());
                         MainWindow.OpenTab(new LotView(lotObj), (Image)App.iconSet["home"], lotObj.LotDisplayName());
                 }
-            }
-        }
-
-        private void UserControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            if (IsVisible)
-            {
-                MainWindow.setActionList(Print());
             }
         }
 
@@ -140,5 +132,34 @@ namespace Clear_Choice.Views
                 }
             }
         }
+
+        #region ISTabView Members
+
+        public bool TabIsClosing()
+        {
+            return true;
+        }
+
+        public bool TabIsLosingFocus()
+        {
+            return true;
+        }
+
+        public void TabIsGainingFocus()
+        {
+            MainWindow.setActionList(Print());
+        }
+
+        public string TabTitle()
+        {
+            return "Active Lots Report";
+        }
+
+        public Image TabIcon()
+        {
+            return (Image)App.iconSet["home"];
+        }
+
+        #endregion
     }
 }

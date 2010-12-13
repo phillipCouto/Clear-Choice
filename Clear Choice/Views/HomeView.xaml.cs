@@ -63,22 +63,22 @@ namespace ClearChoice.Views
 
         private void btnAddInventoryItem_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            MainWindow.OpenTab(new InventoryView(true), (Image)App.iconSet["symbol-inventory"], "Inventory");
+            MainWindow.OpenTab(new InventoryView(true));
         }
 
         private void btnViewInventory_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            MainWindow.OpenTab(new InventoryView(), (Image)App.iconSet["symbol-inventory"], "Inventory");
+            MainWindow.OpenTab(new InventoryView());
         }
 
         private void btnActiveLots_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            MainWindow.OpenTab(new IncompletedLotsReport(), (Image)App.iconSet["home"], "Active Lots Report");
+            MainWindow.OpenTab(new IncompletedLotsReport());
         }
 
         private void btnCompletedLots_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            MainWindow.OpenTab(new CompletedLotsReport(), (Image)App.iconSet["home"], "Completed Lots Report");
+            MainWindow.OpenTab(new CompletedLotsReport());
         }
 
         private void btnCitys_MouseDown(object sender, MouseButtonEventArgs e)
@@ -88,37 +88,37 @@ namespace ClearChoice.Views
 
         private void btnCompletedRepairs_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            MainWindow.OpenTab(new ScheduledRepairsView(), (Image)App.iconSet["symbol-repair"], "Completed Repairs Report");
+            MainWindow.OpenTab(new ScheduledRepairsView());
         }
 
         private void btnViewTransactions_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            MainWindow.OpenTab(new InventoryTransactionsView(), (Image)App.iconSet["symbol-transactions"], "View Transactions");
+            MainWindow.OpenTab(new InventoryTransactionsView());
         }
 
         private void btnLowStock_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            MainWindow.OpenTab(new LowAmountInvReport(), (Image)App.iconSet["symbol-emptycart"], "Low Stock Report");
+            MainWindow.OpenTab(new LowAmountInvReport());
         }
 
         private void IconButton_MouseDown_1(object sender, MouseButtonEventArgs e)
         {
-            MainWindow.OpenTab(new LotExtrasBilledReport(), (Image)App.iconSet["check-icon"], "Lot Extras Billed Report");
+            MainWindow.OpenTab(new LotExtrasBilledReport());
         }
 
         private void IconButton_MouseDown_2(object sender, MouseButtonEventArgs e)
         {
-            MainWindow.OpenTab(new LotServicesBilledReport(), (Image)App.iconSet["check-icon"], "Lot Services Billed");
+            MainWindow.OpenTab(new LotServicesBilledReport());
         }
 
         private void IconButton_MouseDown_3(object sender, MouseButtonEventArgs e)
         {
-            MainWindow.OpenTab(new LotLabourCostReport(), (Image)App.iconSet["clock-icon"], "Lot Labour Costs");
+            MainWindow.OpenTab(new LotLabourCostReport());
         }
 
         private void IconButton_MouseDown_4(object sender, MouseButtonEventArgs e)
         {
-            MainWindow.OpenTab(new LotSiteMaterialCostReport(), (Image)App.iconSet["symbol-transactions"], "Lot/Site Material Costs");
+            MainWindow.OpenTab(new LotSiteMaterialCostReport());
         }
     }
 }

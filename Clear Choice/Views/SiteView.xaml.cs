@@ -20,7 +20,7 @@ using Stemstudios.UIControls;
 
 namespace Clear_Choice.Views
 {
-    public partial class SiteView : UserControl
+    public partial class SiteView : UserControl,ISTabView
     {
         private Hashtable siteTable = new Hashtable();
         private Site mSite;
@@ -416,32 +416,7 @@ namespace Clear_Choice.Views
             {
                 isModified = true;
                 cmdSaveEdit.IsEnabled = true;
-                UserControl_IsVisibleChanged(null, new DependencyPropertyChangedEventArgs());
-            }
-        }
-        /// <summary>
-        /// Handles the event when the forms visibility is changed.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void UserControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            if (IsVisible)
-            {
-                loadLots();
-                if (newSite)
-                {
-                    MainWindow.setActionList(getNewSiteActionMenu());
-                }
-                else
-                {
-                    MainWindow.setActionList(getExistingSiteActionMenu());
-                }
-            }
-            else
-            {
-                dataGridViewData = null;
-                lotGridView.ItemsSource = null;
+                TabIsGainingFocus();
             }
         }
         /// <summary>
@@ -554,7 +529,7 @@ namespace Clear_Choice.Views
                     MessageBox.Show("Granting Portal Access - "+msgCodes.GetString("M2102")+ex.Message, "Error - 2102", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
-            UserControl_IsVisibleChanged(null, new DependencyPropertyChangedEventArgs());
+            TabIsGainingFocus();
         }
 
         private void btnRemoveAccess_MouseDown(object sender, MouseButtonEventArgs e)
@@ -572,7 +547,7 @@ namespace Clear_Choice.Views
                     MessageBox.Show("Removing Portal Access - " + msgCodes.GetString("M2102") + ex.Message, "Error - 2102", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
-            UserControl_IsVisibleChanged(null, new DependencyPropertyChangedEventArgs());
+            TabIsGainingFocus();
         }
 
         private void btnResetPassword_MouseDown(object sender, MouseButtonEventArgs e)
@@ -591,12 +566,12 @@ namespace Clear_Choice.Views
                     MessageBox.Show("Resting Portal Password - " + msgCodes.GetString("M2102") + ex.Message, "Error - 2102", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
-            UserControl_IsVisibleChanged(null, new DependencyPropertyChangedEventArgs());
+            TabIsGainingFocus();
         }
 
         private void viewTransactions_Click(object sender, MouseButtonEventArgs e)
         {
-            MainWindow.OpenTab(new InventoryTransactionsView(), (Image)App.iconSet["symbol-transactions"], "Inventory Transactions");
+            MainWindow.OpenTab(new InventoryTransactionsView());
         }
 
         /// <summary>
@@ -606,7 +581,7 @@ namespace Clear_Choice.Views
         /// <param name="e"></param>
         private void viewClientButton_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            MainWindow.OpenTab(new ClientView(mClient), (Image)App.iconSet["customer1"], mClient.GetName());
+            MainWindow.OpenTab(new ClientView(mClient));
         }
         /// <summary>
         /// Handles the event when the add lot button is clicked.
@@ -615,7 +590,7 @@ namespace Clear_Choice.Views
         /// <param name="e"></param>
         private void addLotButton_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            MainWindow.OpenTab(new LotView(mSite), (Image)App.iconSet["home"], "New Lot");
+            MainWindow.OpenTab(new LotView(mSite));
         }
         /// <summary>
         /// Returns the list of actions in regards to a new client.
@@ -704,7 +679,7 @@ namespace Clear_Choice.Views
                 cmdSaveEdit.IsEnabled = false;
                 cmdSaveEdit.Content = SaveBtnTxt;
             }
-            UserControl_IsVisibleChanged(null, new DependencyPropertyChangedEventArgs());
+            TabIsGainingFocus();
         }
         /// <summary>
         /// Checks if the Site is unique.
@@ -751,47 +726,40 @@ namespace Clear_Choice.Views
         {
             if (cmdSaveEdit.Content.Equals(SaveBtnTxt))
             {
-                if (isModified)
+                MessageBoxResult res;
+                if (isModified && newSite)
                 {
-                    MessageBoxResult result = MessageBox.Show("This site has been modified. Are you sure you want to cancel the changes you made?", "Cancel", MessageBoxButton.YesNo, MessageBoxImage.Exclamation);
-                    if (result == MessageBoxResult.Yes)
-                    {
-                        if (newSite)
-                        {
-                            MainWindow.RemoveTab(this.Name);
-                        }
-                        else
-                        {
-                            foreman.ClearUpdates();
-                            SuperVisor1.ClearUpdates();
-                            SuperVisor2.ClearUpdates();
-                            SupplyAuth.ClearUpdates();
-                            lockFields();
-                            PopulateAllFields();
-                            PopulateSiteContactFields();
-
-                        }
-                    }
+                    res = MessageBox.Show("Cancel new Site  - " + msgCodes.GetString("M3204"), "Warning - 3204", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                }
+                else if (isModified)
+                {
+                    res = MessageBox.Show("Cancel Site Changes - " + msgCodes.GetString("M3205"), "Warning - 3205", MessageBoxButton.YesNo, MessageBoxImage.Warning);
                 }
                 else
                 {
-                    if (newSite)
-                    {
-                        MainWindow.RemoveTab(this.Name);
-                    }
-                    else
-                    {
-                        foreman.ClearUpdates();
-                        SuperVisor1.ClearUpdates();
-                        SuperVisor2.ClearUpdates();
-                        SupplyAuth.ClearUpdates();
-                        lockFields();
-                        PopulateAllFields();
-                        PopulateSiteContactFields();
-                    }
+                    res = MessageBoxResult.Yes;
                 }
+                if (res == MessageBoxResult.No)
+                {
+                    return;
+                }
+                if (newSite)
+                {
+                    MainWindow.RemoveTab(this.Name);
+                    return;
+                }
+                else if (isModified)
+                {
+                    foreman.ClearUpdates();
+                    SuperVisor1.ClearUpdates();
+                    SuperVisor2.ClearUpdates();
+                    SupplyAuth.ClearUpdates();
+                    lockFields();
+                    PopulateAllFields();
+                    PopulateSiteContactFields();
+                }
+                TabIsGainingFocus();
             }
-            UserControl_IsVisibleChanged(null, new DependencyPropertyChangedEventArgs());
         }
         /// <summary>
         /// This runs the thread to load lots assocaited with this Site.
@@ -857,7 +825,7 @@ namespace Clear_Choice.Views
                         LotBinding obj = (LotBinding)lotGridView.SelectedCells[0].Item;
                         dataGridViewData.SeekToPrimaryKey(obj.lotID);
                         Lot lotObj = new Lot(dataGridViewData.GetRecordDataSet());
-                        MainWindow.OpenTab(new LotView(lotObj), (Image)App.iconSet["home"], lotObj.LotDisplayName());
+                        MainWindow.OpenTab(new LotView(lotObj));
                     }
                 }
                 catch (Exception ex)
@@ -985,5 +953,65 @@ namespace Clear_Choice.Views
                 isModified = false;
             }
         }
+
+        #region ISTabView Members
+
+        public bool TabIsClosing()
+        {
+            MessageBoxResult res;
+            if (isModified && newSite)
+            {
+                res = MessageBox.Show("Cancel new Site  - " + msgCodes.GetString("M3204"), "Warning - 3204", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            }
+            else if (isModified)
+            {
+                res = MessageBox.Show("Cancel Site Changes - " + msgCodes.GetString("M3205"), "Warning - 3205", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            }
+            else
+            {
+                res = MessageBoxResult.Yes;
+            }
+            if (res == MessageBoxResult.No)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public bool TabIsLosingFocus()
+        {
+           dataGridViewData = null;
+                lotGridView.ItemsSource = null;
+            return true;
+        }
+
+        public void TabIsGainingFocus()
+        {
+                            loadLots();
+                if (newSite)
+                {
+                    MainWindow.setActionList(getNewSiteActionMenu());
+                }
+                else
+                {
+                    MainWindow.setActionList(getExistingSiteActionMenu());
+                };
+        }
+
+        public string TabTitle()
+        {
+            if(newSite)
+            {
+                return "New Site";
+            }
+            return mSite.GetSiteName();
+        }
+
+        public Image TabIcon()
+        {
+            return (Image)App.iconSet["symbol-site"];
+        }
+
+        #endregion
     }
 }

@@ -20,7 +20,7 @@ namespace Clear_Choice.Views
     /// <summary>
     /// Interaction logic for InventoryTransactionView.xaml
     /// </summary>
-    public partial class InventoryTransactionView : UserControl, ISTabContent
+    public partial class InventoryTransactionView : UserControl, ISTabView
     {
         private bool isNewTransaction = true;
         private bool isTransactionModified = false;
@@ -156,31 +156,6 @@ namespace Clear_Choice.Views
             }
         }
 
-        private void UserControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            if (IsVisible)
-            {
-                if (isNewTransaction)
-                {
-                    MainWindow.setActionList(getnewTransactionActions());
-                }
-                else
-                {
-                    MainWindow.setActionList(getExistingTransactionActions());
-                }
-                if (dgTransactionItems.Items.Count > 0)
-                {
-                    DataSet qty = db.Select("SUM(" + InventoryTransactionItem.Fields.Quantity.ToString() + ")", InventoryTransactionItem.Table, InventoryTransactionItem.Fields.transactionID.ToString() + " = '" + mTransaction.GetTransactionID() + "'");
-                    qty.Read();
-                    txtTotalQuantity.Text = "" + qty.getString(0);
-
-                    qty = db.Select("SUM(" + InventoryTransactionItem.Fields.Quantity.ToString() + " * "+InventoryTransactionItem.Fields.UnitPrice.ToString()+")", InventoryTransactionItem.Table, InventoryTransactionItem.Fields.transactionID.ToString() + " = '" + mTransaction.GetTransactionID() + "'");
-                    qty.Read();
-                    amtTotalValue.Amount = Single.Parse(qty.getString(0));
-                }
-            }
-        }
-
         private ArrayList getnewTransactionActions()
         {
             ArrayList actions = new ArrayList();
@@ -269,7 +244,7 @@ namespace Clear_Choice.Views
                 isTransactionLocked = true;
                 MessageBox.Show("Unlocking Transaction - " + msgCodes.GetString("M2102") + ex.Message, "Error - 2102", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            UserControl_IsVisibleChanged(this, new DependencyPropertyChangedEventArgs());
+            this.TabIsGainingFocus();
         }
 
         private void addNewItem_MouseDown(object sender, MouseButtonEventArgs e)
@@ -441,7 +416,7 @@ namespace Clear_Choice.Views
                     }
                 
             }
-            UserControl_IsVisibleChanged(this, new DependencyPropertyChangedEventArgs());
+            this.TabIsGainingFocus();
         }
 
         private void SetTransactionData()
@@ -464,7 +439,7 @@ namespace Clear_Choice.Views
             if (!isTransactionModified && !dpTransactionDate.SelectedDate.Equals(DateTime.MinValue) && dgTransactionItems.ItemsSource != null)
             {
                 isTransactionModified = true;
-                UserControl_IsVisibleChanged(this, new DependencyPropertyChangedEventArgs());
+                this.TabIsGainingFocus();
             }
         }
 
@@ -585,7 +560,7 @@ namespace Clear_Choice.Views
                     {
                         isTransactionModified = true;
                     }
-                    UserControl_IsVisibleChanged(this, new DependencyPropertyChangedEventArgs());
+                    this.TabIsGainingFocus();
                 }
                 catch (Exception ex)
                 {
@@ -661,7 +636,7 @@ namespace Clear_Choice.Views
                     ClearFields();
                     lockItemFields();
                     displayOrHideForm();
-                    UserControl_IsVisibleChanged(this, new DependencyPropertyChangedEventArgs());
+                    this.TabIsGainingFocus();
                 }
             }
             else
@@ -726,9 +701,9 @@ namespace Clear_Choice.Views
             }
         }
 
-        #region ISTabContent Members
+        #region ISTabView Members
 
-        public bool TabIsClosingCallBack()
+        public bool TabIsClosing()
         {
             if (!isTransactionLocked)
             {
@@ -762,7 +737,7 @@ namespace Clear_Choice.Views
             return true;
         }
 
-        public bool TabIsLosingFocusCallBack()
+        public bool TabIsLosingFocus()
         {
             if (!isTransactionLocked)
             {
@@ -770,6 +745,46 @@ namespace Clear_Choice.Views
                 return false;
             }
             return true;
+        }
+
+        public void TabIsGainingFocus()
+        {
+            if (isNewTransaction)
+            {
+                MainWindow.setActionList(getnewTransactionActions());
+            }
+            else
+            {
+                MainWindow.setActionList(getExistingTransactionActions());
+            }
+            if (dgTransactionItems.Items.Count > 0)
+            {
+                DataSet qty = db.Select("SUM(" + InventoryTransactionItem.Fields.Quantity.ToString() + ")", InventoryTransactionItem.Table, InventoryTransactionItem.Fields.transactionID.ToString() + " = '" + mTransaction.GetTransactionID() + "'");
+                qty.Read();
+                txtTotalQuantity.Text = "" + qty.getString(0);
+
+                qty = db.Select("SUM(" + InventoryTransactionItem.Fields.Quantity.ToString() + " * " + InventoryTransactionItem.Fields.UnitPrice.ToString() + ")", InventoryTransactionItem.Table, InventoryTransactionItem.Fields.transactionID.ToString() + " = '" + mTransaction.GetTransactionID() + "'");
+                qty.Read();
+                amtTotalValue.Amount = Single.Parse(qty.getString(0));
+            }
+        }
+
+        public string TabTitle()
+        {
+            if (isNewTransaction)
+            {
+                if (isRestock)
+                {
+                    return "New Restock Transaction";
+                }
+                return "New Transaction";
+            }
+            return mTransaction.GetTransactionID() + ": " + mTransaction.GetDateOfTransaction().ToShortDateString();
+        }
+
+        public Image TabIcon()
+        {
+            return (Image)App.iconSet["symbol-transaction"];
         }
 
         #endregion
