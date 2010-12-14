@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Clear Choice.exe" size="1704960">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Clear Choice.exe" size="1670144">
       <assemblyIdentity name="Clear Choice" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>356OeEQIJtTK8rxVnLhhlZ3JGo0=</dsig:DigestValue>
+        <dsig:DigestValue>kEnAhh2eIwtArCxXpfBWUY3xkMI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -62,7 +62,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>wN9ufpe+F7n1QiKE3yIcomOhoGk=</dsig:DigestValue>
+        <dsig:DigestValue>kdjAXt4uf9FfMXnwpXhOcmtIfvA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -74,7 +74,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>9ZS/UhBL35trQR+fIpFWJaZyrSM=</dsig:DigestValue>
+        <dsig:DigestValue>1vrW/fy00Cz6D6ERFPZUbPPJkBQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -91,14 +91,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="UIControls.dll" size="41984">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="UIControls.dll" size="38400">
       <assemblyIdentity name="UIControls" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>4TcXqhexFLmhYTFaHDDIUs6z93E=</dsig:DigestValue>
+        <dsig:DigestValue>OD0KsimzltgukQ0QJId1O1kUFRw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

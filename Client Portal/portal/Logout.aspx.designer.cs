@@ -10,6 +10,6 @@
 namespace Client_Portal {
     
     
-    public partial class WebForm1 {
+    public partial class Logout {
     }
 }

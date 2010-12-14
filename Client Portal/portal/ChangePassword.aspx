@@ -13,7 +13,7 @@
             </td>
         </tr>
         <tr>
-            <td>
+            <td align="right">
                 Current Password:
             </td>
             <td>
@@ -21,7 +21,7 @@
             </td>
         </tr>
         <tr>
-            <td>
+            <td align="right">
                 Password:
             </td>
             <td>
@@ -29,7 +29,7 @@
             </td>
         </tr>
         <tr>
-            <td>
+            <td align="right">
                 Retype Password:
             </td>
             <td>
@@ -46,6 +46,11 @@
         <tr>
             <td colspan="2">
                 <asp:Label ID="ErrorMsg" runat="server" CssClass="ErrorMsgs"></asp:Label>
+            </td>
+        </tr>
+         <tr>
+            <td colspan="2" align="center" style="font-size:12px;">
+                Password must contain a Capital Letter, atleast one character, and atleast one number with a size between 6 and 16 characters long.
             </td>
         </tr>
     </table>
