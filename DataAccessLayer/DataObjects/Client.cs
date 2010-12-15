@@ -147,12 +147,12 @@ namespace Stemstudios.DataAccessLayer.DataObjects
         /// <returns>0 for success number of Message Code if otherwise</returns>
         public int SetCity(String city)
         {
-            if (Formating.NameCheck(city))
+            if (Formating.TitleCheck(city))
             {
                 SetValue(Fields.City.ToString(), city);
                 return 0;
             }
-            return 1103;
+            return 1102;
         }
         /// <summary>
         /// Returns the client's city.

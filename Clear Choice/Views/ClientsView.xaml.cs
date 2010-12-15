@@ -112,10 +112,6 @@ namespace ClearChoice.Views
                     loadClientDataSet();
                 }
             }
-            else
-            {
-                clientsTable.Clear();
-            }
         }
 
         private void newClientButton_MouseDown(object sender, MouseButtonEventArgs e)

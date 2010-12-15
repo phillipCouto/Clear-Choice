@@ -43,7 +43,7 @@
                         <Rectangle Width="1" Fill="#8897c3dc" Margin="5,5,5,5"></Rectangle>
                     </StackPanel>
                     <StackPanel Height="36" Orientation="Horizontal" Grid.Column="2">
-                        <TextBox Name="SearchBox" Text="Search Box" Width="150" Height="20" VerticalAlignment="Center"/>
+                        <TextBox Name="SearchBox" Text="Search Box" Width="150" Height="20" VerticalAlignment="Center" Visibility="Hidden"/>
                         <Rectangle Width="1" Fill="#8897c3dc" Margin="5,5,5,5"></Rectangle>
                         <Image Name="MinimizeIcon" Source="/Resources/Icons/minimizeIcon.png" Height="20" Width="20" MouseEnter="CloseIcon_MouseEnter" MouseLeave="CloseIcon_MouseLeave" MouseDown="MinimizeIcon_MouseDown" />
                         <Image Name="MaxWindowIcon" Source="/Resources/Icons/maximizeIcon.png" Height="20" Width="20" MouseDown="MaxWindowIcon_MouseDown" MouseEnter="CloseIcon_MouseEnter" MouseLeave="CloseIcon_MouseLeave" />

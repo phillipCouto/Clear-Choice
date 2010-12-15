@@ -337,7 +337,7 @@ namespace ClearChoice.Views
             }
             else if (!newClient)
             {
-                mClient.ClearField(Client.Fields.PhoneNumber.ToString());
+                mClient.ClearField(Client.Fields.FaxNumber.ToString());
             }
             if (txtEmail.Text.Length > 0)
             {
@@ -350,7 +350,7 @@ namespace ClearChoice.Views
             }
             else if (!newClient)
             {
-                mClient.ClearField(Client.Fields.PhoneNumber.ToString());
+                mClient.ClearField(Client.Fields.EmailAddress.ToString());
             }
             mClient.SetClientType(cmbTypeOfClient.SelectedIndex);
             return true;

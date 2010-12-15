@@ -356,12 +356,12 @@ namespace Stemstudios.DataAccessLayer.DataObjects
         /// <returns>0 if successfull otherwise the MessageCode number</returns>
         public int SetCity(String city)
         {
-            if (Formating.NameCheck(city))
+            if (Formating.TitleCheck(city))
             {
                 SetValue(Fields.City.ToString(), city);
                 return 0;
             }
-            return 1103;
+            return 1102;
         }
         /// <summary>
         /// Returns the city for the site.
