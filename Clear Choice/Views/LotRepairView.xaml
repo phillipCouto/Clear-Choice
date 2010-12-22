@@ -131,7 +131,7 @@
                         <RowDefinition/>
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
-                    <TextBox Name="txtNotes" Grid.Row="0" Margin="5" HorizontalScrollBarVisibility="Disabled" AcceptsReturn="True" TextWrapping="WrapWithOverflow" TextChanged="FieldTextChanged" VerticalScrollBarVisibility="Auto"/>
+                    <TextBox Name="txtNotes" Grid.Row="0" Margin="5" HorizontalScrollBarVisibility="Disabled" AcceptsReturn="True" TextWrapping="WrapWithOverflow" TextChanged="FieldTextChanged" VerticalScrollBarVisibility="Auto" Height="86"/>
                     <StackPanel Grid.Row="1" Orientation="Horizontal">
                         <Button Name="cmdSaveEdit" Margin="5" Padding="10,5,10,5" Click="cmdSaveEdit_Click"/>
                         <Button Name="cmdCancel" Content="Cancel" Margin="5" Padding="10,5,10,5" Click="cmdCancel_Click"/>
