@@ -86,6 +86,7 @@
                                  ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
                                  ScrollViewer.VerticalScrollBarVisibility="Auto" 
                                  Width="Auto"
+                             Height="58"
                                  AcceptsReturn="True"
                              TextChanged="FieldTextChanged"/>
 
