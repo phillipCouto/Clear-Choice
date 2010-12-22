@@ -88,7 +88,7 @@ namespace Stemstudios.DataAccessLayer {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to beta.stemstudios.com.
+        ///   Looks up a localized string similar to localhost.
         /// </summary>
         internal static string Server {
             get {

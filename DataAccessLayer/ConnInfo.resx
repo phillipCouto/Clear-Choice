@@ -127,7 +127,7 @@
     <value>3306</value>
   </data>
   <data name="Server" xml:space="preserve">
-    <value>beta.stemstudios.com</value>
+    <value>localhost</value>
   </data>
   <data name="Username" xml:space="preserve">
     <value>clear-choice</value>
