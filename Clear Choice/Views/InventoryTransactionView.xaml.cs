@@ -556,19 +556,29 @@ namespace Clear_Choice.Views
                 }
                 try
                 {
-                    mTransactionItem.SaveObject(db);
+                    
                     InventoryItem item = mTransactionItem.GetInventoryItem();
+
                     if (isRestock)
                     {
-                        float avg = (item.getAverageCost() * item.getQuantity()) + (mTransactionItem.GetUnitPrice() * mTransactionItem.GetQuantity());
-                        avg = avg / (item.getQuantity() + mTransactionItem.GetQuantity());
-                        item.setQuantity(item.getQuantity() + mTransactionItem.GetQuantity());
-                        item.setCurrentCost(mTransactionItem.GetUnitPrice());
+                        if (!isItemNew)
+                        {
+                            RecalculateAverage(item);
+                        }
+                        float avg = (item.getAverageCost() * item.getQuantity()) + (txtLatestCost.Amount * Convert.ToInt32(txtQuantity.Text));
+                        avg = avg / (item.getQuantity() + Convert.ToInt32(txtQuantity.Text));
+                        item.setQuantity(item.getQuantity() + Convert.ToInt32(txtQuantity.Text));
+                        item.setCurrentCost(txtLatestCost.Amount);
                         item.setAverageCost(avg);
                         item.SaveObject(Database.Instance);
                     }
                     else
                     {
+                        if (!isItemNew)
+                        {
+                            item.setQuantity(item.getQuantity() + mTransactionItem.GetQuantity());
+                            item.SaveObject(db);
+                        }
                         if (item.getQuantity() - mTransactionItem.GetQuantity() <= 0)
                         {
                             MessageBox.Show("Quantity lower then Transaction Value - " + msgCodes.GetString("M3206"), "Warning - 3206", MessageBoxButton.OK, MessageBoxImage.Warning);
@@ -582,6 +592,7 @@ namespace Clear_Choice.Views
                             item.SaveObject(Database.Instance);
                         }
                     }
+                    mTransactionItem.SaveObject(db);
                     cmdSaveEditItem.Content = unlockBtnTxt;
                     SelectedItem();
                     txtQuantity.Text = "" + mTransactionItem.GetQuantity();
@@ -596,7 +607,7 @@ namespace Clear_Choice.Views
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Failed to Add Item to Transaction - " + msgCodes.GetString("M2102") + " " + ex.Message, "Error - 2102", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Failed to Save Item in Transaction - " + msgCodes.GetString("M2102") + " " + ex.Message, "Error - 2102", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 LoadDateGrid();
             }
@@ -612,6 +623,38 @@ namespace Clear_Choice.Views
             else
             {
                 MessageBox.Show("Transaction is locked. Please unlock the transaction to modify it.", "Transaction Locked", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
+
+        private void RecalculateAverage(InventoryItem item)
+        {
+            try
+            {
+                DataSet dataSet = db.Select("inventory_item_transactions.*", "inventory_transactions, inventory_item_transactions", "inventory_transactions.transactionID = inventory_item_transactions.transactionID AND inventory_transactions.ClientType = 2 AND inventory_item_transactions.itemID = '" + item.getItemID() + "'",InventoryTransaction.Fields.DateOfTransaction.ToString());
+                item.setQuantity(0);
+                item.setCurrentCost(0);
+                item.setAverageCost(0);
+                item.SaveObject(db);
+                float qty = 0;
+                float avg = 0;
+                while (dataSet.Read())
+                {
+                    InventoryTransactionItem transItem = new InventoryTransactionItem(dataSet.GetRecordDataSet());
+                    if (!transItem.GetTransactionID().Equals(mTransaction.GetTransactionID()))
+                    {
+                        qty += transItem.GetQuantity();
+                        avg = (avg * qty) + (transItem.GetUnitPrice() * transItem.GetQuantity());
+                        avg = avg / (qty + transItem.GetQuantity());
+                        item.setCurrentCost(transItem.GetUnitPrice());
+                    }
+                }
+                item.setAverageCost(avg);
+                item.setQuantity(qty);
+                item.SaveObject(db);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to Recalculate new average of item - " + msgCodes.GetString("M2102") + " " + ex.Message, "Error - 2102", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

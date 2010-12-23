@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Clear Choice.exe" size="1703936">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Clear Choice.exe" size="1704960">
       <assemblyIdentity name="Clear Choice" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>7y/aYIcue+jg4bax60y2aW3iOsQ=</dsig:DigestValue>
+        <dsig:DigestValue>7SsQvwbP5UtHAONB8+pEQAb1+xQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -62,7 +62,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>F/wACADJCgKrYQelzczO6pECA+U=</dsig:DigestValue>
+        <dsig:DigestValue>uIHaWRTFv5yfJMKMjgUYNwNuFxg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -74,7 +74,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>+veXB9CuDGcHFlw+YAG5YGuVxX8=</dsig:DigestValue>
+        <dsig:DigestValue>4sI3+N9zRgm+JxPZObAtaVCitT8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -98,7 +98,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>dUnIjaWaxFSeJZFPv8BmEsjTpM4=</dsig:DigestValue>
+        <dsig:DigestValue>/w/InxN58os2lCERFu9us2LDVXc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
