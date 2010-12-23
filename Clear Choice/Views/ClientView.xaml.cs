@@ -185,11 +185,11 @@ namespace ClearChoice.Views
                 MessageBoxResult result;
                 if (newClient)
                 {
-                    result = MessageBox.Show("You are about to save this new client to the database. Are you sure you want to continue?", "Saving New Client", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                    result = MessageBox.Show("New Client - "+msgCodes.GetString("M3201"), "Warning - 3201", MessageBoxButton.YesNo, MessageBoxImage.Warning);
                 }
                 else
                 {
-                    result = MessageBox.Show("You are about to save changes made to this client to the database. Are you sure you want to continue?", "Saving Client Modification", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                    result = MessageBox.Show("Client Modifications - " + msgCodes.GetString("M3202"), "Warning - 3202", MessageBoxButton.YesNo, MessageBoxImage.Warning);
                 }
                 //Saving changes and Locking form.
                 if (result == MessageBoxResult.Yes)
@@ -238,7 +238,7 @@ namespace ClearChoice.Views
                 DataSet checkForClient = db.Select(Client.PrimaryKey, Client.Table, where);
                 if (checkForClient.NumberOfRows() > 0)
                 {
-                    MessageBox.Show("Client may already exist in the System. Changes were not saved.", "Duplicate Client", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Client may exist - "+msgCodes.GetString("M3203")+" Name", "Warning - 3203", MessageBoxButton.OK, MessageBoxImage.Error);
                     return false;
                 }
                 db.BeginTransaction();
@@ -249,7 +249,7 @@ namespace ClearChoice.Views
             catch (Exception ex)
             {
                 db.RollbackTransaction();
-                MessageBox.Show("Transaction Failed. Contact Administrator. Message: " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Saving Client - "+msgCodes.GetString("M2102") + ex.Message, "Error - 2102", MessageBoxButton.OK, MessageBoxImage.Error);
                 //Log error
             }
             return false;
@@ -366,7 +366,7 @@ namespace ClearChoice.Views
             {
                 if (modified & !newClient)
                 {
-                    MessageBoxResult res = MessageBox.Show("Modifications were made to this client. Are you sure you want to cancel?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Exclamation);
+                    MessageBoxResult res = MessageBox.Show("Cancel Client Modifications - "+msgCodes.GetString("M3205"), "Warning - 3205", MessageBoxButton.YesNo, MessageBoxImage.Exclamation);
                     if (res == MessageBoxResult.No)
                     {
                         return;
@@ -377,7 +377,7 @@ namespace ClearChoice.Views
                 {
                     if (modified)
                     {
-                        MessageBoxResult res = MessageBox.Show("Modifications were made to this client. Are you sure you want to cancel and close the tab?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Exclamation);
+                        MessageBoxResult res = MessageBox.Show("Cancel New Client - " + msgCodes.GetString("M3204"), "Warning - 3204", MessageBoxButton.YesNo, MessageBoxImage.Exclamation);
                         if (res == MessageBoxResult.No)
                         {
                             return;

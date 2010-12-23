@@ -9,6 +9,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using Stemstudios.UIControls;
 using System;
 using System.Diagnostics;
 using System.Windows;
