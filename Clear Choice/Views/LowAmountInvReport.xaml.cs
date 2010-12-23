@@ -20,7 +20,7 @@ namespace Clear_Choice.Views
     /// <summary>
     /// Interaction logic for LowAmountInvReport.xaml
     /// </summary>
-    public partial class LowAmountInvReport : UserControl
+    public partial class LowAmountInvReport : UserControl, ISTabView
     {
         private Database db = Database.Instance;
         private DataSet itemRecords = null;
@@ -88,14 +88,6 @@ try
             }
         }
 
-        private void UserControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            if (IsVisible)
-            {
-                MainWindow.setActionList(Print());
-            }
-        }
-
         private ArrayList Print()
         {
             ArrayList actions = new ArrayList();
@@ -131,5 +123,34 @@ try
                 MessageBox.Show("Nothing to print", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        #region ISTabView Members
+
+        public bool TabIsClosing()
+        {
+            return true;
+        }
+
+        public bool TabIsLosingFocus()
+        {
+            return true;
+        }
+
+        public void TabIsGainingFocus()
+        {
+            MainWindow.setActionList(Print());
+        }
+
+        public string TabTitle()
+        {
+            return "Low Stock Report";
+        }
+
+        public Image TabIcon()
+        {
+            return (Image)App.iconSet["symbol-emptycart"];
+        }
+
+        #endregion
     }
 }

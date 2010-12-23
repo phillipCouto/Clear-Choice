@@ -2,15 +2,12 @@
 using System.Collections;
 using System.Collections.ObjectModel;
 using System.Resources;
-using System.Runtime.CompilerServices;
 using System.Text;
-using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
-using System.Windows.Threading;
 using ClearChoice;
 using ExceptionLogging;
 using Stemstudios.DataAccessLayer;
@@ -23,7 +20,7 @@ namespace Clear_Choice.Views
     /// <summary>
     /// Interaction logic for WorkForm.xaml
     /// </summary>
-    public partial class LotExtraView : UserControl
+    public partial class LotExtraView : UserControl,ISTabView
     {
         private bool isFormHidden = false;
         private bool isNewExtra = false;
@@ -403,44 +400,6 @@ namespace Clear_Choice.Views
             }
         }
 
-        private void UserControl_IsVisibleChanged(object sender, System.Windows.DependencyPropertyChangedEventArgs e)
-        {
-            if (IsVisible)
-            {
-                if (cmdSaveEdit.Content.Equals(cmdSaveEdit))
-                {
-                    if (isNewExtra)
-                    {
-                        MainWindow.setActionList(getNewItemActions());
-                    }
-                    else
-                    {
-                        MainWindow.setActionList(getExistingItemActions());
-                    }
-                }
-                else
-                {
-                    MainWindow.setActionList(getExtraButtons());
-                }
-                loadExtras();
-                if (ExtraGridView.Items.Count > 0)
-                {
-                    DataSet qty = db.Select("SUM(" + LotExtra.Fields.Quantity.ToString() + ")", LotExtra.Table, LotExtra.Fields.lotID.ToString() + " = '" + mLot.GetLotID() + "'");
-                    qty.Read();
-                    txtTotalQuantity.Text = "" + qty.getString(0);
-
-                    qty = db.Select("SUM(" + LotExtra.Fields.TotalPrice.ToString() + ")", LotExtra.Table, LotExtra.Fields.lotID.ToString() + " = '" + mLot.GetLotID() + "'");
-                    qty.Read();
-                    amtTotalValue.Amount = Single.Parse(qty.getString(0));
-                }
-            }
-            else
-            {
-                extrasDataSet = null;
-                ExtraGridView.ItemsSource = null;
-            }
-        }
-
         private ArrayList getExistingItemActions()
         {
             ArrayList actions = new ArrayList();
@@ -636,5 +595,83 @@ namespace Clear_Choice.Views
                 }
             }
         }
+
+        #region ISTabView Members
+
+        public bool TabIsClosing()
+        {
+            if (isNewExtra)
+            {
+                if (isModified)
+                {
+                    MessageBoxResult answer = MessageBox.Show("Cancel new Extra - " + msgCodes.GetString("M3204"), "Warning - 3204", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                    if (answer == MessageBoxResult.No)
+                    {
+                        return false;
+                    }
+                }
+            }
+            else
+            {
+                if (isModified)
+                {
+                    MessageBoxResult answer = MessageBox.Show("Cancel Extra modifications - " + msgCodes.GetString("M3205"), "Warning - 3205", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                    if (answer == MessageBoxResult.No)
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
+        public bool TabIsLosingFocus()
+        {
+            extrasDataSet = null;
+            ExtraGridView.ItemsSource = null;
+            return true;
+        }
+
+        public void TabIsGainingFocus()
+        {
+            if (cmdSaveEdit.Content.Equals(cmdSaveEdit))
+            {
+                if (isNewExtra)
+                {
+                    MainWindow.setActionList(getNewItemActions());
+                }
+                else
+                {
+                    MainWindow.setActionList(getExistingItemActions());
+                }
+            }
+            else
+            {
+                MainWindow.setActionList(getExtraButtons());
+            }
+            loadExtras();
+            if (ExtraGridView.Items.Count > 0)
+            {
+                DataSet qty = db.Select("SUM(" + LotExtra.Fields.Quantity.ToString() + ")", LotExtra.Table, LotExtra.Fields.lotID.ToString() + " = '" + mLot.GetLotID() + "'");
+                qty.Read();
+                txtTotalQuantity.Text = "" + qty.getString(0);
+
+                qty = db.Select("SUM(" + LotExtra.Fields.TotalPrice.ToString() + ")", LotExtra.Table, LotExtra.Fields.lotID.ToString() + " = '" + mLot.GetLotID() + "'");
+                qty.Read();
+                amtTotalValue.Amount = Single.Parse(qty.getString(0));
+            }
+        }
+
+        public string TabTitle()
+        {
+            return this.mLot.LotDisplayName() + " Extras";
+        }
+
+        public Image TabIcon()
+        {
+            return (Image)App.iconSet["symbol-extras"];
+        }
+
+        #endregion
     }
 }

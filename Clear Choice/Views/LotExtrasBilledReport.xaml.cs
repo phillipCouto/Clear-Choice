@@ -4,23 +4,22 @@ using System.Collections.ObjectModel;
 using System.Resources;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Threading;
+using System.Windows.Documents;
+using System.Windows.Input;
+using Clear_Choice.Windows;
+using ClearChoice;
 using ExceptionLogging;
 using Stemstudios.DataAccessLayer;
 using Stemstudios.DataAccessLayer.DataObjects;
 using Stemstudios.DataAccessLayer.DataObjects.Bindings;
-using ClearChoice;
 using Stemstudios.UIControls;
-using System.Windows.Input;
-using System.Windows.Documents;
-using Clear_Choice.Windows;
 
 namespace Clear_Choice.Views
 {
     /// <summary>
     /// Interaction logic for InventoryRecordReport.xaml
     /// </summary>
-    public partial class LotExtrasBilledReport : UserControl
+    public partial class LotExtrasBilledReport : UserControl,ISTabView
     {
         private Database db = Database.Instance;
         private DataSet itemRecords = null;
@@ -46,14 +45,6 @@ namespace Clear_Choice.Views
             catch (Exception ex)
             {
                 MessageBox.Show("Loading info - " + msgCodes.GetString("M2102") + ex.Message, "Error - 2102", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-
-        private void UserControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            if (IsVisible)
-            {
-                MainWindow.setActionList(Print());
             }
         }
 
@@ -132,6 +123,35 @@ namespace Clear_Choice.Views
                 }
             }
         }
+
+        #region ISTabView Members
+
+        public bool TabIsClosing()
+        {
+            return true;
+        }
+
+        public bool TabIsLosingFocus()
+        {
+            return true;
+        }
+
+        public void TabIsGainingFocus()
+        {
+            MainWindow.setActionList(Print());
+        }
+
+        public string TabTitle()
+        {
+            return "Lot Extras Billed Report";
+        }
+
+        public Image TabIcon()
+        {
+            return (Image)App.iconSet["check-icon"];
+        }
+
+        #endregion
     }
 }
 

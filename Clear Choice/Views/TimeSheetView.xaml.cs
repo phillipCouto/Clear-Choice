@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.ObjectModel;
 using System.Resources;
+using System.Text;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -12,15 +14,13 @@ using Stemstudios.DataAccessLayer;
 using Stemstudios.DataAccessLayer.DataObjects;
 using Stemstudios.DataAccessLayer.DataObjects.Bindings;
 using Stemstudios.UIControls;
-using System.Windows;
-using System.Text;
 
 namespace Clear_Choice.Views
 {
     /// <summary>
     /// Interaction logic for TimeSheetView.xaml
     /// </summary>
-    public partial class TimeSheetView : UserControl, ISTabContent
+    public partial class TimeSheetView : UserControl, ISTabView
     {
         private Database db = Database.Instance;
         private DataSet sheetData;
@@ -97,30 +97,6 @@ namespace Clear_Choice.Views
         private void TabShowHideButton_MouseDown(object sender, MouseButtonEventArgs e)
         {
             displayOrHideForm();
-        }
-        private void UserControl_IsVisibleChanged(object sender, System.Windows.DependencyPropertyChangedEventArgs e)
-        {
-            if (IsVisible)
-            {
-                if (cmdSaveEdit.Content.Equals(saveBtnTxt))
-                {
-                    MainWindow.setActionList(GetEditModeActions());
-                }
-                else
-                {
-                    MainWindow.setActionList(GetViewModeActions());
-                }
-                if (dgTimeSheets.Items.Count > 0)
-                {
-                    DataSet qty = db.Select("SUM(" + TimeSheet.Fields.Hours.ToString() + ")", TimeSheet.Table, TimeSheet.Fields.lotID.ToString() + " = '" + mLot.GetLotID() + "'");
-                    qty.Read();
-                    txtTotalHours.Text = "" + qty.getString(0);
-
-                    qty = db.Select("SUM(" + TimeSheet.Fields.Hours.ToString() + " * " + TimeSheet.Fields.Wage.ToString() + ")", TimeSheet.Table, TimeSheet.Fields.lotID.ToString() + " = '" + mLot.GetLotID() + "'");
-                    qty.Read();
-                    amtTotalCost.Amount = Single.Parse(qty.getString(0));
-                }
-            }
         }
 
         private void cmdSaveEdit_Click(object sender, RoutedEventArgs e)
@@ -265,7 +241,7 @@ namespace Clear_Choice.Views
                 cmdSaveEdit.IsEnabled = true;
                 cmdCancel.IsEnabled = false;
 
-                UserControl_IsVisibleChanged(null, new DependencyPropertyChangedEventArgs());
+                TabIsGainingFocus();
             }
         }
 
@@ -579,9 +555,9 @@ namespace Clear_Choice.Views
             }
         }
 
-        #region ISTabContent Members
+        #region ISTabView Members
 
-        public bool TabIsClosingCallBack()
+        public bool TabIsClosing()
         {
             if (cmdSaveEdit.Content.Equals(saveBtnTxt) && isFormDirty)
             {
@@ -602,13 +578,43 @@ namespace Clear_Choice.Views
             return true;
         }
 
-        public bool TabIsLosingFocusCallBack()
+        public bool TabIsLosingFocus()
         {
             return true;
         }
 
+        public void TabIsGainingFocus()
+        {
+            if (cmdSaveEdit.Content.Equals(saveBtnTxt))
+            {
+                MainWindow.setActionList(GetEditModeActions());
+            }
+            else
+            {
+                MainWindow.setActionList(GetViewModeActions());
+            }
+            if (dgTimeSheets.Items.Count > 0)
+            {
+                DataSet qty = db.Select("SUM(" + TimeSheet.Fields.Hours.ToString() + ")", TimeSheet.Table, TimeSheet.Fields.lotID.ToString() + " = '" + mLot.GetLotID() + "'");
+                qty.Read();
+                txtTotalHours.Text = "" + qty.getString(0);
+
+                qty = db.Select("SUM(" + TimeSheet.Fields.Hours.ToString() + " * " + TimeSheet.Fields.Wage.ToString() + ")", TimeSheet.Table, TimeSheet.Fields.lotID.ToString() + " = '" + mLot.GetLotID() + "'");
+                qty.Read();
+                amtTotalCost.Amount = Single.Parse(qty.getString(0));
+            }
+        }
+
+        public string TabTitle()
+        {
+            return mLot.LotDisplayName() + " Time Sheets";
+        }
+
+        public Image TabIcon()
+        {
+            return (Image)App.iconSet["symbol-timesheets"];
+        }
+
         #endregion
-
-
     }
 }

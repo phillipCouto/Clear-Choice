@@ -108,14 +108,6 @@ namespace Stemstudios.UIControls
 
         private void CloseText_MouseDown(object sender, RoutedEventArgs e)
         {
-            if (this.TabContent is ISTabContent)
-            {
-                if (!((ISTabContent)this.TabContent).TabIsClosingCallBack())
-                {
-                    e.Handled = true;
-                    return;
-                }
-            }
             if (IconClosing != null)
             {
                 IconClosing(this, e);

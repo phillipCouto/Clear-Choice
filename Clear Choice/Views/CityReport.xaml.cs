@@ -20,7 +20,7 @@ namespace Clear_Choice.Views
     /// <summary>
     /// Interaction logic for InventoryRecordReport.xaml
     /// </summary>
-    public partial class CityReport : UserControl
+    public partial class CityReport : UserControl,ISTabView
     {
         private Database db = Database.Instance;
         private DataSet itemRecords = null;
@@ -110,14 +110,6 @@ namespace Clear_Choice.Views
             }
         }
 
-        private void UserControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            if (IsVisible)
-            {
-                MainWindow.setActionList(Print());
-            }
-        }
-
         private ArrayList Print()
         {
             ArrayList actions = new ArrayList();
@@ -158,5 +150,34 @@ namespace Clear_Choice.Views
                 MessageBox.Show("Nothing to print", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        #region ISTab Members
+
+        public bool TabIsClosing()
+        {
+            return true;
+        }
+
+        public bool TabIsLosingFocus()
+        {
+            return true;
+        }
+
+        public void TabIsGainingFocus()
+        {
+            MainWindow.setActionList(Print());
+        }
+
+        public string TabTitle()
+        {
+            return "Lots By City Report";
+        }
+
+        public Image TabIcon()
+        {
+            return (Image)App.iconSet["symbol-gmaps"];
+        }
+
+        #endregion
     }
 }

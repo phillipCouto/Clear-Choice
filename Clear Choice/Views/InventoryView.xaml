@@ -1,8 +1,7 @@
 ﻿<UserControl x:Class="Clear_Choice.Views.InventoryView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:UIControls="clr-namespace:Stemstudios.UIControls;assembly=UIControls"
-    IsVisibleChanged="UserControl_IsVisibleChanged">
+    xmlns:UIControls="clr-namespace:Stemstudios.UIControls;assembly=UIControls">
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>

@@ -4,22 +4,22 @@ using System.Collections.ObjectModel;
 using System.Resources;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Documents;
 using System.Windows.Input;
+using Clear_Choice.Windows;
 using ClearChoice;
 using ExceptionLogging;
 using Stemstudios.DataAccessLayer;
 using Stemstudios.DataAccessLayer.DataObjects;
 using Stemstudios.DataAccessLayer.DataObjects.Bindings;
 using Stemstudios.UIControls;
-using System.Windows.Documents;
-using Clear_Choice.Windows;
 
 namespace Clear_Choice.Views
 {
     /// <summary>
     /// Interaction logic for ListofInventory.xaml
     /// </summary>
-    public partial class CompletedLotsReport : UserControl
+    public partial class CompletedLotsReport : UserControl,ISTabView
     {
         private Database db = Database.Instance;
         private DataSet itemRecords = null;
@@ -65,14 +65,6 @@ namespace Clear_Choice.Views
                     }
                 }
             
-        }
-
-        private void UserControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            if (IsVisible)
-            {
-                MainWindow.setActionList(Print());
-            }
         }
 
         private ArrayList Print()
@@ -145,5 +137,34 @@ namespace Clear_Choice.Views
                 }
             }
         }
+
+        #region ISTabView Members
+
+        public bool TabIsClosing()
+        {
+            return true;
+        }
+
+        public bool TabIsLosingFocus()
+        {
+            return true;
+        }
+
+        public void TabIsGainingFocus()
+        {
+            MainWindow.setActionList(Print());
+        }
+
+        public string TabTitle()
+        {
+            return "Completed Lots Report";
+        }
+
+        public Image TabIcon()
+        {
+            return (Image)App.iconSet["home"];
+        }
+
+        #endregion
     }
 }

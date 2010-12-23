@@ -17,7 +17,7 @@ namespace Clear_Choice.Views
     /// <summary>
     /// Interaction logic for LotView.xaml
     /// </summary>
-    public partial class LotView : UserControl
+    public partial class LotView : UserControl, ISTabView
     {
         private bool modified = true;
         private bool isNew = true;
@@ -37,7 +37,7 @@ namespace Clear_Choice.Views
             try
             {
                 mLot = new Lot(db);
-                
+
             }
             catch (Exception ex)
             {
@@ -269,7 +269,7 @@ namespace Clear_Choice.Views
             {
                 modified = true;
                 cmdSaveEdit.IsEnabled = true;
-                UserControl_IsVisibleChanged(null, new DependencyPropertyChangedEventArgs());
+                TabIsGainingFocus();
             }
         }
 
@@ -281,21 +281,6 @@ namespace Clear_Choice.Views
             String city = mLot.GetCity().Replace(" ", "+");
             proc.StartInfo.FileName = "http://maps.google.ca/maps?f=q&source=s_q&hl=en&geocode=&q=" + address + "," + city + ",+Ontario";
             proc.Start();
-        }
-
-        private void UserControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            if (IsVisible)
-            {
-                if (isNew)
-                {
-                    MainWindow.setActionList(getNewLotActions());
-                }
-                else
-                {
-                    MainWindow.setActionList(getExistingLotActions());
-                }
-            }
         }
 
         private ArrayList getExistingLotActions()
@@ -364,17 +349,17 @@ namespace Clear_Choice.Views
 
         private void viewTimeSheetsBtn_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            MainWindow.OpenTab(new TimeSheetView(mLot), (Image)App.iconSet["symbol-timesheets"], mLot.LotDisplayName() + " Time Sheets");
+            MainWindow.OpenTab(new TimeSheetView(mLot));
         }
 
         private void viewRepairsBtn_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            MainWindow.OpenTab(new LotRepairsView(mLot), (Image)App.iconSet["symbol-repair"], mLot.LotDisplayName() + " Repairs");
+            MainWindow.OpenTab(new LotRepairsView(mLot));
         }
 
         private void viewExtrasBtn_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            MainWindow.OpenTab(new LotExtraView(mLot), (Image)App.iconSet["symbol-extras"], mLot.LotDisplayName()+" Extras");
+            MainWindow.OpenTab(new LotExtraView(mLot));
         }
 
         private ArrayList getNewLotActions()
@@ -403,7 +388,7 @@ namespace Clear_Choice.Views
             {
                 modified = true;
                 cmdSaveEdit.IsEnabled = true;
-                UserControl_IsVisibleChanged(null, new DependencyPropertyChangedEventArgs());
+                TabIsGainingFocus();
             }
         }
 
@@ -462,7 +447,7 @@ namespace Clear_Choice.Views
             {
                 unlockForm();
             }
-            UserControl_IsVisibleChanged(null, new DependencyPropertyChangedEventArgs());
+            TabIsGainingFocus();
         }
 
         private bool isLotUnique()
@@ -634,7 +619,7 @@ namespace Clear_Choice.Views
                     return false;
                 }
             }
-            else if(!isNew)
+            else if (!isNew)
             {
                 mLot.ClearField(Lot.Fields.LotSize.ToString());
             }
@@ -872,38 +857,91 @@ namespace Clear_Choice.Views
 
         private void cmdCancel_Click(object sender, RoutedEventArgs e)
         {
-            if (isNew)
+            MessageBoxResult res;
+            if (modified && isNew)
             {
-                if (modified)
-                {
-                    MessageBoxResult res = MessageBox.Show("You are cancelling a new lot. Do you wish to continue?", "Cancel New Lot", MessageBoxButton.YesNo, MessageBoxImage.Exclamation);
-                    if (res == MessageBoxResult.Yes)
-                    {
-                        MainWindow.RemoveTab(this.Name);
-                    }
-                }
-                else
-                {
-                    MainWindow.RemoveTab(this.Name);
-                }
+                res = MessageBox.Show("Cancel new Lot  - " + msgCodes.GetString("M3204"), "Warning - 3204", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            }
+            else if (modified)
+            {
+                res = MessageBox.Show("Cancel Lot Changes - " + msgCodes.GetString("M3205"), "Warning - 3205", MessageBoxButton.YesNo, MessageBoxImage.Warning);
             }
             else
             {
-                if (modified)
-                {
-                    MessageBoxResult res = MessageBox.Show("You are cancelling modifications made to this lot. Do you wish to continue?", "Cancel Lot Modifications", MessageBoxButton.YesNo, MessageBoxImage.Exclamation);
-                    if (res == MessageBoxResult.Yes)
-                    {
-                        populateFields();
-                        lockForm();
-                    }
-                }
-                else
-                {
-                    lockForm();
-                }
+                res = MessageBoxResult.Yes;
             }
-            UserControl_IsVisibleChanged(null, new DependencyPropertyChangedEventArgs());
+            if (res == MessageBoxResult.No)
+            {
+                return;
+            }
+            if (isNew)
+            {
+                MainWindow.RemoveTab(this.Name);
+                return;
+            }
+            else if (modified)
+            {
+                populateFields();
+            }
+            lockForm();
+            TabIsGainingFocus();
         }
+
+        #region ISTabView Members
+
+        public bool TabIsClosing()
+        {
+            MessageBoxResult res;
+            if (modified && isNew)
+            {
+                res = MessageBox.Show("Cancel new Lot  - " + msgCodes.GetString("M3204"), "Warning - 3204", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            }
+            else if (modified)
+            {
+                res = MessageBox.Show("Cancel Lot Changes - " + msgCodes.GetString("M3205"), "Warning - 3205", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            }
+            else
+            {
+                res = MessageBoxResult.Yes;
+            }
+            if (res == MessageBoxResult.No)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public bool TabIsLosingFocus()
+        {
+            return true;
+        }
+
+        public void TabIsGainingFocus()
+        {
+            if (isNew)
+            {
+                MainWindow.setActionList(getNewLotActions());
+            }
+            else
+            {
+                MainWindow.setActionList(getExistingLotActions());
+            }
+        }
+
+        public string TabTitle()
+        {
+            if (isNew)
+            {
+                return "New Lot";
+            }
+            return mLot.LotDisplayName();
+        }
+
+        public Image TabIcon()
+        {
+            return (Image)App.iconSet["home"];
+        }
+
+        #endregion
     }
 }
