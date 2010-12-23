@@ -296,6 +296,10 @@ namespace Clear_Choice.Views
                 try
                 {
                     quantity = Int32.Parse(txtQuantity.Text);
+                    if (quantity <= 0)
+                    {
+                        throw new Exception();
+                    }
                     mExtra.SetQuantity(quantity);
                 }
                 catch (Exception)
@@ -308,7 +312,13 @@ namespace Clear_Choice.Views
             {
                 try
                 {
-                    mExtra.SetBilledQuantity(Int32.Parse(txtBilledQuantity.Text));
+                    int billed = Int32.Parse(txtBilledQuantity.Text);
+
+                    if (billed < 0)
+                    {
+                        throw new Exception();
+                    }
+                    mExtra.SetBilledQuantity(billed);
                 }
                 catch (Exception)
                 {

@@ -892,11 +892,11 @@ namespace Clear_Choice.Views
         public bool TabIsClosing()
         {
             MessageBoxResult res;
-            if (modified && isNew)
+            if (modified && isNew && cmdSaveEdit.Content.Equals(saveBtnTxt))
             {
                 res = MessageBox.Show("Cancel new Lot  - " + msgCodes.GetString("M3204"), "Warning - 3204", MessageBoxButton.YesNo, MessageBoxImage.Warning);
             }
-            else if (modified)
+            else if (modified && cmdSaveEdit.Content.Equals(saveBtnTxt))
             {
                 res = MessageBox.Show("Cancel Lot Changes - " + msgCodes.GetString("M3205"), "Warning - 3205", MessageBoxButton.YesNo, MessageBoxImage.Warning);
             }
