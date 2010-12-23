@@ -134,6 +134,7 @@ namespace Clear_Choice.Views
             cmdSaveEdit.IsEnabled = true;
             cmdSaveEdit.Content = unlockBtnTxt;
             cmdCancel.IsEnabled = false;
+
         }
         /// <summary>
         /// Sets the values of the fields in regards to the item object.
@@ -299,6 +300,7 @@ namespace Clear_Choice.Views
             {
                 cmdSaveEdit.IsEnabled = true;
                 isFormDirty = true;
+                TabIsGainingFocus();
             }
         }
         /// <summary>
@@ -312,6 +314,7 @@ namespace Clear_Choice.Views
             {
                 cmdSaveEdit.IsEnabled = true;
                 isFormDirty = true;
+                TabIsGainingFocus();
             }
         }
         /// <summary>
@@ -378,6 +381,7 @@ namespace Clear_Choice.Views
                     isFormDirty = false;
                 }
             }
+            TabIsGainingFocus();
         }
         /// <summary>
         /// Checks if the item is unique in the database.
@@ -393,10 +397,10 @@ namespace Clear_Choice.Views
             }
             else
             {
-                    where.Append(InventoryItem.Fields.itemID.ToString() + " = '" + txtItemID.Text.ToUpper() + "'");
-                    where.Append(" AND " + InventoryItem.Fields.ItemName.ToString() + " = '" + txtItemName.Text.ToUpper() + "'");
-                    where.Append(" AND " + InventoryItem.Fields.itemID.ToString() + " != '" + mSelectedItem.getItemID() + "'");
-                    where.Append(" AND " + InventoryItem.Fields.ItemName.ToString() + " != '" + mSelectedItem.getItemName() + "'");
+                where.Append(InventoryItem.Fields.itemID.ToString() + " = '" + txtItemID.Text.ToUpper() + "'");
+                where.Append(" AND " + InventoryItem.Fields.ItemName.ToString() + " = '" + txtItemName.Text.ToUpper() + "'");
+                where.Append(" AND " + InventoryItem.Fields.itemID.ToString() + " != '" + mSelectedItem.getItemID() + "'");
+                where.Append(" AND " + InventoryItem.Fields.ItemName.ToString() + " != '" + mSelectedItem.getItemName() + "'");
             }
             try
             {
@@ -492,35 +496,35 @@ namespace Clear_Choice.Views
             {
                 if (isFormDirty)
                 {
-                    MessageBoxResult res = MessageBox.Show("You are about to cancel adding a new item. Do you wish to continue?", "Cancel New Item", MessageBoxButton.YesNo, MessageBoxImage.Exclamation);
-                    if (res == MessageBoxResult.Yes)
+                    MessageBoxResult res = MessageBox.Show("Cancel New Item - " + msgCodes.GetString("M3204"), "Warning - 3204", MessageBoxButton.YesNo, MessageBoxImage.Exclamation);
+                    if (res == MessageBoxResult.No)
                     {
-                        clearFields();
-                        lockFields();
+
                     }
                 }
-                else
-                {
-                    lockFields();
-                }
+                clearFields();
+                lockFields();
+                isNewItem = false;
                 displayOrHideForm();
+                
             }
             else
             {
                 if (isFormDirty)
                 {
-                    MessageBoxResult res = MessageBox.Show("You are about to cancel changes made to this item. Do you wish to continue?", "Cancel Modifications", MessageBoxButton.YesNo, MessageBoxImage.Exclamation);
-                    if (res == MessageBoxResult.Yes)
+                    MessageBoxResult res = MessageBox.Show("Cancel Item Modifications - " + msgCodes.GetString("M3205"), "Warning - 3205", MessageBoxButton.YesNo, MessageBoxImage.Exclamation);
+                    if (res == MessageBoxResult.No)
                     {
-                        lockFields();
-                        populateFields();
+                        return;
+
                     }
                 }
-                else
-                {
-                    lockFields();
-                }
+                clearFields();
+                lockFields();
+                populateFields();
+
             }
+            TabIsGainingFocus();
         }
         /// <summary>
         /// Returns the list of actions in regards to the inventory Module
@@ -619,6 +623,7 @@ namespace Clear_Choice.Views
             {
                 MessageBox.Show("Inventory Item Object - " + msgCodes.GetString("M2101") + ex.Message, "Error - 2102", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+            TabIsGainingFocus();
         }
         /// <summary>
         /// Handles the event when an item is selected.
@@ -641,6 +646,7 @@ namespace Clear_Choice.Views
                     {
                         displayOrHideForm();
                     }
+                    TabIsGainingFocus();
                 }
                 catch (NullReferenceException)
                 {
