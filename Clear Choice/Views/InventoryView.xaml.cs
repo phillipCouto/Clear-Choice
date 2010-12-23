@@ -24,7 +24,7 @@ namespace Clear_Choice.Views
     /// <summary>
     /// Interaction logic for InventoryView.xaml
     /// </summary>
-    public partial class InventoryView : UserControl, ISTabContent
+    public partial class InventoryView : UserControl, ISTabView
     {
         private bool isFormHidden = false;
         private String saveBtnTxt = "Save Changes";
@@ -539,44 +539,6 @@ namespace Clear_Choice.Views
             }
         }
         /// <summary>
-        /// Handles the event of when the form visibility is changed.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void UserControl_IsVisibleChanged(object sender, System.Windows.DependencyPropertyChangedEventArgs e)
-        {
-            if (IsVisible)
-            {
-                if (isNewItem)
-                {
-                    MainWindow.setActionList(getNewItemActions());
-                }
-                else
-                {
-                    if (cmdSaveEdit.Content.Equals(unlockBtnTxt))
-                    {
-                        MainWindow.setActionList(getIventoryActions());
-                    }
-                    else
-                    {
-                        MainWindow.setActionList(getExistingItemActions());
-                    }
-                }
-                if (cmdSaveEdit.Content.Equals(unlockBtnTxt))
-                {
-                    loadInventory();
-                }
-            }
-            else
-            {
-                if (cmdSaveEdit.Content.Equals(unlockBtnTxt))
-                {
-                    itemRecords = null;
-                    inventoryGridView.ItemsSource = null;
-                }
-            }
-        }
-        /// <summary>
         /// Returns the list of actions in regards to the inventory Module
         /// </summary>
         /// <returns></returns>
@@ -602,7 +564,7 @@ namespace Clear_Choice.Views
 
         private void viewTransactions_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            MainWindow.OpenTab(new InventoryTransactionsView(), (Image)App.iconSet["symbol-transactions"], "Inventory Transactions");
+            MainWindow.OpenTab(new InventoryTransactionsView());
         }
         /// <summary>
         /// Returns the list of actions in regards to modifying an existing iventory item.
@@ -703,9 +665,9 @@ namespace Clear_Choice.Views
             }
         }
 
-        #region ISTabContent Members
+        #region ISTabView Members
 
-        public bool TabIsClosingCallBack()
+        public bool TabIsClosing()
         {
             if (cmdSaveEdit.Content.Equals(saveBtnTxt) && isFormDirty)
             {
@@ -729,9 +691,42 @@ namespace Clear_Choice.Views
             return true;
         }
 
-        public bool TabIsLosingFocusCallBack()
+        public bool TabIsLosingFocus()
         {
             return true;
+        }
+
+        public void TabIsGainingFocus()
+        {
+            if (isNewItem)
+            {
+                MainWindow.setActionList(getNewItemActions());
+            }
+            else
+            {
+                if (cmdSaveEdit.Content.Equals(unlockBtnTxt))
+                {
+                    MainWindow.setActionList(getIventoryActions());
+                }
+                else
+                {
+                    MainWindow.setActionList(getExistingItemActions());
+                }
+            }
+            if (cmdSaveEdit.Content.Equals(unlockBtnTxt))
+            {
+                loadInventory();
+            }
+        }
+
+        public string TabTitle()
+        {
+            return "Inventory";
+        }
+
+        public Image TabIcon()
+        {
+            return (Image)App.iconSet["symbol-inventory"];
         }
 
         #endregion

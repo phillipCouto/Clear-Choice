@@ -4,10 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:UIControls="clr-namespace:Stemstudios.UIControls;assembly=UIControls"
-             mc:Ignorable="d" 
-             xmlns:toolkit="http://schemas.microsoft.com/wpf/2008/toolkit"
-             d:DesignHeight="500" d:DesignWidth="500"
-             IsVisibleChanged="UserControl_IsVisibleChanged">
+             mc:Ignorable="d"
+             d:DesignHeight="500" d:DesignWidth="500">
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>

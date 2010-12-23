@@ -15,7 +15,7 @@ namespace Clear_Choice.Views
     /// <summary>
     /// Interaction logic for LotRepairsView.xaml
     /// </summary>
-    public partial class LotRepairsView : UserControl
+    public partial class LotRepairsView : UserControl,ISTabView
     {
         private Database db = Database.Instance;
         private Lot mLot;
@@ -58,7 +58,7 @@ namespace Clear_Choice.Views
                     LotRepairBinding obj = (LotRepairBinding)dgRepairs.SelectedCells[0].Item;
                     gridViewData.SeekToPrimaryKey(obj.repairID);
                     LotRepair repair = new LotRepair(gridViewData.GetRecordDataSet());
-                    MainWindow.OpenTab(new LotRepairView(repair, mLot), (Image)App.iconSet["symbol-repair"], repair.GetWorkOrder());
+                    MainWindow.OpenTab(new LotRepairView(repair, mLot));
                 }
             }
         }
@@ -72,25 +72,46 @@ namespace Clear_Choice.Views
             gridViewData = data;
         }
 
-        private void UserControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            if (IsVisible)
-            {
-                ArrayList actions = new ArrayList();
-                IconButton saveNewSiteBtn = new IconButton();
-                saveNewSiteBtn.Text = "Add New Repair";
-                saveNewSiteBtn.Source = (Image)App.iconSet["symbol-add"];
-                saveNewSiteBtn.MouseDown += new MouseButtonEventHandler(saveNewSiteBtn_MouseDown);
-                actions.Add(saveNewSiteBtn);
-
-                MainWindow.setActionList(actions);
-                LoadRepairs();
-            }
-        }
-
         private void saveNewSiteBtn_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            MainWindow.OpenTab(new LotRepairView(mLot), (Image)App.iconSet["symbol-repair"], "New Repair");
+            MainWindow.OpenTab(new LotRepairView(mLot));
         }
+
+        #region ISTabView Members
+
+        public bool TabIsClosing()
+        {
+            return true;
+        }
+
+        public bool TabIsLosingFocus()
+        {
+            return true;
+        }
+
+        public void TabIsGainingFocus()
+        {
+            ArrayList actions = new ArrayList();
+            IconButton saveNewSiteBtn = new IconButton();
+            saveNewSiteBtn.Text = "Add New Repair";
+            saveNewSiteBtn.Source = (Image)App.iconSet["symbol-add"];
+            saveNewSiteBtn.MouseDown += new MouseButtonEventHandler(saveNewSiteBtn_MouseDown);
+            actions.Add(saveNewSiteBtn);
+
+            MainWindow.setActionList(actions);
+            LoadRepairs();
+        }
+
+        public string TabTitle()
+        {
+            return mLot.LotDisplayName() + " Repairs";
+        }
+
+        public Image TabIcon()
+        {
+            return (Image)App.iconSet["symbol-repair"];
+        }
+
+        #endregion
     }
 }

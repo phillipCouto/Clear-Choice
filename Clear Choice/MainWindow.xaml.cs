@@ -63,6 +63,20 @@ namespace ClearChoice
                 mainTabControl.SelectTab(newTab);
             }
         }
+        public static void OpenTab(ISTabView tab)
+        {
+            STabItem newTab = new STabItem(tab.TabTitle(), tab.TabIcon());
+            newTab.Name = "Tab" + ((UserControl)tab).Name;
+            newTab.TabContent = (UserControl)tab;
+            if (!mainTabControl.TabAlreadyOpen(newTab))
+            {
+                mainTabControl.AddTab(newTab);
+            }
+            else
+            {
+                mainTabControl.SelectTab(newTab);
+            }
+        }
         /// <summary>
         /// Sets the Action List for the current Tab
         /// </summary>

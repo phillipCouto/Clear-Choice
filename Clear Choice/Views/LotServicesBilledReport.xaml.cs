@@ -19,7 +19,7 @@ namespace Clear_Choice.Views
     /// <summary>
     /// Interaction logic for InventoryRecordReport.xaml
     /// </summary>
-    public partial class LotServicesBilledReport : UserControl
+    public partial class LotServicesBilledReport : UserControl,ISTabView
     {
         private Database db = Database.Instance;
         private DataSet itemRecords = null;
@@ -66,14 +66,6 @@ namespace Clear_Choice.Views
                         dgHours.Columns[index].Header = textMap[headerText];
                     }
                 }
-            }
-        }
-
-        private void UserControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            if (IsVisible)
-            {
-                MainWindow.setActionList(Print());
             }
         }
 
@@ -131,6 +123,35 @@ namespace Clear_Choice.Views
                 }
             }
         }
+
+        #region ISTabView Members
+
+        public bool TabIsClosing()
+        {
+            return true;
+        }
+
+        public bool TabIsLosingFocus()
+        {
+            return true;
+        }
+
+        public void TabIsGainingFocus()
+        {
+            MainWindow.setActionList(Print());
+        }
+
+        public string TabTitle()
+        {
+            return "Lot Services Billed";
+        }
+
+        public Image TabIcon()
+        {
+            return (Image)App.iconSet["check-icon"];
+        }
+
+        #endregion
     }
 }
 

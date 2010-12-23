@@ -112,6 +112,11 @@ namespace Stemstudios.UIControls
                 //Change the Internal SelectedTab postion and select the passed tab.
                 SelectedTab = index;
                 ((STabItem)TabHeaders.Children[SelectedTab]).IsSelected = true;
+
+                if (tab.TabContent is ISTabView)
+                {
+                    ((ISTabView)tab.TabContent).TabIsGainingFocus();
+                }
             }
             
         }
@@ -212,16 +217,19 @@ namespace Stemstudios.UIControls
         /// <param name="e"></param>
         private void TabItemClicked(Object sender,MouseEventArgs e)
         {
-            //Get the Tabs index using the sender object and issuing a Selection Change
-            int index = TabHeaders.Children.IndexOf((STabItem)sender);
-            if (((STabItem)TabHeaders.Children[SelectedTab]).TabContent is ISTabContent)
+            if (e.LeftButton == MouseButtonState.Pressed)
             {
-                if (!((ISTabContent)((STabItem)TabHeaders.Children[SelectedTab]).TabContent).TabIsLosingFocusCallBack())
+                //Get the Tabs index using the sender object and issuing a Selection Change
+                int index = TabHeaders.Children.IndexOf((STabItem)sender);
+                if (((STabItem)TabHeaders.Children[SelectedTab]).TabContent is ISTabView)
                 {
-                    return;
+                    if (!((ISTabView)((STabItem)TabHeaders.Children[SelectedTab]).TabContent).TabIsLosingFocus())
+                    {
+                        return;
+                    }
                 }
+                SelectTab((STabItem)TabHeaders.Children[index]);
             }
-            SelectTab((STabItem)TabHeaders.Children[index]);
         }
         /// <summary>
         /// Handles the closing event sent by the STabIcon
@@ -231,9 +239,14 @@ namespace Stemstudios.UIControls
         private void TabItemClosing(Object sender, EventArgs e)
         {
             //Get the Tabs index using the sender object and issuing a Selection Change
-            Database.Instance.RollbackTransaction();
             int index = TabHeaders.Children.IndexOf((STabItem)sender);
-            RemoveTab((STabItem)TabHeaders.Children[index]);
+            if (((STabItem)sender).TabContent is ISTabView)
+            {
+                if (((ISTabView)((STabItem)sender).TabContent).TabIsClosing())
+                {
+                    RemoveTab((STabItem)TabHeaders.Children[index]);
+                }
+            }
         }
         /// <summary>
         /// Returns the STabItem associated with the Name provided.
