@@ -154,9 +154,17 @@ namespace Stemstudios.DataAccessLayer.DataObjects
                     UpdateAuditEvent(db);
 
                 }
+                foreach (String column in PrimaryKeyColumns)
+                {
+                    if (updates.ContainsKey(column))
+                    {
+                        data.SetCellValue(0, column, updates[column]);
+                    }
+                }
                 updates.Clear();
             }
-            data = db.Select("*", data.GetTableName(), whereBuilder.ToString());
+            ReloadObject();
+            //data = db.Select("*", data.GetTableName(), whereBuilder.ToString());
         }
         /// <summary>
         /// If this Data object is not a new object the DataObject will rebuild the where statement and reload it's dataset.
@@ -187,6 +195,7 @@ namespace Stemstudios.DataAccessLayer.DataObjects
                         whereBuilder.Append("'" + data.getString(column) + "'");
                     }
                 }
+
                 data = Database.Instance.Select("*", data.GetTableName(), whereBuilder.ToString());
             }
         }

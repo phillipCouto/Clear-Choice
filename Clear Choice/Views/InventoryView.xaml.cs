@@ -356,6 +356,7 @@ namespace Clear_Choice.Views
                             isNewItem = false;
                             lockFields();
                             loadInventory();
+                            populateFields();
                         }
                         catch (Exception ex)
                         {
@@ -388,31 +389,14 @@ namespace Clear_Choice.Views
             if (isNewItem)
             {
                 where.Append(InventoryItem.Fields.itemID.ToString() + " = '" + txtItemID.Text.ToUpper() + "'");
-                where.Append(" OR " + InventoryItem.Fields.ItemName.ToString() + " = '" + txtItemName.Text.ToUpper() + "'");
+                where.Append(" AND " + InventoryItem.Fields.ItemName.ToString() + " = '" + txtItemName.Text.ToUpper() + "'");
             }
             else
             {
-                if (!txtItemID.Text.Equals(mSelectedItem.getItemID()) && !txtItemName.Text.Equals(mSelectedItem.getItemName()))
-                {
                     where.Append(InventoryItem.Fields.itemID.ToString() + " = '" + txtItemID.Text.ToUpper() + "'");
-                    where.Append(" OR " + InventoryItem.Fields.ItemName.ToString() + " = '" + txtItemName.Text.ToUpper() + "'");
+                    where.Append(" AND " + InventoryItem.Fields.ItemName.ToString() + " = '" + txtItemName.Text.ToUpper() + "'");
                     where.Append(" AND " + InventoryItem.Fields.itemID.ToString() + " != '" + mSelectedItem.getItemID() + "'");
                     where.Append(" AND " + InventoryItem.Fields.ItemName.ToString() + " != '" + mSelectedItem.getItemName() + "'");
-                }
-                else if (!txtItemID.Text.Equals(mSelectedItem.getItemID()))
-                {
-                    where.Append(InventoryItem.Fields.itemID.ToString() + " = '" + txtItemID.Text.ToUpper() + "'");
-                    where.Append(" AND " + InventoryItem.Fields.itemID.ToString() + " != '" + mSelectedItem.getItemID() + "'");
-                }
-                else if (!txtItemName.Text.Equals(mSelectedItem.getItemName()))
-                {
-                    where.Append(InventoryItem.Fields.ItemName.ToString() + " = '" + txtItemName.Text.ToUpper() + "'");
-                    where.Append(" AND " + InventoryItem.Fields.ItemName.ToString() + " != '" + mSelectedItem.getItemName() + "'");
-                }
-                else
-                {
-                    return true;
-                }
             }
             try
             {

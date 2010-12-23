@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Clear Choice.exe" size="1703936">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Clear Choice.exe" size="1703424">
       <assemblyIdentity name="Clear Choice" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>Wkhud6B63ef16VOGbQsh83em2ME=</dsig:DigestValue>
+        <dsig:DigestValue>XY2OWEn5TSqK2NFAyKCKTJ71Rq0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -62,7 +62,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>XrjU3AwI/PlVPG8Vk8/46dyYtrU=</dsig:DigestValue>
+        <dsig:DigestValue>P5mGeHm6UWBf+zlj2w3gkJAYpak=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -98,7 +98,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>saQ7/7Kt1csCqYx+6ESY8lYkP60=</dsig:DigestValue>
+        <dsig:DigestValue>r0iv8e6v/L/wLh/q5YPOHUWfBLI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

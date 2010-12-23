@@ -674,6 +674,17 @@ namespace Stemstudios.DataAccessLayer
         {
             dataSet[row, column] = value;
         }
+        /// <summary>
+        /// Sets value without type checking. Do not use this method unless the Data Type is verified!
+        /// </summary>
+        /// <param name="row"></param>
+        /// <param name="column"></param>
+        /// <param name="value"></param>
+        public void SetCellValue(int row, String column, Object value)
+        {
+            int col = Int32.Parse(fields[column].ToString());
+            SetCellValue(row, col, value);
+        }
 
         /// <summary>
         /// Adds a String to the DataSet
