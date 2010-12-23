@@ -25,6 +25,7 @@ namespace Clear_Choice.Views
         private bool isNewTransaction = true;
         private bool isTransactionModified = false;
         private bool isItemModified = true;
+        private bool isItemNew = false;
         private bool isFormHidden = false;
         private bool isRestock = false;
         private bool isTransactionLocked = false;
@@ -81,7 +82,7 @@ namespace Clear_Choice.Views
             mTransaction = new InventoryTransaction("0");
             mTransaction.SetClientType(InventoryTransaction.ClientType.Inventory);
         }
-        
+
         public InventoryTransactionView(InventoryTransaction transaction)
         {
             InitializeComponent();
@@ -89,17 +90,23 @@ namespace Clear_Choice.Views
             isNewTransaction = false;
             displayOrHideForm();
             lockItemFields();
+            mTransaction = transaction;
+            LoadTransaction();
+
+        }
+        private void LoadTransaction()
+        {
             ClearFields();
             try
             {
-                if (transaction.GetClientType().Equals(InventoryTransaction.ClientType.Inventory))
+                if (mTransaction.GetClientType().Equals(InventoryTransaction.ClientType.Inventory))
                 {
                     isRestock = true;
                     txtReciever.Text = "Inventory";
                 }
                 else
                 {
-                    DataSet data = db.Select("*", Site.Table, Site.Fields.siteID.ToString() + " = '" + transaction.GetAssocID() + "'");
+                    DataSet data = db.Select("*", Site.Table, Site.Fields.siteID.ToString() + " = '" + mTransaction.GetAssocID() + "'");
                     if (data.NumberOfRows() > 0)
                     {
                         data.Read();
@@ -108,7 +115,7 @@ namespace Clear_Choice.Views
                     }
                     else
                     {
-                        data = db.Select("*", Lot.Table, Lot.Fields.lotID.ToString() + " = '" + transaction.GetAssocID() + "'");
+                        data = db.Select("*", Lot.Table, Lot.Fields.lotID.ToString() + " = '" + mTransaction.GetAssocID() + "'");
                         if (data.NumberOfRows() > 0)
                         {
                             data.Read();
@@ -122,7 +129,6 @@ namespace Clear_Choice.Views
             {
                 MessageBox.Show("Loading Transaction Failed - " + msgCodes.GetString("M2102") + ex.Message, "Error - 2102", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            mTransaction = transaction;
             isTransactionLocked = true;
             dpTransactionDate.Text = mTransaction.GetDateOfTransaction().ToShortDateString();
             dpTransactionDate.IsReadOnly = true;
@@ -252,6 +258,7 @@ namespace Clear_Choice.Views
             InventoryItemSelector selector = new InventoryItemSelector();
             selector.ObjectSelected += new RoutedEventHandler(selector_ObjectSelected);
             selector.ShowDialog();
+            isItemNew = true;
         }
 
         private void selector_ObjectSelected(object sender, RoutedEventArgs e)
@@ -338,6 +345,8 @@ namespace Clear_Choice.Views
             amtTotalValue.Foreground = foreGround;
             amtTotalValue.Background = backGround;
 
+            isItemNew = false;
+
         }
 
         private void unlockItemFields()
@@ -368,15 +377,25 @@ namespace Clear_Choice.Views
                     MessageBoxResult res = MessageBox.Show("Cancel New Transaction - " + msgCodes.GetString("M3204"), "Warning - 3204", MessageBoxButton.YesNo, MessageBoxImage.Warning);
                     if (res == MessageBoxResult.Yes)
                     {
-                        MainWindow.RemoveTab(this.Name);
                         Database.Instance.RollbackTransaction();
+                        MainWindow.RemoveTab(this.Name);
+
                     }
                 }
                 else
                 {
                     MainWindow.RemoveTab(this.Name);
                     Database.Instance.RollbackTransaction();
+
                 }
+            }
+            else
+            {
+                Database.Instance.RollbackTransaction();
+                LoadTransaction();
+                lockItemFields();
+                displayOrHideForm();
+                this.TabIsGainingFocus();
             }
         }
 
@@ -387,34 +406,35 @@ namespace Clear_Choice.Views
             {
                 res = MessageBox.Show("Saving New Transaction - " + msgCodes.GetString("M3201"), "Warning - 3201", MessageBoxButton.YesNo, MessageBoxImage.Warning);
             }
-            else{
+            else
+            {
                 res = MessageBox.Show("Saving Transaction Modifications - " + msgCodes.GetString("M3202"), "Warning - 3201", MessageBoxButton.YesNo, MessageBoxImage.Warning);
             }
             if (res == MessageBoxResult.Yes)
             {
-                    try
+                try
+                {
+                    SetTransactionData();
+                    mTransaction.SaveObject(db);
+                    db.CommitTransaction();
+                    dpTransactionDate.IsReadOnly = true;
+                    isTransactionLocked = true;
+                    isNewTransaction = false;
+                    ClearFields();
+                    if (!isFormHidden)
                     {
-                        SetTransactionData();
-                        mTransaction.SaveObject(db);
-                        db.CommitTransaction();
-                        dpTransactionDate.IsReadOnly = true;
-                        isTransactionLocked = true;
-                        isNewTransaction = false;
-                        ClearFields();
-                        if (!isFormHidden)
-                        {
-                            displayOrHideForm();
-                        }
-                        String oldName = this.Name;
-                        this.Name = "TransactionView" + mTransaction.GetTransactionID();
-                        MainWindow.UpdateTabTitle(oldName, mTransaction.GetTransactionID()+": " + dpTransactionDate.SelectedDate.ToShortDateString(), this.Name);
+                        displayOrHideForm();
                     }
-                    catch (Exception ex)
-                    {
-                        db.RollbackTransaction();
-                        MessageBox.Show("Committing Transaction - " + msgCodes.GetString("M2102") + ex.Message, "Error - 2102", MessageBoxButton.OK, MessageBoxImage.Error);
-                    }
-                
+                    String oldName = this.Name;
+                    this.Name = "TransactionView" + mTransaction.GetTransactionID();
+                    MainWindow.UpdateTabTitle(oldName, mTransaction.GetTransactionID() + ": " + dpTransactionDate.SelectedDate.ToShortDateString(), this.Name);
+                }
+                catch (Exception ex)
+                {
+                    db.RollbackTransaction();
+                    MessageBox.Show("Committing Transaction - " + msgCodes.GetString("M2102") + ex.Message, "Error - 2102", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+
             }
             this.TabIsGainingFocus();
         }
@@ -450,6 +470,7 @@ namespace Clear_Choice.Views
 
         private void LoadDateGrid()
         {
+            mTransactionItems.Clear();
             try
             {
                 DataSet data = db.Select("inventory_item_transactions.*,inventory_items.ItemName", "inventory_items LEFT JOIN inventory_item_transactions ON inventory_items.itemID = inventory_item_transactions.itemID", InventoryTransactionItem.Fields.transactionID.ToString() + " = '" + mTransaction.GetTransactionID() + "'");
@@ -579,27 +600,42 @@ namespace Clear_Choice.Views
             }
             else
             {
-                MessageBox.Show("Transaction is locked. Please unlock the transaction to modify it.","Transaction Locked",MessageBoxButton.OK,MessageBoxImage.Warning);
+                MessageBox.Show("Transaction is locked. Please unlock the transaction to modify it.", "Transaction Locked", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
 
         private void cmdCancelItem_Click(object sender, RoutedEventArgs e)
         {
-            if (isItemModified)
+            if (isItemNew)
             {
-                MessageBoxResult res = MessageBox.Show("Are you sure you want to cancel changes to this item?", "Cancel Changes", MessageBoxButton.YesNo, MessageBoxImage.Exclamation);
-                if (res == MessageBoxResult.Yes)
+                if (isItemModified)
                 {
-                    ClearFields();
-                    displayOrHideForm();
-                    mTransactionItems.Remove(mTransactionItem.GetItemID());
+                    MessageBoxResult res = MessageBox.Show("Cancel New Item - " + msgCodes.GetString("M3204"), "Warning - 3204", MessageBoxButton.YesNo, MessageBoxImage.Exclamation);
+                    if (res == MessageBoxResult.No)
+                    {
+                        return;
+                    }
                 }
-            }
-            else
-            {
                 ClearFields();
                 displayOrHideForm();
                 mTransactionItems.Remove(mTransactionItem.GetItemID());
+
+            }
+            else
+            {
+                if (isItemModified)
+                {
+                    MessageBoxResult res = MessageBox.Show("Cancel Item Changes - " + msgCodes.GetString("M3205"), "Warning - 3205", MessageBoxButton.YesNo, MessageBoxImage.Exclamation);
+                    if (res == MessageBoxResult.No)
+                    {
+                        return;
+                    }
+                }
+                ClearFields();
+                SelectedItem();
+                lockItemFields();
+                txtQuantity.Text = "" + mTransactionItem.GetQuantity();
+                
             }
         }
 
