@@ -401,6 +401,17 @@ namespace Clear_Choice.Views
 
         private void saveNewTransaction_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            if (dpTransactionDate.SelectedDate.Equals(DateTime.MinValue) || dgTransactionItems.ItemsSource == null ||  dpTransactionDate.Text.Length < 1)
+            {
+                MessageBox.Show("Missing Items or Date - " + msgCodes.GetString("M1101"), "Error - 1101", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            else
+                if (dgTransactionItems.Items.Count == 0)
+                {
+                                    MessageBox.Show("Missing Items or Date - " + msgCodes.GetString("M1101"), "Error - 1101", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+                }
             MessageBoxResult res;
             if (isNewTransaction)
             {
@@ -459,7 +470,7 @@ namespace Clear_Choice.Views
             if (!isTransactionModified && !dpTransactionDate.SelectedDate.Equals(DateTime.MinValue) && dgTransactionItems.ItemsSource != null)
             {
                 isTransactionModified = true;
-                this.TabIsGainingFocus();
+                TabIsGainingFocus();
             }
         }
 
