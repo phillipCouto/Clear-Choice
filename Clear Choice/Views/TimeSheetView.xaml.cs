@@ -138,6 +138,10 @@ namespace Clear_Choice.Views
                             MessageBox.Show("Saving Time Sheet - " + msgCodes.GetString("M2102") + ex.Message, "Error - 2102", MessageBoxButton.OK, MessageBoxImage.Error);
                         }
                     }
+                    else
+                    {
+                        MessageBox.Show("Duplicate Time Sheet - " + msgCodes.GetString("M3203") + " Name, Job Code, and Date", "Warning - 3103", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    }
                 }
             }
             else
