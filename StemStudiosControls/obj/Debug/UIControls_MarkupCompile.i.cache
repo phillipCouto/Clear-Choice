@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 
-91894507427
+10441958087
 
-141918760672
+15752636215
 162073270838
-ActionList.xaml;CategoryExpander.xaml;SComboBox.xaml;SNumberBox.xaml;IconButton.xaml;SDatePicker.xaml;STabControl.xaml;STabItem.xaml;Themes\Generic.xaml;
+ActionList.xaml;CategoryExpander.xaml;SComboBox.xaml;SNumberBox.xaml;IconButton.xaml;SDatePicker.xaml;SPhoneField.xaml;STabControl.xaml;STabItem.xaml;Themes\Generic.xaml;
 
 True
 

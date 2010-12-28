@@ -70,8 +70,14 @@ namespace Stemstudios.DataAccessLayer
         /// <returns></returns>
         public static Boolean PhoneNumberCheck(String value)
         {
-            Regex exp = new Regex("\\(\\d{3}\\)\\s\\d{3}-\\d{4}");
-            return exp.IsMatch(value);
+            foreach (Char c in value.ToCharArray())
+            {
+                if (!Char.IsDigit(c))
+                {
+                    return false;
+                }
+            }
+            return true;
         }
        
         /// <summary>

@@ -122,6 +122,9 @@
     <Compile Include="SDatePicker.xaml.cs">
       <DependentUpon>SDatePicker.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SPhoneField.xaml.cs">
+      <DependentUpon>SPhoneField.xaml</DependentUpon>
+    </Compile>
     <Compile Include="STabControl.xaml.cs">
       <DependentUpon>STabControl.xaml</DependentUpon>
     </Compile>
@@ -175,6 +178,10 @@
       <Generator>MSBuild:Compile</Generator>
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SPhoneField.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="STabControl.xaml">
       <Generator>MSBuild:Compile</Generator>

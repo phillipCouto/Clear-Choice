@@ -164,7 +164,7 @@ namespace ClearChoice.Views
         {
             txtStreet.Text = mClient.GetAddress();
             txtCity.Text = mClient.GetCity();
-            txtContactNumber.Text = mClient.GetPhoneNumber();
+            txtContactNumber.PhoneNumber = mClient.GetPhoneNumber();
             txtEmail.Text = mClient.GetEmailAddress();
             txtName.Text = mClient.GetName();
             txtPostalCode.Text = mClient.GetPostalCode();
@@ -313,9 +313,9 @@ namespace ClearChoice.Views
             {
                 mClient.ClearField(Client.Fields.PostalCode.ToString());
             }
-            if (txtContactNumber.Text.Length > 0)
+            if (txtContactNumber.PhoneNumber.Length > 0)
             {
-                int code = mClient.SetPhoneNumber(txtContactNumber.Text.ToUpper());
+                int code = mClient.SetPhoneNumber(txtContactNumber.PhoneNumber);
                 if (code > 0)
                 {
                     MessageBox.Show("Field 'Phone Number' - " + msgCodes.GetString("M" + code), "ERROR - " + code, MessageBoxButton.OK, MessageBoxImage.Error);
