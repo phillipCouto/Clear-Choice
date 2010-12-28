@@ -89,9 +89,11 @@ namespace Clear_Choice.Views
             {
                 String title = "Lot Labour Cost Report";
                 ArrayList currenyField = new ArrayList();
+                ArrayList hiddenColumns = new ArrayList();
+                hiddenColumns.Add(Lot.Fields.lotID.ToString());
                 currenyField.Add("LabourCost");
 
-                FlowDocument doc = itemRecords.GetFlowDocument(title, null, LotLabourCostsBinding.GetDisplayTextMap(), currenyField);
+                FlowDocument doc = itemRecords.GetFlowDocument(title, hiddenColumns, LotLabourCostsBinding.GetDisplayTextMap(), currenyField);
 
                 DocumentPreviewer preview = new DocumentPreviewer(doc, title);
                 preview.ShowDialog();

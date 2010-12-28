@@ -164,7 +164,7 @@ namespace Clear_Choice.Views
                 }
                 try
                 {
-                    DataSet data = db.Select("*", Site.Table, Site.Fields.SiteEmail.ToString() + " = '" + txtSiteEmail.Text + "'");
+                    DataSet data = db.Select("*", Site.Table, Site.Fields.SiteEmail.ToString() + " = '" + txtSiteEmail.Text + "' AND "+Site.Fields.siteID.ToString()+" != '"+mSite.GetSiteID()+"'");
                     if (data.NumberOfRows() > 0)
                     {
                         MessageBox.Show("Field 'Site Email' - " + msgCodes.GetString("M1109"), "Error - 1109", MessageBoxButton.OK, MessageBoxImage.Error);

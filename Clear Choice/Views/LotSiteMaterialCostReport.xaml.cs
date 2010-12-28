@@ -110,6 +110,8 @@ namespace Clear_Choice.Views
                 ArrayList hideFields = new ArrayList();
                 ArrayList currenyField = new ArrayList();
                 currenyField.Add("TotalValue");
+                hideFields.Add(Lot.Fields.lotID.ToString());
+                hideFields.Add(Site.Fields.siteID.ToString());
                 FlowDocument doc;
                 if(cmboType.SelectedItem.Equals(builderItem))
                 {

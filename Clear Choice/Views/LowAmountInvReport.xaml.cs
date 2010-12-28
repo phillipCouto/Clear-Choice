@@ -107,13 +107,10 @@ try
                 String title = "Low Amount Report";
                 ArrayList hideFields = new ArrayList();
                 ArrayList currenyField = new ArrayList();
-                hideFields.Add("itemID");
                 hideFields.Add("ItemDescription");
-                hideFields.Add("lastModified");
-                hideFields.Add("modifiedBy");
 
                 //works but wrong binding:S
-                FlowDocument doc = itemRecords.GetFlowDocument(title, hideFields, Time_SheetBinding.GetDisplayTextMap(), currenyField);
+                FlowDocument doc = itemRecords.GetFlowDocument(title, hideFields, InventoryItemBinding.getDisplayTextMap(), currenyField);
 
                 DocumentPreviewer preview = new DocumentPreviewer(doc, title);
                 preview.ShowDialog();
