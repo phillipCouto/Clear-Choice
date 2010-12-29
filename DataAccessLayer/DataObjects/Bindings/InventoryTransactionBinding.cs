@@ -12,6 +12,8 @@ namespace Stemstudios.DataAccessLayer.DataObjects.Bindings
         [BindableProperty]
         public String transactionID { get; set; }
         [BindableProperty]
+        public String Name { get; set; }
+        [BindableProperty]
         public String DateOfTransaction { get; set; }
         [BindableProperty]
         public String TotalValue{get;set;}
@@ -25,6 +27,7 @@ namespace Stemstudios.DataAccessLayer.DataObjects.Bindings
             textmap.Add("TotalValue", "Total Value");
             textmap.Add("TotalQuantity", "Total Quantity");
             textmap.Add("transactionID", "Transaction ID");
+            textmap.Add("Name", "Recieved By");
             return textmap;
         }
     }

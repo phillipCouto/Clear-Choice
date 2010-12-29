@@ -93,7 +93,7 @@ namespace Clear_Choice.Windows
 
         private void LoadLots()
         {
-            DataSet data = db.Select("lots.*,clients.Name", "clients LEFT JOIN lots ON clients.clientID = lots.assocID", "clients.ClientType = 1", "clients.Name ASC");
+            DataSet data = db.Select("lots.*,clients.Name", "lots,clients", "clients.clientID = lots.assocID AND clients.ClientType = 1", "clients.Name ASC");
             Collection<LotSelectorBinding> gridData = data.getBindableCollection<LotSelectorBinding>();
             dgSitesOrLots.ItemsSource = gridData;
             dataGridDisplayText = LotSelectorBinding.getdisplayTextMap();

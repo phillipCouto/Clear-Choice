@@ -471,51 +471,53 @@ namespace Stemstudios.DataAccessLayer
                         {
                             MethodInfo setMethod = property.GetSetMethod();
                             Object[] parameters = new Object[1];
+                            if (fields.ContainsKey(property.Name))
+                            {
+                                if (GetColoumnDataType(property.Name).Equals(typeof(Int32)))
+                                { parameters[0] = getInt(property.Name); }
+                                else if (GetColoumnDataType(property.Name).Equals(typeof(Boolean)))
+                                { parameters[0] = this.getBoolean(property.Name); }
+                                else if (GetColoumnDataType(property.Name).Equals(typeof(DateTime)))
+                                {
+                                    if (getDateTime(property.Name).Equals(DateTime.MinValue))
+                                    {
+                                        parameters[0] = "";
+                                    }
+                                    else
+                                    {
+                                        parameters[0] = this.getDateTime(property.Name).ToShortDateString();
+                                    }
+                                }
+                                else if (GetColoumnDataType(property.Name).Equals(typeof(Double)))
+                                {
+                                    if (property.PropertyType.Name.Equals("String"))
+                                    {
+                                        parameters[0] = "$" + getDouble(property.Name).ToString("#0.00");
+                                    }
+                                    else
+                                    {
+                                        parameters[0] = this.getDouble(property.Name);
+                                    }
+                                }
+                                else if (GetColoumnDataType(property.Name).Equals(typeof(float)))
+                                {
+                                    if (property.PropertyType.Name.Equals("String"))
+                                    {
+                                        parameters[0] = "$" + getFloat(property.Name).ToString("#0.00");
+                                        ;
+                                    }
+                                    else
+                                    {
+                                        parameters[0] = this.getFloat(property.Name);
+                                    }
+                                }
+                                else if (GetColoumnDataType(property.Name).Equals(typeof(Int64)))
+                                { parameters[0] = this.getLong(property.Name); }
+                                else
+                                { parameters[0] = getString(property.Name); }
 
-                            if (GetColoumnDataType(property.Name).Equals(typeof(Int32)))
-                            {parameters[0] = getInt(property.Name);}
-                            else if (GetColoumnDataType(property.Name).Equals(typeof(Boolean)))
-                            { parameters[0] = this.getBoolean(property.Name); }
-                            else if (GetColoumnDataType(property.Name).Equals(typeof(DateTime)))
-                            {
-                                if (getDateTime(property.Name).Equals(DateTime.MinValue))
-                                {
-                                    parameters[0] = "";
-                                }
-                                else
-                                {
-                                    parameters[0] = this.getDateTime(property.Name).ToShortDateString();
-                                }
+                                setMethod.Invoke(data, parameters);
                             }
-                            else if (GetColoumnDataType(property.Name).Equals(typeof(Double)))
-                            {
-                                if (property.PropertyType.Name.Equals("String"))
-                                {
-                                    parameters[0] = "$" + getDouble(property.Name).ToString("#0.00");
-                                }
-                                else
-                                {
-                                    parameters[0] = this.getDouble(property.Name);
-                                }
-                            }
-                            else if (GetColoumnDataType(property.Name).Equals(typeof(float)))
-                            {
-                                if (property.PropertyType.Name.Equals("String"))
-                                {
-                                    parameters[0] = "$"+getFloat(property.Name).ToString("#0.00");
-;
-                                }
-                                else
-                                {
-                                    parameters[0] = this.getFloat(property.Name);
-                                }
-                            }
-                            else if (GetColoumnDataType(property.Name).Equals(typeof(Int64)))
-                            { parameters[0] = this.getLong(property.Name); }
-                            else
-                            {parameters[0] = getString(property.Name);}
-
-                            setMethod.Invoke(data, parameters);
                         }
                     }
                 }
