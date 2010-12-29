@@ -13,7 +13,7 @@ namespace Stemstudios.UIControls
         private float mAmount = 0;
         private bool isCurrency = true;
 
-        public static readonly RoutedEvent TextChangedEvent = EventManager.RegisterRoutedEvent("TextChanged", RoutingStrategy.Bubble, typeof(TextChangedEventHandler), typeof(SNumberBox));
+        public static readonly RoutedEvent TextChangedEvent = EventManager.RegisterRoutedEvent("SNumberBox.TextChanged", RoutingStrategy.Bubble, typeof(TextChangedEventHandler), typeof(SNumberBox));
 
         public event TextChangedEventHandler TextChanged
         {

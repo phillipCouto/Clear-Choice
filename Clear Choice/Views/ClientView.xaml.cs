@@ -168,7 +168,7 @@ namespace ClearChoice.Views
             txtEmail.Text = mClient.GetEmailAddress();
             txtName.Text = mClient.GetName();
             txtPostalCode.Text = mClient.GetPostalCode();
-            txtFaxNumber.Text = mClient.GetFaxNumber();
+            txtFaxNumber.PhoneNumber = mClient.GetFaxNumber();
             this.Name = "ClientView" + mClient.GetClientID();
             this.cmbTypeOfClient.SelectedIndex = mClient.GetClientType();
             modified = false;
@@ -326,9 +326,9 @@ namespace ClearChoice.Views
             {
                 mClient.ClearField(Client.Fields.PhoneNumber.ToString());
             }
-            if (txtFaxNumber.Text.Length > 0)
+            if (txtFaxNumber.PhoneNumber.Length > 0)
             {
-                int code = mClient.SetFaxNumber(txtFaxNumber.Text.ToUpper());
+                int code = mClient.SetFaxNumber(txtFaxNumber.PhoneNumber);
                 if (code > 0)
                 {
                     MessageBox.Show("Field 'Fax Number' - " + msgCodes.GetString("M" + code), "ERROR - " + code, MessageBoxButton.OK, MessageBoxImage.Error);

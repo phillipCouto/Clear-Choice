@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Clear Choice.exe" size="1704960">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Clear Choice.exe" size="1705472">
       <assemblyIdentity name="Clear Choice" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>iKpsykRdVvH29UHWKKqmSyzSjts=</dsig:DigestValue>
+        <dsig:DigestValue>zxFeLBSMnxIgWifOGxq7HazmNKo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -62,7 +62,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>eznaTlKa+H6vPcSyaVHamNNhxJo=</dsig:DigestValue>
+        <dsig:DigestValue>/37Si6BVQPocZbvpqYrJVbGz8XQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -74,7 +74,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>7/9/vJOUqMRsPDulZ/WPOGnEFSA=</dsig:DigestValue>
+        <dsig:DigestValue>4COnPLQVKtNDMl/t2uJ2TMOydDI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -98,17 +98,17 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>zbNygVNrIWd2On+LurY/3kB0pIk=</dsig:DigestValue>
+        <dsig:DigestValue>woxksw1Wp6mrK65pSQxImpOEToI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="Clear Choice.exe.config" size="159">
+  <file name="Clear Choice.exe.config" size="201">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>1MarUy3RuVvHLdw5ozZo3o7j39I=</dsig:DigestValue>
+      <dsig:DigestValue>bRXOLgMYCpcr8dZv9lHjsQ1bPlI=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Resources\logo2.ico" size="16958">

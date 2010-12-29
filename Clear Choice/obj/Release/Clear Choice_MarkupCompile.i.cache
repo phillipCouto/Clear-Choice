@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Release\
 Clear_Choice
 none
 false
-DEBUG;TRACE
+TRACE
 
 35741735962
 4804764823
 321739690295
-20-1766158592
+201947969945
 App.xaml;MainWindow.xaml;Resources\Brushes.xaml;Resources\IconSet.xaml;Resources\Views\InventoryTransactionViewDict.xaml;Resources\Views\InventoryViewDict.xaml;Resources\Views\LotExtraViewDict.xaml;Resources\Views\TimeSheetViewDict.xaml;Views\LotLabourCostReport.xaml;Views\CityReport.xaml;Views\ClientsView.xaml;Views\ClientView.xaml;Views\LotSiteMaterialCostReport.xaml;Views\HomeView.xaml;Views\IncompleteLotsReport.xaml;Views\InventoryTransactionsView.xaml;Views\InventoryTransactionView.xaml;Views\InventoryView.xaml;Views\CompletedLotsReport.xaml;Views\LotExtraView.xaml;Views\LotRepairsView.xaml;Views\LotRepairView.xaml;Views\LotView.xaml;Views\LowAmountInvReport.xaml;Views\ScheduledRepairsView.xaml;Views\SiteView.xaml;Resources\Theme.xaml;Views\TimeSheetView.xaml;Views\LotServicesBilledReport.xaml;Views\LotExtrasBilledReport.xaml;Windows\DocumentPreviewer.xaml;Windows\GeneratedPasswordDisplay.xaml;Windows\InventoryItemSelector.xaml;Windows\LotRepairActionWindow.xaml;Windows\SiteLotSelector.xaml;
 
 False

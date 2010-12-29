@@ -208,9 +208,9 @@ namespace Clear_Choice.Views
             {
                 mSite.ClearField(Site.Fields.InspectorOffice.ToString());
             }
-            if (txtInspectorOfficeNumber.Text.Length > 0)
+            if (txtInspectorOfficeNumber.PhoneNumber.Length > 0)
             {
-                int code = mSite.SetInspectorOfficeNumber(txtInspectorOfficeNumber.Text.ToUpper());
+                int code = mSite.SetInspectorOfficeNumber(txtInspectorOfficeNumber.PhoneNumber);
                 if (code > 0)
                 {
                     MessageBox.Show("Field 'inspector Office Number' - " + msgCodes.GetString("M" + code), "Error - " + code, MessageBoxButton.OK, MessageBoxImage.Error);
@@ -221,9 +221,9 @@ namespace Clear_Choice.Views
             {
                 mSite.ClearField(Site.Fields.InspectorOfficePhone.ToString());
             }
-            if (txtInspectorCellNumber.Text.Length > 0)
+            if (txtInspectorCellNumber.PhoneNumber.Length > 0)
             {
-                int code = mSite.SetInspectorCellNumber(txtInspectorCellNumber.Text.ToUpper());
+                int code = mSite.SetInspectorCellNumber(txtInspectorCellNumber.PhoneNumber);
                 if (code > 0)
                 {
                     MessageBox.Show("Field 'Inspector Cell Number' - " + msgCodes.GetString("M" + code), "Error - " + code, MessageBoxButton.OK, MessageBoxImage.Error);
@@ -262,9 +262,9 @@ namespace Clear_Choice.Views
                 oldContact.ClearField(SiteContact.Fields.Name.ToString());
                 oldContact.ClearFieldUpdate(SiteContact.Fields.Name);
             }
-            if (txtContactPhone.Text.Length > 0)
+            if (txtContactPhone.PhoneNumber.Length > 0)
             {
-                int code = oldContact.SetPhone(txtContactPhone.Text.ToUpper());
+                int code = oldContact.SetPhone(txtContactPhone.PhoneNumber);
                 if (code > 0)
                 {
                     MessageBox.Show("Field '" + oldContact.GetContactType().ToString() + " Phone' - " + msgCodes.GetString("M" + code), "ERROR - " + code, MessageBoxButton.OK, MessageBoxImage.Error);
@@ -314,8 +314,8 @@ namespace Clear_Choice.Views
 
             txtInspectorName.Text = mSite.GetInspectorName();
             txtInspectorOffice.Text = mSite.GetInspectorOffice();
-            txtInspectorOfficeNumber.Text = mSite.GetInspectorOfficeNumber();
-            txtInspectorCellNumber.Text = mSite.GetInspectorCellNumber();
+            txtInspectorOfficeNumber.PhoneNumber = mSite.GetInspectorOfficeNumber();
+            txtInspectorCellNumber.PhoneNumber = mSite.GetInspectorCellNumber();
             txtInspectorEmail.Text = mSite.GetInspectorEmail();
 
             txtNotes.Text = mSite.GetNotes();
@@ -330,27 +330,36 @@ namespace Clear_Choice.Views
             SolidColorBrush foreGround = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFFFFFF"));
             SolidColorBrush backGround = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#00FFFFFF"));
             ArrayList boxes = new ArrayList();
+            ArrayList phones = new ArrayList();
 
             boxes.Add(txtAddress);
             boxes.Add(txtCity);
             boxes.Add(txtSiteEmail);
-            boxes.Add(txtInspectorCellNumber);
             boxes.Add(txtInspectorName);
             boxes.Add(txtInspectorOffice);
-            boxes.Add(txtInspectorOfficeNumber);
             boxes.Add(txtInspectorEmail);
             boxes.Add(txtServiceSize);
             boxes.Add(txtSiteName);
             boxes.Add(txtContactEmail);
             boxes.Add(txtContactName);
-            boxes.Add(txtContactPhone);
             boxes.Add(txtNotes);
+
+            phones.Add(txtContactPhone);
+            phones.Add(txtInspectorOfficeNumber);
+            phones.Add(txtInspectorCellNumber);
 
             foreach (TextBox box in boxes)
             {
                 box.IsReadOnly = true;
                 box.Foreground = foreGround;
                 box.Background = backGround;
+            }
+
+            foreach (SPhoneField phone in phones)
+            {
+                phone.IsReadOnly = true;
+                phone.Foreground = foreGround;
+                phone.Background = backGround;
             }
 
             cmdCancel.IsEnabled = false;
@@ -365,27 +374,36 @@ namespace Clear_Choice.Views
             SolidColorBrush foreGround = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
             SolidColorBrush backGround = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFFFF"));
             ArrayList boxes = new ArrayList();
+            ArrayList phones = new ArrayList();
 
             boxes.Add(txtAddress);
             boxes.Add(txtCity);
             boxes.Add(txtSiteEmail);
-            boxes.Add(txtInspectorCellNumber);
             boxes.Add(txtInspectorName);
             boxes.Add(txtInspectorOffice);
-            boxes.Add(txtInspectorOfficeNumber);
             boxes.Add(txtInspectorEmail);
             boxes.Add(txtServiceSize);
             boxes.Add(txtSiteName);
             boxes.Add(txtContactEmail);
             boxes.Add(txtContactName);
-            boxes.Add(txtContactPhone);
             boxes.Add(txtNotes);
+
+            phones.Add(txtContactPhone);
+            phones.Add(txtInspectorOfficeNumber);
+            phones.Add(txtInspectorCellNumber);
 
             foreach (TextBox box in boxes)
             {
                 box.IsReadOnly = false;
                 box.Foreground = foreGround;
                 box.Background = backGround;
+            }
+
+            foreach(SPhoneField phone in phones)
+            {
+                phone.IsReadOnly = false;
+                phone.Foreground = foreGround;
+                phone.Background = backGround;
             }
 
             cmdCancel.IsEnabled = true;
@@ -678,6 +696,7 @@ namespace Clear_Choice.Views
                 unlockFields();
                 cmdSaveEdit.IsEnabled = false;
                 cmdSaveEdit.Content = SaveBtnTxt;
+                isModified = false;
             }
             TabIsGainingFocus();
         }
@@ -754,10 +773,10 @@ namespace Clear_Choice.Views
                     SuperVisor1.ClearUpdates();
                     SuperVisor2.ClearUpdates();
                     SupplyAuth.ClearUpdates();
-                    lockFields();
                     PopulateAllFields();
                     PopulateSiteContactFields();
                 }
+                lockFields();
                 TabIsGainingFocus();
             }
         }
@@ -883,9 +902,9 @@ namespace Clear_Choice.Views
                             oldContact.ClearField(SiteContact.Fields.Name.ToString());
                             oldContact.ClearFieldUpdate(SiteContact.Fields.Name);
                         }
-                        if (txtContactPhone.Text.Length > 0)
+                        if (txtContactPhone.PhoneNumber.Length > 0)
                         {
-                            int code = oldContact.SetPhone(txtContactPhone.Text.ToUpper());
+                            int code = oldContact.SetPhone(txtContactPhone.PhoneNumber);
                             if (code > 0)
                             {
                                 MessageBox.Show("Field '" + oldContact.GetContactType().ToString() + " Phone' - " + msgCodes.GetString("M" + code), "ERROR - " + code, MessageBoxButton.OK, MessageBoxImage.Error);
@@ -927,7 +946,7 @@ namespace Clear_Choice.Views
             SiteContact selectedContact = GetReferencedSiteContact(cmboContactSelection.SelectedIndex);
             txtContactEmail.Text = selectedContact.GetEmail();
             txtContactName.Text = selectedContact.GetName();
-            txtContactPhone.Text = selectedContact.GetPhone();
+            txtContactPhone.PhoneNumber = selectedContact.GetPhone();
         }
         
         private SiteContact GetReferencedSiteContact(int num)

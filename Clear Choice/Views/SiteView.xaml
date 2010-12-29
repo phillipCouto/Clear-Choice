@@ -86,10 +86,10 @@
                     <TextBox Grid.Column="1" Grid.Row="1" Margin="5" Name="txtInspectorOffice" TextChanged="txtFieldChanged"/>
 
                     <TextBlock Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right">Office Number:</TextBlock>
-                    <TextBox Grid.Column="1" Grid.Row="2" Margin="5" Name="txtInspectorOfficeNumber" TextChanged="txtFieldChanged"/>
+                    <UIControls:SPhoneField Grid.Column="1" Grid.Row="2" Margin="5" Name="txtInspectorOfficeNumber" TextChanged="txtFieldChanged"/>
 
                     <TextBlock Grid.Column="0" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Right">Cell Number:</TextBlock>
-                    <TextBox Grid.Column="1" Grid.Row="3" Margin="5" Name="txtInspectorCellNumber" TextChanged="txtFieldChanged"/>
+                    <UIControls:SPhoneField Grid.Column="1" Grid.Row="3" Margin="5" Name="txtInspectorCellNumber" TextChanged="txtFieldChanged"/>
 
                     <TextBlock Grid.Column="0" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Right">Email Address:</TextBlock>
                     <TextBox Grid.Column="1" Grid.Row="4" Margin="5" Name="txtInspectorEmail" TextChanged="txtFieldChanged"/>
@@ -124,7 +124,7 @@
                     <TextBox Grid.Column="1" Grid.Row="1" Margin="5" Name="txtContactName" TextChanged="txtFieldChanged"/>
 
                     <TextBlock Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right">Phone:</TextBlock>
-                    <TextBox Grid.Column="1" Grid.Row="2" Margin="5" Name="txtContactPhone" TextChanged="txtFieldChanged"/>
+                    <UIControls:SPhoneField Grid.Column="1" Grid.Row="2" Margin="5" Name="txtContactPhone" TextChanged="txtFieldChanged"/>
 
                     <TextBlock Grid.Column="0" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Right">Email:</TextBlock>
                     <TextBox Grid.Column="1" Grid.Row="3" Margin="5" Name="txtContactEmail" TextChanged="txtFieldChanged"/>

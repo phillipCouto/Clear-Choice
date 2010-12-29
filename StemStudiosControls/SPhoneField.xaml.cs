@@ -13,7 +13,7 @@ namespace Stemstudios.UIControls
     public partial class SPhoneField : UserControl
     {
         private string number = "";
-        public static readonly RoutedEvent TextChangedEvent = EventManager.RegisterRoutedEvent("TextChanged", RoutingStrategy.Bubble, typeof(TextChangedEventHandler), typeof(SNumberBox));
+        public static readonly RoutedEvent TextChangedEvent = EventManager.RegisterRoutedEvent("SPhoneField.TextChanged", RoutingStrategy.Bubble, typeof(TextChangedEventHandler), typeof(SNumberBox));
 
         public event TextChangedEventHandler TextChanged
         {
@@ -67,8 +67,10 @@ namespace Stemstudios.UIControls
             }
             else
             {
-                number = txtValue.Text;
-                txtValue.Text = String.Format("{0:####(###) ###-####}", double.Parse(number));
+                if (number.Length > 0)
+                {
+                    txtValue.Text = String.Format("{0:####(###) ###-####}", double.Parse(number));
+                }
                 txtValue.IsReadOnly = true;
             }
         }
@@ -94,6 +96,10 @@ namespace Stemstudios.UIControls
         {
             if (!IsReadOnly)
             {
+                if (IsTextValid(txtValue.Text))
+                {
+                    number = txtValue.Text;
+                }
                 TextChangedEventArgs newEvent = new TextChangedEventArgs(TextChangedEvent, e.UndoAction);
                 RaiseEvent(newEvent);
             }
@@ -120,7 +126,7 @@ namespace Stemstudios.UIControls
             {
                 txtValue.Text = number;
             }
-            else
+            else if(number.Length > 0)
             {
                 txtValue.Text = String.Format("{0:####(###) ###-####}", double.Parse(number));
             }

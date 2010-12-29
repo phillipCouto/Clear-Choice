@@ -88,11 +88,11 @@ namespace Clear_Choice.Views
 
         private void PopulateFields()
         {
-            txtAltPhone.Text = mRepair.GetAltNumber();
+            txtAltPhone.PhoneNumber = mRepair.GetAltNumber();
             txtEmail.Text = mRepair.GetEmail();
             txtName.Text = mRepair.GetOwnerName();
             txtNotes.Text = mRepair.GetNotes();
-            txtPhone.Text = mRepair.GetHomeNumber();
+            txtPhone.PhoneNumber = mRepair.GetHomeNumber();
             txtRequested.Text = mRepair.GetRequestedBy();
             txtSource.Text = mRepair.GetSourceCode();
             txtWindow.Text = mRepair.GetWindowOfAppointment();
@@ -109,11 +109,9 @@ namespace Clear_Choice.Views
             SolidColorBrush backGround = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFFFF"));
             ArrayList boxes = new ArrayList();
 
-            boxes.Add(txtAltPhone);
             boxes.Add(txtEmail);
             boxes.Add(txtName);
             boxes.Add(txtNotes);
-            boxes.Add(txtPhone);
             boxes.Add(txtRequested);
             boxes.Add(txtSource);
             boxes.Add(txtWindow);
@@ -121,10 +119,18 @@ namespace Clear_Choice.Views
 
             foreach (TextBox box in boxes)
             {
-                box.IsReadOnly = false;
+                box.IsReadOnly = true;
                 box.Foreground = foreGround;
                 box.Background = backGround;
             }
+
+            txtPhone.IsReadOnly = false;
+            txtPhone.Foreground = foreGround;
+            txtPhone.Background = backGround;
+
+            txtAltPhone.IsReadOnly = false;
+            txtAltPhone.Foreground = foreGround;
+            txtAltPhone.Background = backGround;
 
             dpDate.IsReadOnly = false;
             dpInspection.IsReadOnly = false;
@@ -138,11 +144,9 @@ namespace Clear_Choice.Views
             SolidColorBrush backGround = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#00FFFFFF"));
             ArrayList boxes = new ArrayList();
 
-            boxes.Add(txtAltPhone);
             boxes.Add(txtEmail);
             boxes.Add(txtName);
             boxes.Add(txtNotes);
-            boxes.Add(txtPhone);
             boxes.Add(txtRequested);
             boxes.Add(txtSource);
             boxes.Add(txtWindow);
@@ -154,6 +158,14 @@ namespace Clear_Choice.Views
                 box.Foreground = foreGround;
                 box.Background = backGround;
             }
+
+            txtPhone.IsReadOnly = true;
+            txtPhone.Foreground = foreGround;
+            txtPhone.Background = backGround;
+
+            txtAltPhone.IsReadOnly = true;
+            txtAltPhone.Foreground = foreGround;
+            txtAltPhone.Background = backGround;
 
             dpDate.IsReadOnly = true;
             dpInspection.IsReadOnly = true;
@@ -226,9 +238,9 @@ namespace Clear_Choice.Views
                 MessageBox.Show("Field 'Name' - " + msgCodes.GetString("M1101"), "Error - 1101", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
-            if (txtAltPhone.Text.Length > 0)
+            if (txtAltPhone.PhoneNumber.Length > 0)
             {
-                int code = mRepair.SetAltNumber(txtAltPhone.Text);
+                int code = mRepair.SetAltNumber(txtAltPhone.PhoneNumber);
                 if (code > 0)
                 {
                     MessageBox.Show("Field 'Alt. Number' - " + msgCodes.GetString("M" + code), "Error - " + code, MessageBoxButton.OK, MessageBoxImage.Error);
@@ -261,9 +273,9 @@ namespace Clear_Choice.Views
             {
                 mRepair.ClearField(LotRepair.Fields.Notes.ToString());
             }
-            if (txtPhone.Text.Length > 0)
+            if (txtPhone.PhoneNumber.Length > 0)
             {
-                int code = mRepair.SetHomeNumber(txtPhone.Text);
+                int code = mRepair.SetHomeNumber(txtPhone.PhoneNumber);
                 if (code > 0)
                 {
                     MessageBox.Show("Field 'Phone' - " + msgCodes.GetString("M" + code), "Error - " + code, MessageBoxButton.OK, MessageBoxImage.Error);

@@ -59,7 +59,7 @@
                     <TextBlock Text="Phone Number:" Foreground="#FFFFFFFF" Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right"/>
                     <UIControls:SPhoneField Name="txtContactNumber" Grid.Column="1" Grid.Row="2" Margin="5,5,5,5" TextChanged="fieldValueChanged"/>
                     <TextBlock Text="Fax Number:" Grid.Column="0" Grid.Row="3" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-                    <TextBox Name="txtFaxNumber" Grid.Column="1" Grid.Row="3" Margin="5" TextChanged="fieldValueChanged"/>
+                    <UIControls:SPhoneField Name="txtFaxNumber" Grid.Column="1" Grid.Row="3" Margin="5" TextChanged="fieldValueChanged"/>
                     <TextBlock Text="Email Address:" Foreground="#FFFFFFFF" Grid.Column="0" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Right"/>
                     <TextBox Name="txtEmail" Grid.Column="1" Grid.Row="4" Margin="5,5,5,5" TextChanged="fieldValueChanged"/>
                 </Grid>

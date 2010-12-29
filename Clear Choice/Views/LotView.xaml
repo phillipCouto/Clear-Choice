@@ -135,7 +135,7 @@
                     <UIControls:SDatePicker Name="dpRoughCalledIn" Grid.Column="1" Grid.Row="1" Margin="5" SelectedDateChanged="dateSelectedChanged" TextForeground="White"/>
                     <UIControls:SDatePicker Name="dpRoughPassed" Grid.Column="2" Grid.Row="1" Margin="5" SelectedDateChanged="dateSelectedChanged" TextForeground="White"/>
                     <UIControls:SDatePicker Name="dpRoughBilled" Grid.Column="3" Grid.Row="1" Margin="5" SelectedDateChanged="dateSelectedChanged" TextForeground="White"/>
-                    <UIControls:SNumberBox Name="txtRoughAmount" Grid.Column="4" Grid.Row="1" Margin="5" TextChanged="txtFieldChanged"/>
+                    <UIControls:SNumberBox Name="txtRoughAmount" Grid.Column="4" Grid.Row="1" Margin="5" TextChanged="txtFieldChanged" IsCurrency="False"/>
                     <TextBox Name="txtRoughNotes" Grid.Column="5" Grid.Row="1" Margin="5" TextChanged="txtFieldChanged"/>
                     <!--Service-->
                     <TextBlock Text="Service" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5"/>
