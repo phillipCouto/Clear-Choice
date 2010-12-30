@@ -45,7 +45,7 @@
     <PublisherName>Stemstudios Ltd.</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>48</ApplicationRevision>
+    <ApplicationRevision>49</ApplicationRevision>
     <ApplicationVersion>1.0.1.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -140,9 +140,6 @@
     <Compile Include="Views\HomeView.xaml.cs">
       <DependentUpon>HomeView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\IncompleteLotsReport.xaml.cs">
-      <DependentUpon>IncompleteLotsReport.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\InventoryTransactionsView.xaml.cs">
       <DependentUpon>InventoryTransactionsView.xaml</DependentUpon>
     </Compile>
@@ -152,8 +149,8 @@
     <Compile Include="Views\InventoryView.xaml.cs">
       <DependentUpon>InventoryView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\CompletedLotsReport.xaml.cs">
-      <DependentUpon>CompletedLotsReport.xaml</DependentUpon>
+    <Compile Include="Views\LotStateReport.xaml.cs">
+      <DependentUpon>LotStateReport.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LotExtraView.xaml.cs">
       <DependentUpon>LotExtraView.xaml</DependentUpon>
@@ -163,6 +160,9 @@
     </Compile>
     <Compile Include="Views\LotRepairView.xaml.cs">
       <DependentUpon>LotRepairView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LotSummaryView.xaml.cs">
+      <DependentUpon>LotSummaryView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LotView.xaml.cs">
       <DependentUpon>LotView.xaml</DependentUpon>
@@ -290,10 +290,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\IncompleteLotsReport.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Views\InventoryTransactionsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -312,7 +308,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\CompletedLotsReport.xaml">
+    <Page Include="Views\LotStateReport.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -327,6 +323,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\LotRepairView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LotSummaryView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

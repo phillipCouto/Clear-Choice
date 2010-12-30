@@ -6,7 +6,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <ScrollViewer>
-        <StackPanel Margin="10,5,0,0" Name="Clients">
+        <StackPanel Margin="10,5,0,0" Name="Clients" MouseLeave="Clients_MouseLeave">
         </StackPanel>
     </ScrollViewer>
 </UserControl>

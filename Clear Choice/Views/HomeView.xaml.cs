@@ -73,12 +73,7 @@ namespace ClearChoice.Views
 
         private void btnActiveLots_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            MainWindow.OpenTab(new IncompletedLotsReport());
-        }
-
-        private void btnCompletedLots_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            MainWindow.OpenTab(new CompletedLotsReport());
+            MainWindow.OpenTab(new LotStateReport());
         }
 
         private void btnCitys_MouseDown(object sender, MouseButtonEventArgs e)

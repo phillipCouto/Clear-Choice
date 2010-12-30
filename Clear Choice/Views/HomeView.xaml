@@ -22,8 +22,7 @@
                     <WrapPanel HorizontalAlignment="Left">
                         <my:IconButton Source="{StaticResource customers}" Text="View Clients" MouseDown="IconButton_MouseDown" Margin="5"/>
                         <my:IconButton Source="{StaticResource customer1}" Text="New Client" MouseDown="AddNewClientButton_MouseDown" Margin="5"/>
-                        <my:IconButton Source="{StaticResource home}" Text="Active Lots" MouseDown="btnActiveLots_MouseDown" Margin="5"/>
-                        <my:IconButton Source="{StaticResource home}" Text="Completed Lots" MouseDown="btnCompletedLots_MouseDown" Margin="5"/>
+                        <my:IconButton Source="{StaticResource home}" Text="Lots by Status" MouseDown="btnActiveLots_MouseDown" Margin="5"/>
                         <my:IconButton Source="{StaticResource symbol-gmaps}" Text="Lots by City" MouseDown="btnCitys_MouseDown" Margin="5"/>
                         <my:IconButton Source="{StaticResource symbol-repair}" Text="Scheduled Repairs" MouseDown="btnCompletedRepairs_MouseDown" Margin="5"/>
                     </WrapPanel>

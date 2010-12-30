@@ -343,8 +343,20 @@ namespace Clear_Choice.Views
                 viewTimeSheetsBtn.Source = (Image)App.iconSet["symbol-timesheets"];
                 viewTimeSheetsBtn.MouseDown += new MouseButtonEventHandler(viewTimeSheetsBtn_MouseDown);
                 actions.Add(viewTimeSheetsBtn);
+
+
+                IconButton viewSummaryBtn = new IconButton();
+                viewSummaryBtn.Text = "View Lot Summary";
+                viewSummaryBtn.Source = (Image)App.iconSet["reports-icon"];
+                viewSummaryBtn.MouseDown += new MouseButtonEventHandler(viewSummaryBtn_MouseDown);
+                actions.Add(viewSummaryBtn);
             }
             return actions;
+        }
+
+        void viewSummaryBtn_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            MainWindow.OpenTab(new LotSummaryView(mLot));
         }
 
         private void viewTimeSheetsBtn_MouseDown(object sender, MouseButtonEventArgs e)

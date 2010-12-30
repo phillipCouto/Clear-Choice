@@ -202,5 +202,17 @@ namespace ClearChoice.Views
         }
 
         #endregion
+
+        private void Clients_MouseLeave(object sender, MouseEventArgs e)
+        {
+            foreach (TextBlock block in this.Clients.Children)
+            {
+                DoubleAnimation scaleText = new DoubleAnimation();
+                scaleText.From = block.FontSize;
+                scaleText.To = 14;
+                scaleText.Duration = new TimeSpan(1500000);
+                block.BeginAnimation(TextBlock.FontSizeProperty, scaleText);
+            }
+        }
     }
 }
