@@ -44,6 +44,8 @@
                         <RowDefinition Height="20"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     <TextBlock Grid.Column="0" Grid.Row="0" Text="Services Billed:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5"/>
                     <UIControls:SNumberBox Name="amtServices" Grid.Column="1" Grid.Row="0" IsReadOnly="True" Margin="5"/>
@@ -53,6 +55,8 @@
                     <UIControls:SNumberBox Name="amtLabour" Grid.Column="1" Grid.Row="3" IsReadOnly="True" Margin="5"/>
                     <TextBlock Grid.Column="0" Grid.Row="4" Text="Average Material Cost:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5"/>
                     <UIControls:SNumberBox Name="amtMaterials" Grid.Column="1" Grid.Row="4" IsReadOnly="True" Margin="5"/>
+                    <TextBlock Grid.Column="0" Grid.Row="6" Text="Profit:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5"/>
+                    <UIControls:SNumberBox Name="amtProfit" Grid.Column="1" Grid.Row="6" IsReadOnly="True" Margin="5"/>
                 </Grid>
             </GroupBox>
             <GroupBox Name="grpRepairs" FontSize="14" Grid.Column="0" Grid.Row="1" Foreground="#FFFFFF" Margin="5">

@@ -12,100 +12,103 @@
         </ResourceDictionary>
     </UserControl.Resources>
     <Border CornerRadius="5,5,5,5" BorderThickness="1" Background="#15FFFFFF">
-    <Border.BorderBrush>
-        <LinearGradientBrush>
-            <GradientStop Color="#FFFFFFFF" Offset="0"/>
-            <GradientStop Color="#55FFFFFF" Offset="0.5"/>
-            <GradientStop Color="#FFFFFFFF" Offset="1"/>
-        </LinearGradientBrush>
-    </Border.BorderBrush>
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="215"/>
-        </Grid.RowDefinitions>
-        <GroupBox Name="grpLotInfo" Grid.Column="0" Grid.Row="0" FontSize="14" Foreground="#FFFFFFFF" Margin="5">
-            <GroupBox.Header>
-                <TextBlock Text="Lot Information" Foreground="White" Width="{Binding Path=Width, ElementName=grpLotInfo, Mode=Default}"/>
+        <Border.BorderBrush>
+            <LinearGradientBrush>
+                <GradientStop Color="#FFFFFFFF" Offset="0"/>
+                <GradientStop Color="#55FFFFFF" Offset="0.5"/>
+                <GradientStop Color="#FFFFFFFF" Offset="1"/>
+            </LinearGradientBrush>
+        </Border.BorderBrush>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="215"/>
+            </Grid.RowDefinitions>
+            <GroupBox Name="grpLotInfo" Grid.Column="0" Grid.Row="0" FontSize="14" Foreground="#FFFFFFFF" Margin="5">
+                <GroupBox.Header>
+                    <TextBlock Text="Lot Information" Foreground="White" Width="{Binding Path=Width, ElementName=grpLotInfo, Mode=Default}"/>
                 </GroupBox.Header>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="auto"/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-                 <TextBlock Text="Lot Number:" Grid.Row="0" Grid.Column="0" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-                <TextBox Name="txtLotNumber" Grid.Column="1" Grid.Row="0" Margin="5" TextChanged="txtFieldChanged"/>
-                
-                <TextBlock Text="Block:" Grid.Row="1" Grid.Column="0" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-                <TextBox Name="txtBlockNumber" Grid.Column="1" Grid.Row="1" Margin="5" TextChanged="txtFieldChanged"/>
-                
-                <TextBlock Text="Address:" Grid.Row="2" Grid.Column="0" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-                <TextBox Name="txtAddress" Grid.Column="1" Grid.Row="2" Margin="5" TextChanged="txtFieldChanged"/>
-                
-                <TextBlock Text="City:" Grid.Row="3" Grid.Column="0" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-                <TextBox Name="txtCity" Grid.Column="1" Grid.Row="3" Margin="5" TextChanged="txtFieldChanged"/>
-                
-                
-                <TextBlock Text="Square Feet:" Grid.Row="4" Grid.Column="0" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-                <TextBox Name="txtLotSize" Grid.Column="1" Grid.Row="4" Margin="5" TextChanged="txtFieldChanged"/>
-            </Grid>
-        </GroupBox>
-        <GroupBox Name="grpJobInfo" Grid.Column="1" Grid.Row="0" FontSize="14" Foreground="#FFFFFFFF" Margin="5">
-            <GroupBox.Header>
-                <TextBlock Text="Job Information" Foreground="White" Width="{Binding Path=Width, ElementName=grpJobInfo, Mode=Default}"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Lot Number:" Grid.Row="0" Grid.Column="0" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                    <TextBox Name="txtLotNumber" Grid.Column="1" Grid.Row="0" Margin="5" TextChanged="txtFieldChanged"/>
+
+                    <TextBlock Text="Block:" Grid.Row="1" Grid.Column="0" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                    <TextBox Name="txtBlockNumber" Grid.Column="1" Grid.Row="1" Margin="5" TextChanged="txtFieldChanged"/>
+
+                    <TextBlock Text="Address:" Grid.Row="2" Grid.Column="0" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                    <TextBox Name="txtAddress" Grid.Column="1" Grid.Row="2" Margin="5" TextChanged="txtFieldChanged"/>
+
+                    <TextBlock Text="City:" Grid.Row="3" Grid.Column="0" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                    <TextBox Name="txtCity" Grid.Column="1" Grid.Row="3" Margin="5" TextChanged="txtFieldChanged"/>
+
+
+                    <TextBlock Text="Square Feet:" Grid.Row="4" Grid.Column="0" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                    <TextBox Name="txtLotSize" Grid.Column="1" Grid.Row="4" Margin="5" TextChanged="txtFieldChanged"/>
+
+                    <TextBlock Text="Service Size:" Grid.Row="5" Grid.Column="0" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                    <TextBox Name="txtServiceSize" Grid.Column="1" Grid.Row="5" Margin="5" TextChanged="txtFieldChanged"/>
+                </Grid>
+            </GroupBox>
+            <GroupBox Name="grpJobInfo" Grid.Column="1" Grid.Row="0" FontSize="14" Foreground="#FFFFFFFF" Margin="5">
+                <GroupBox.Header>
+                    <TextBlock Text="Job Information" Foreground="White" Width="{Binding Path=Width, ElementName=grpJobInfo, Mode=Default}"/>
                 </GroupBox.Header>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-                <TextBlock Text="Plan Info:" Grid.Row="0" Grid.Column="0" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-                <TextBox Name="txtPlanInfo" Grid.Column="1" Grid.Row="0" Margin="5" TextChanged="txtFieldChanged"/>
-                
-                <TextBlock Text="Permit Number:" Grid.Row="1" Grid.Column="0" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-                <TextBox Name="txtPermitNumber" Grid.Column="1" Grid.Row="1" Margin="5" TextChanged="txtFieldChanged"/>
-                
-                <TextBlock Text="Permit Date:" Grid.Row="2" Grid.Column="0" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-                <UIControls:SDatePicker Name="dpPermitDate" Grid.Column="1" Grid.Row="2" Margin="5" SelectedDateChanged="dateSelectedChanged" TextForeground="White"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Plan Info:" Grid.Row="0" Grid.Column="0" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                    <TextBox Name="txtPlanInfo" Grid.Column="1" Grid.Row="0" Margin="5" TextChanged="txtFieldChanged"/>
+
+                    <TextBlock Text="Permit Number:" Grid.Row="1" Grid.Column="0" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                    <TextBox Name="txtPermitNumber" Grid.Column="1" Grid.Row="1" Margin="5" TextChanged="txtFieldChanged"/>
+
+                    <TextBlock Text="Permit Date:" Grid.Row="2" Grid.Column="0" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                    <UIControls:SDatePicker Name="dpPermitDate" Grid.Column="1" Grid.Row="2" Margin="5" SelectedDateChanged="dateSelectedChanged" TextForeground="White"/>
+
+                    <TextBlock Text="Closed Date:" Grid.Row="3" Grid.Column="0" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                    <UIControls:SDatePicker Name="dpClosedDate" Grid.Column="1" Grid.Row="3" Margin="5" SelectedDateChanged="dateSelectedChanged" TextForeground="White"/>
+
+                    <TextBlock Text="Job B/C:" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5"/>
+                    <UIControls:SDatePicker Name="dpJobBC" Grid.Column="1" Grid.Row="4" Margin="5" SelectedDateChanged="dateSelectedChanged" TextForeground="White"/>
 
 
-                <TextBlock Text="Service Size:" Grid.Row="3" Grid.Column="0" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-                <TextBox Name="txtServiceSize" Grid.Column="1" Grid.Row="3" Margin="5" TextChanged="txtFieldChanged"/>
-                
-                <TextBlock Text="Closed Date:" Grid.Row="4" Grid.Column="0" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-                <UIControls:SDatePicker Name="dpClosedDate" Grid.Column="1" Grid.Row="4" Margin="5" SelectedDateChanged="dateSelectedChanged" TextForeground="White"/>
-
-                
-                <TextBlock Text="Completed:" Grid.Row="5" Grid.Column="0" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-                <ComboBox Name="cmboCompleted" Grid.Row="5" Grid.Column="1" Margin="5" SelectionChanged="dateSelectedChanged" SelectedIndex="0">
-                    <ComboBoxItem>No</ComboBoxItem>
-                    <ComboBoxItem>Yes</ComboBoxItem>
-                </ComboBox>
-            </Grid>
-        </GroupBox>
-        <GroupBox Name="grpServices" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" FontSize="14" Foreground="#FFFFFFFF" Margin="5">
-            <GroupBox.Header>
-                <TextBlock Text="Services" Foreground="White" Width="{Binding Path=Width, ElementName=grpServices, Mode=Default}"/>
+                    <TextBlock Text="Completed:" Grid.Row="5" Grid.Column="0" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                    <ComboBox Name="cmboCompleted" Grid.Row="5" Grid.Column="1" Margin="5" SelectionChanged="dateSelectedChanged" SelectedIndex="0">
+                        <ComboBoxItem>No</ComboBoxItem>
+                        <ComboBoxItem>Yes</ComboBoxItem>
+                    </ComboBox>
+                </Grid>
+            </GroupBox>
+            <GroupBox Name="grpServices" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" FontSize="14" Foreground="#FFFFFFFF" Margin="5">
+                <GroupBox.Header>
+                    <TextBlock Text="Services" Foreground="White" Width="{Binding Path=Width, ElementName=grpServices, Mode=Default}"/>
                 </GroupBox.Header>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -128,7 +131,7 @@
                     <TextBlock Text="Billed" Grid.Column="3" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5"/>
                     <TextBlock Text="Amount" Grid.Column="4" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5"/>
                     <TextBlock Text="Notes" Grid.Column="5" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5"/>
-                    
+
                     <!--Roughed IN-->
                     <TextBlock Text="Rough In" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5"/>
 
@@ -146,7 +149,7 @@
 
                     <UIControls:SNumberBox Name="txtServiceAmount" Grid.Column="4" Grid.Row="2" Margin="5" TextChanged="txtFieldChanged"/>
                     <TextBox Name="txtServiceNotes" Grid.Column="5" Grid.Row="2" Margin="5" TextChanged="txtFieldChanged"/>
-                    
+
                     <!--Final-->
                     <TextBlock Text="Final" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5"/>
 
@@ -156,11 +159,11 @@
 
                     <UIControls:SNumberBox Name="txtFinalAmount" Grid.Column="4" Grid.Row="3" Margin="5" TextChanged="txtFieldChanged"/>
                     <TextBox Name="txtFinalNotes" Grid.Column="5" Grid.Row="3" Margin="5" TextChanged="txtFieldChanged"/>
-                 </Grid>
-        </GroupBox>
-        <GroupBox Name="grpSpecific" Grid.Column="0" Grid.Row="2" FontSize="14" Foreground="#FFFFFFFF" Margin="5">
-            <GroupBox.Header>
-                <TextBlock Text="Specific Information" Foreground="White" Width="{Binding Path=Width, ElementName=grpSpecific, Mode=Default}"/>
+                </Grid>
+            </GroupBox>
+            <GroupBox Name="grpSpecific" Grid.Column="0" Grid.Row="2" FontSize="14" Foreground="#FFFFFFFF" Margin="5">
+                <GroupBox.Header>
+                    <TextBlock Text="Specific Information" Foreground="White" Width="{Binding Path=Width, ElementName=grpSpecific, Mode=Default}"/>
                 </GroupBox.Header>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -174,26 +177,27 @@
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
-                    <TextBlock Text="Job B/C:" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5"/>
-                    <UIControls:SDatePicker Name="dpJobBC" Grid.Column="1" Grid.Row="0" Margin="5" SelectedDateChanged="dateSelectedChanged" TextForeground="White"/>
+
+                    <TextBlock Text="Quoted Total:" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5"/>
+                    <UIControls:SNumberBox Name="txtJobTotal" Grid.Column="1" Grid.Row="0" Margin="5" TextChanged="txtFieldChanged" IsCurrency="true"/>
                     
                     <TextBlock Text="Hood Colour:" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5"/>
                     <TextBox Name="txtHoodColour" Grid.Column="1" Grid.Row="1" Margin="5" TextChanged="txtFieldChanged"/>
-                    
+
                     <TextBlock Text="SP Type:" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5"/>
                     <TextBox Name="txtSPType" Grid.Column="1" Grid.Row="2" Margin="5" TextChanged="txtFieldChanged"/>
-                    
+
                     <TextBlock Text="SP Colour:" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5"/>
                     <TextBox Name="txtSPColour" Grid.Column="1" Grid.Row="3" Margin="5" TextChanged="txtFieldChanged"/>
-                    
+
                     <TextBlock Text="Type:" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5"/>
                     <TextBox Name="txtType" Grid.Column="1" Grid.Row="4" Margin="5" TextChanged="txtFieldChanged"/>
                 </Grid>
             </GroupBox>
-        <GroupBox Name="grpNotes" Grid.Column="1" Grid.Row="2" FontSize="14" Foreground="#FFFFFFFF" Margin="5">
-            <GroupBox.Header>
-                <TextBlock Text="Notes" Foreground="White" Width="{Binding Path=Width, ElementName=grpNotes, Mode=Default}"/>
-            </GroupBox.Header>
+            <GroupBox Name="grpNotes" Grid.Column="1" Grid.Row="2" FontSize="14" Foreground="#FFFFFFFF" Margin="5">
+                <GroupBox.Header>
+                    <TextBlock Text="Notes" Foreground="White" Width="{Binding Path=Width, ElementName=grpNotes, Mode=Default}"/>
+                </GroupBox.Header>
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -206,6 +210,6 @@
                     </StackPanel>
                 </Grid>
             </GroupBox>
-    </Grid>
+        </Grid>
     </Border>
 </UserControl>

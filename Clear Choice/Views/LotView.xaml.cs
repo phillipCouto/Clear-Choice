@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Collections;
+using System.Resources;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using ClearChoice;
+using ExceptionLogging;
+using Stemstudios.DataAccessLayer;
 using Stemstudios.DataAccessLayer.DataObjects;
 using Stemstudios.UIControls;
-using Stemstudios.DataAccessLayer;
-using System.Resources;
-using ExceptionLogging;
+using Clear_Choice.Windows;
 
 namespace Clear_Choice.Views
 {
@@ -29,6 +30,7 @@ namespace Clear_Choice.Views
         private LotService mFinal = null;
         private Database db = Database.Instance;
         private ResourceManager msgCodes = MessageCodes.ResourceManager;
+        private float[] totalPortions = new float[3];
 
         public LotView(Client client)
         {
@@ -46,6 +48,13 @@ namespace Clear_Choice.Views
             unlockForm();
             this.Name = "NewLotView";
             mLot.SetAssociationID(client.GetClientID());
+            mLot.SetRoughInValue(client.GetRoughInValue());
+            mLot.SetServiceValue(client.GetServiceValue());
+            mLot.SetFinalValue(client.GetFinalValue());
+
+            totalPortions[0] = client.GetRoughInValue();
+            totalPortions[1] = client.GetServiceValue();
+            totalPortions[2] = client.GetFinalValue();
         }
         public LotView(Site site)
         {
@@ -66,6 +75,16 @@ namespace Clear_Choice.Views
             unlockForm();
             this.Name = "NewLotView";
             mLot.SetAssociationID(site.GetSiteID());
+            DataSet data = db.Select("*", Client.Table, Client.Fields.clientID.ToString() + " = '" + site.GetClientID() + "'");
+            data.Read();
+            Client client = new Client(data.GetRecordDataSet());
+            mLot.SetRoughInValue(client.GetRoughInValue());
+            mLot.SetServiceValue(client.GetServiceValue());
+            mLot.SetFinalValue(client.GetFinalValue());
+
+            totalPortions[0] = client.GetRoughInValue();
+            totalPortions[1] = client.GetServiceValue();
+            totalPortions[2] = client.GetFinalValue();
         }
         public LotView(Lot lot)
         {
@@ -76,6 +95,11 @@ namespace Clear_Choice.Views
             lockForm();
             populateFields();
             isNew = false;
+
+            totalPortions[0] = mLot.GetRoughInValue();
+            totalPortions[1] = mLot.GetServiceValue();
+            totalPortions[2] = mLot.GetFinalValue();
+
         }
 
         private void unlockForm()
@@ -108,17 +132,9 @@ namespace Clear_Choice.Views
                 box.Background = backGround;
             }
 
-            txtRoughAmount.IsReadOnly = false;
-            txtRoughAmount.Foreground = foreGround;
-            txtRoughAmount.Background = backGround;
-
-            txtServiceAmount.IsReadOnly = false;
-            txtServiceAmount.Foreground = foreGround;
-            txtServiceAmount.Background = backGround;
-
-            txtFinalAmount.IsReadOnly = false;
-            txtFinalAmount.Foreground = foreGround;
-            txtFinalAmount.Background = backGround;
+            txtJobTotal.IsReadOnly = false;
+            txtJobTotal.Foreground = foreGround;
+            txtJobTotal.Background = backGround;
 
             cmboCompleted.IsEnabled = true;
 
@@ -183,6 +199,10 @@ namespace Clear_Choice.Views
             txtFinalAmount.Foreground = foreGround;
             txtFinalAmount.Background = backGround;
 
+            txtJobTotal.IsReadOnly = true;
+            txtJobTotal.Foreground = foreGround;
+            txtJobTotal.Background = backGround;
+
             cmboCompleted.IsEnabled = false;
 
             dpClosedDate.IsReadOnly = true;
@@ -214,6 +234,7 @@ namespace Clear_Choice.Views
             txtSPColour.Text = mLot.GetSPColour();
             txtSPType.Text = mLot.GetSPType();
             txtType.Text = mLot.GetLotType();
+            txtJobTotal.Amount = mLot.GetJobTotal();
 
             txtBlockNumber.Text = ((mLot.GetBlockNumber() == 0) ? "" : "" + mLot.GetBlockNumber());
             txtServiceSize.Text = ((mLot.GetServiceSize() == 0) ? "" : "" + mLot.GetServiceSize());
@@ -271,6 +292,12 @@ namespace Clear_Choice.Views
                 cmdSaveEdit.IsEnabled = true;
                 TabIsGainingFocus();
             }
+            if (sender.Equals(txtJobTotal))
+            {
+                txtRoughAmount.Amount = txtJobTotal.Amount * totalPortions[0];
+                txtServiceAmount.Amount = txtJobTotal.Amount * totalPortions[1];
+                txtFinalAmount.Amount = txtJobTotal.Amount * totalPortions[2];
+            }
         }
 
         private void lnkGMaps_MouseDown(object sender, MouseButtonEventArgs e)
@@ -310,6 +337,11 @@ namespace Clear_Choice.Views
                     lockFormBtn.MouseDown += new MouseButtonEventHandler(cmdCancel_Click);
                     actions.Add(lockFormBtn);
                 }
+                IconButton setPriceOptionsBtn = new IconButton();
+                setPriceOptionsBtn.Text = "Set Price Portions";
+                setPriceOptionsBtn.Source = (Image)App.iconSet["control-panel"];
+                setPriceOptionsBtn.MouseDown += new MouseButtonEventHandler(setPriceOptionsBtn_MouseDown);
+                actions.Add(setPriceOptionsBtn);
 
             }
             else
@@ -352,6 +384,25 @@ namespace Clear_Choice.Views
                 actions.Add(viewSummaryBtn);
             }
             return actions;
+        }
+
+        private void setPriceOptionsBtn_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            SetPricePortions pricePortions = new SetPricePortions(totalPortions);
+            pricePortions.ValuesModified += new RoutedEventHandler(pricePortions_ValuesModified);
+            pricePortions.ShowDialog();
+        }
+
+        private void pricePortions_ValuesModified(object sender, RoutedEventArgs e)
+        {
+            totalPortions = ((SetPricePortions)sender).Values;
+            txtRoughAmount.Amount = txtJobTotal.Amount * totalPortions[0];
+            txtServiceAmount.Amount = txtJobTotal.Amount * totalPortions[1];
+            txtFinalAmount.Amount = txtJobTotal.Amount * totalPortions[2];
+
+            mLot.SetRoughInValue(totalPortions[0]);
+            mLot.SetServiceValue(totalPortions[1]);
+            mLot.SetFinalValue(totalPortions[2]);
         }
 
         void viewSummaryBtn_MouseDown(object sender, MouseButtonEventArgs e)
@@ -682,6 +733,14 @@ namespace Clear_Choice.Views
             else if (!isNew)
             {
                 mLot.ClearField(Lot.Fields.BlockNumber.ToString());
+            }
+            if (txtJobTotal.Amount > 0)
+            {
+                mLot.SetJobTotal(txtJobTotal.Amount);
+            }
+            else if (!isNew)
+            {
+                mLot.ClearField(Lot.Fields.JobTotal.ToString());
             }
             return true;
         }

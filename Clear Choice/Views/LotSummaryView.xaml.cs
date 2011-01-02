@@ -11,6 +11,7 @@ using ClearChoice;
 using System.Collections.ObjectModel;
 using Stemstudios.DataAccessLayer.DataObjects.Bindings;
 using System.Collections;
+using System.Windows.Media;
 
 namespace Clear_Choice.Views
 {
@@ -37,16 +38,25 @@ namespace Clear_Choice.Views
             try
             {
                 DataSet data = db.Select("SUM(" + LotService.Fields.Amount.ToString() + ")", LotService.Table, LotService.Fields.lotID.ToString() + " = '" + mLot.GetLotID() + "'");
-                data.Read();
-                amtServices.Amount = Single.Parse(data.getString(0));
+                if (data.NumberOfRows() > 0)
+                {
+                    data.Read();
+                    amtServices.Amount = Single.Parse(data.getString(0));
+                }
 
                 data = db.Select("SUM(" + LotExtra.Fields.TotalPrice.ToString() + ")", LotExtra.Table, LotExtra.Fields.lotID.ToString() + " = '" + mLot.GetLotID() + "'");
                 data.Read();
-                amtExtras.Amount = Single.Parse(data.getString(0));
+                if (data.getString(0).Equals(DBNull.Value))
+                {
+                    amtExtras.Amount = Single.Parse(data.getString(0));
+                }
 
-                data = db.Select("SUM(" + TimeSheet.Fields.Hours.ToString() + " * "+TimeSheet.Fields.Wage.ToString()+")", TimeSheet.Table, TimeSheet.Fields.lotID.ToString() + " = '" + mLot.GetLotID() + "'");
+                data = db.Select("SUM(" + TimeSheet.Fields.Hours.ToString() + " * " + TimeSheet.Fields.Wage.ToString() + ")", TimeSheet.Table, TimeSheet.Fields.lotID.ToString() + " = '" + mLot.GetLotID() + "'");
                 data.Read();
-                amtLabour.Amount = Single.Parse(data.getString(0));
+                if (data.getString(0).Equals(DBNull.Value))
+                {
+                    amtLabour.Amount = Single.Parse(data.getString(0));
+                }
 
                 data = db.Select("*", Site.Table, Site.Fields.siteID.ToString() + " = '" + mLot.GetAssociationID() + "'");
                 if (data.NumberOfRows() > 0)
@@ -61,7 +71,25 @@ namespace Clear_Choice.Views
 
                 }
                 data.Read();
-                amtMaterials.Amount = Single.Parse(data.getString(0));
+                if (data.getString(0).Equals(DBNull.Value))
+                {
+                    amtMaterials.Amount = Single.Parse(data.getString(0));
+                }
+
+                if ((amtServices.Amount + amtExtras.Amount) > (amtLabour.Amount + amtMaterials.Amount))
+                {
+                    amtProfit.Amount = (amtServices.Amount + amtExtras.Amount) - (amtLabour.Amount + amtMaterials.Amount);
+                    amtProfit.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#1b9b0a"));
+                }
+                else
+                {
+                    amtProfit.Amount = (amtLabour.Amount + amtMaterials.Amount) - (amtServices.Amount + amtExtras.Amount);
+                    amtProfit.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#cc3333"));
+                }
+            }
+            catch (FormatException ex)
+            {
+                Console.WriteLine(ex.StackTrace);
             }
             catch (Exception ex)
             {

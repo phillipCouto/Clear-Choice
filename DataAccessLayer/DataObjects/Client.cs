@@ -7,7 +7,7 @@ namespace Stemstudios.DataAccessLayer.DataObjects
     /// </summary>
     public class Client : DataObject
     {
-        public enum Fields { clientID, Name, ClientType, Address, City, PostalCode, FaxNumber, PhoneNumber, EmailAddress }
+        public enum Fields { clientID, Name, ClientType, Address, City, PostalCode, FaxNumber, PhoneNumber, EmailAddress,RoughInValue,ServiceValue,FinalValue }
         public const String Table = "clients";
         public const String PrimaryKey = "clientID";
 
@@ -233,6 +233,54 @@ namespace Stemstudios.DataAccessLayer.DataObjects
         public int GetClientType()
         {
             return this.getInt(Fields.ClientType.ToString());
+        }
+        /// <summary>
+        /// Returns the percentage to bill a client on rough in completion.
+        /// </summary>
+        /// <returns></returns>
+        public float GetRoughInValue()
+        {
+            return this.getFloat(Fields.RoughInValue.ToString());
+        }
+        /// <summary>
+        /// Sets the Rough In percentage for billing a client.
+        /// </summary>
+        /// <param name="value"></param>
+        public void SetRoughInValue(float value)
+        {
+            SetValue(Fields.RoughInValue.ToString(), value);
+        }
+        /// <summary>
+        /// Returns the percentage to bill a client on service completion.
+        /// </summary>
+        /// <returns></returns>
+        public float GetServiceValue()
+        {
+            return getFloat(Fields.ServiceValue.ToString());
+        }
+        /// <summary>
+        /// Sets the Service percentage for billing a client.
+        /// </summary>
+        /// <param name="value"></param>
+        public void SetServiceValue(float value)
+        {
+            SetValue(Fields.ServiceValue.ToString(), value);
+        }
+        /// <summary>
+        /// Returns the Final percentage used for billing a client
+        /// </summary>
+        /// <returns></returns>
+        public float GetFinalValue()
+        {
+            return this.getFloat(Fields.FinalValue.ToString());
+        }
+        /// <summary>
+        /// Sets the final percentage used for billing a client.
+        /// </summary>
+        /// <param name="value"></param>
+        public void SetFinalValue(float value)
+        {
+            SetValue(Fields.FinalValue.ToString(), value);
         }
     }
 }

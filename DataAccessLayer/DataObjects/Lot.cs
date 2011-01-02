@@ -29,6 +29,10 @@ namespace Stemstudios.DataAccessLayer.DataObjects
             Type,
             SPType,
             SPColour,
+            JobTotal,
+            RoughInValue,
+            ServiceValue,
+            FinalValue,
             Completed,
             Notes
         }
@@ -457,6 +461,71 @@ namespace Stemstudios.DataAccessLayer.DataObjects
         public String GetLotID()
         {
             return getString(Fields.lotID.ToString());
+        }
+
+        /// <summary>
+        /// Returns the percentage to bill a client on rough in completion.
+        /// </summary>
+        /// <returns></returns>
+        public float GetRoughInValue()
+        {
+            return this.getFloat(Fields.RoughInValue.ToString());
+        }
+        /// <summary>
+        /// Sets the Rough In percentage for billing a client.
+        /// </summary>
+        /// <param name="value"></param>
+        public void SetRoughInValue(float value)
+        {
+            SetValue(Fields.RoughInValue.ToString(), value);
+        }
+        /// <summary>
+        /// Returns the percentage to bill a client on service completion.
+        /// </summary>
+        /// <returns></returns>
+        public float GetServiceValue()
+        {
+            return getFloat(Fields.ServiceValue.ToString());
+        }
+        /// <summary>
+        /// Sets the Service percentage for billing a client.
+        /// </summary>
+        /// <param name="value"></param>
+        public void SetServiceValue(float value)
+        {
+            SetValue(Fields.ServiceValue.ToString(), value);
+        }
+        /// <summary>
+        /// Returns the Final percentage used for billing a client
+        /// </summary>
+        /// <returns></returns>
+        public float GetFinalValue()
+        {
+            return this.getFloat(Fields.FinalValue.ToString());
+        }
+        /// <summary>
+        /// Sets the final percentage used for billing a client.
+        /// </summary>
+        /// <param name="value"></param>
+        public void SetFinalValue(float value)
+        {
+            SetValue(Fields.FinalValue.ToString(), value);
+        }
+        /// <summary>
+        /// Returns the Job Total quoted to client
+        /// </summary>
+        /// <returns></returns>
+        public float GetJobTotal()
+        {
+            return getFloat(Fields.JobTotal.ToString());
+        }
+        /// <summary>
+        /// Sets the job total for the lot.
+        /// </summary>
+        /// <param name="value"></param>
+        public void SetJobTotal(float value)
+        {
+            SetValue(Fields.JobTotal.ToString(), value);
         }
     }
 }

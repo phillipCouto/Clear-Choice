@@ -29,5 +29,8 @@
     <Image Source="/Resources/Icons/clock-icon.png" x:Key="clock-icon"/>
     <Image Source="/Resources/Icons/check-icon.png" x:Key="check-icon"/>
     <Image Source="/Resources/Icons/Normal-Printer-icon.png" x:Key="printer-icon"/>
+    <Image Source="/Resources/Icons/Control-Panel.png" x:Key="control-panel"/>
+    
     <Image Source="/Resources/logo2.ico" x:Key="logo"/>
+    
 </ResourceDictionary>
