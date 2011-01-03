@@ -9,7 +9,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using Microsoft.Windows.Themes;
 using Stemstudios.UIControls;
 using System;
 using System.Diagnostics;

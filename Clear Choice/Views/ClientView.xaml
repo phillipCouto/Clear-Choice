@@ -25,15 +25,16 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <GroupBox Name="grpNames" FontSize="14" Grid.Column="0" Grid.Row="0" Foreground="#FFFFFF" Margin="5">
+            <GroupBox Name="grpNames" FontSize="14" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Foreground="#FFFFFF" Margin="5">
                 <GroupBox.Header>
-                    <TextBlock Text="Name" Foreground="White" Width="{Binding Path=Width, ElementName=grpNames, Mode=Default}"/>
+                    <TextBlock Text="Client Information" Foreground="White" Width="{Binding Path=Width, ElementName=grpNames, Mode=Default}"/>
                 </GroupBox.Header>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -41,6 +42,7 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
@@ -62,6 +64,11 @@
                     <UIControls:SPhoneField Name="txtFaxNumber" Grid.Column="1" Grid.Row="3" Margin="5" TextChanged="fieldValueChanged"/>
                     <TextBlock Text="Email Address:" Foreground="#FFFFFFFF" Grid.Column="0" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Right"/>
                     <TextBox Name="txtEmail" Grid.Column="1" Grid.Row="4" Margin="5,5,5,5" TextChanged="fieldValueChanged"/>
+
+                    <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2">
+                        <Button Content="Save Changes" Name="cmdSaveEdit" Click="cmdSaveEdit_Click" Grid.Column="0" Grid.Row="3" Margin="5" MaxWidth="150" Padding="10,5,10,5"/>
+                        <Button Content="Cancel" Name="cmdCancel" Click="cmdCancel_Click"  Margin="5" MaxWidth="150" HorizontalAlignment="Left" Padding="10,5,10,5"/>
+                    </StackPanel>
                 </Grid>
             </GroupBox>
             <GroupBox Name="grpAddressInfo" Grid.Column="1" Grid.Row="0" FontSize="14" Foreground="#FFFFFF" Margin="5">
@@ -77,7 +84,6 @@
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
                     </Grid.RowDefinitions>
                     <TextBlock Text="Street Address:" Foreground="#FFFFFFFF" Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Right"/>
                     <TextBox Name="txtStreet" Grid.Column="1" Grid.Row="0" Margin="5,5,5,5" TextChanged="fieldValueChanged"/>
@@ -86,10 +92,29 @@
                     <TextBlock Text="Postal Code:" Foreground="#FFFFFFFF" Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right"/>
                     <TextBox Name="txtPostalCode" Grid.Column="1" Grid.Row="2" Margin="5,5,5,5" TextChanged="fieldValueChanged"/>
                     
-                    <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2">
-                        <Button Content="Save Changes" Name="cmdSaveEdit" Click="cmdSaveEdit_Click" Grid.Column="0" Grid.Row="3" Margin="5" MaxWidth="150" Padding="10,5,10,5"/>
-                        <Button Content="Cancel" Name="cmdCancel" Click="cmdCancel_Click"  Margin="5" MaxWidth="150" HorizontalAlignment="Left" Padding="10,5,10,5"/>
-                    </StackPanel>
+
+                </Grid>
+            </GroupBox>
+            <GroupBox Name="grpPriceInfo" Grid.Column="1" Grid.Row="1" FontSize="14" Foreground="#FFFFFF" Margin="5">
+                <GroupBox.Header>
+                    <TextBlock Text="Price Portions" Foreground="White" Width="{Binding Path=Width, ElementName=grpPriceInfo, Mode=Default}"/>
+                </GroupBox.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Rough In:" Foreground="#FFFFFFFF" Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                    <UIControls:SNumberBox Name="amtRoughIn" Grid.Column="1" Grid.Row="0" Margin="5,5,5,5" TextChanged="fieldValueChanged" IsCurrency="False"/>
+                    <TextBlock Text="Service:" Foreground="#FFFFFFFF" Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                    <UIControls:SNumberBox Name="amtService" Grid.Column="1" Grid.Row="1" Margin="5,5,5,5" TextChanged="fieldValueChanged" IsCurrency="False"/>
+                    <TextBlock Text="Final:" Foreground="#FFFFFFFF" Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                    <UIControls:SNumberBox Name="amtFinal" Grid.Column="1" Grid.Row="2" Margin="5,5,5,5" TextChanged="fieldValueChanged" IsCurrency="False"/>
                 </Grid>
             </GroupBox>
             <DataGrid Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Name="siteLotsView" Margin="5" 

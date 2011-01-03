@@ -1,0 +1,20 @@
+﻿Clear Choice
+
+
+winexe
+C#
+.cs
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Clear Choice\obj\Debug\
+Clear_Choice
+none
+false
+DEBUG;TRACE
+
+37882500303
+4804764823
+34-197669543
+20588750152
+App.xaml;MainWindow.xaml;Resources\Brushes.xaml;Resources\IconSet.xaml;Resources\Views\InventoryTransactionViewDict.xaml;Resources\Views\InventoryViewDict.xaml;Resources\Views\LotExtraViewDict.xaml;Resources\Views\TimeSheetViewDict.xaml;Views\LotLabourCostReport.xaml;Views\CityReport.xaml;Views\ClientsView.xaml;Views\ClientView.xaml;Views\LotSiteMaterialCostReport.xaml;Views\HomeView.xaml;Views\InventoryTransactionsView.xaml;Views\InventoryTransactionView.xaml;Views\InventoryView.xaml;Views\LotStateReport.xaml;Views\LotExtraView.xaml;Views\LotRepairsView.xaml;Views\LotRepairView.xaml;Views\LotSummaryView.xaml;Views\LotView.xaml;Views\LowAmountInvReport.xaml;Views\ScheduledRepairsView.xaml;Views\SiteMaterialSummary.xaml;Views\SiteView.xaml;Resources\Theme.xaml;Views\TimeSheetView.xaml;Views\LotServicesBilledReport.xaml;Views\LotExtrasBilledReport.xaml;Windows\DocumentPreviewer.xaml;Windows\GeneratedPasswordDisplay.xaml;Windows\InventoryItemSelector.xaml;Windows\LotRepairActionWindow.xaml;Windows\SetPricePortions.xaml;Windows\SiteLotSelector.xaml;
+
+False
+

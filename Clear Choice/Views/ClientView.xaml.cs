@@ -113,7 +113,20 @@ namespace ClearChoice.Views
             txtPostalCode.Foreground = foreGround;
             txtPostalCode.Background = backGround;
 
+            amtRoughIn.IsReadOnly = false;
+            amtRoughIn.Foreground = foreGround;
+            amtRoughIn.Background = backGround;
+
+            amtService.IsReadOnly = false;
+            amtService.Foreground = foreGround;
+            amtService.Background = backGround;
+
+            amtFinal.IsReadOnly = false;
+            amtFinal.Foreground = foreGround;
+            amtFinal.Background = backGround;
+
             cmdCancel.IsEnabled = true;
+            modified = false;
         }
         /// <summary>
         /// Locks the fields to prevent unintentional editing.
@@ -151,6 +164,18 @@ namespace ClearChoice.Views
             txtPostalCode.Foreground = foreGround;
             txtPostalCode.Background = backGround;
 
+            amtRoughIn.IsReadOnly = true;
+            amtRoughIn.Foreground = foreGround;
+            amtRoughIn.Background = backGround;
+
+            amtService.IsReadOnly = true;
+            amtService.Foreground = foreGround;
+            amtService.Background = backGround;
+
+            amtFinal.IsReadOnly = true;
+            amtFinal.Foreground = foreGround;
+            amtFinal.Background = backGround;
+
             cmbTypeOfClient.Foreground = foreGround;
             cmbTypeOfClient.Background = backGround;
 
@@ -169,9 +194,13 @@ namespace ClearChoice.Views
             txtName.Text = mClient.GetName();
             txtPostalCode.Text = mClient.GetPostalCode();
             txtFaxNumber.PhoneNumber = mClient.GetFaxNumber();
+
+            amtRoughIn.Amount = mClient.GetRoughInValue();
+            amtService.Amount = mClient.GetServiceValue();
+            amtFinal.Amount = mClient.GetFinalValue();
+
             this.Name = "ClientView" + mClient.GetClientID();
             this.cmbTypeOfClient.SelectedIndex = mClient.GetClientType();
-            modified = false;
         }
         /// <summary>
         /// Handles the Click event on the Unlock Form / Save Changes button.
@@ -209,7 +238,6 @@ namespace ClearChoice.Views
             }
             else
             {
-                PopulateAllFields();
                 unlockFields();
                 cmdSaveEdit.IsEnabled = false;
                 cmdSaveEdit.Content = btnSaveText;
@@ -352,6 +380,18 @@ namespace ClearChoice.Views
             {
                 mClient.ClearField(Client.Fields.EmailAddress.ToString());
             }
+            if (amtRoughIn.Amount + amtService.Amount + amtFinal.Amount != 1)
+            {
+                MessageBox.Show("Please confirm the price portions add up to a total of 1.0", "Invalid Portions", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+            else
+            {
+                mClient.SetRoughInValue(amtRoughIn.Amount);
+                mClient.SetServiceValue(amtService.Amount);
+                mClient.SetFinalValue(amtFinal.Amount);
+            }
+
             mClient.SetClientType(cmbTypeOfClient.SelectedIndex);
             return true;
         }
