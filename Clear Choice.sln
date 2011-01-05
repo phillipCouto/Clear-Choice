@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExceptionLogging", "Excepti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataImporter", "DataImporter\DataImporter.csproj", "{9903E2AD-DB70-46EC-8496-1AF191D85FEF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stemstudios File Service", "Stemstudios File Service\Stemstudios File Service.csproj", "{21F85703-3506-47CC-90EE-5D5A81CAFCD5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,10 @@ Global
 		{9903E2AD-DB70-46EC-8496-1AF191D85FEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9903E2AD-DB70-46EC-8496-1AF191D85FEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9903E2AD-DB70-46EC-8496-1AF191D85FEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21F85703-3506-47CC-90EE-5D5A81CAFCD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21F85703-3506-47CC-90EE-5D5A81CAFCD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21F85703-3506-47CC-90EE-5D5A81CAFCD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21F85703-3506-47CC-90EE-5D5A81CAFCD5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
