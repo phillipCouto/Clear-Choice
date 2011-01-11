@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Stemstudios_File_Service;
 
 namespace DataImporter
 {
@@ -20,6 +21,13 @@ namespace DataImporter
             else if (args[0].Equals("InventoryPriceSet"))
             {
                 new InventoryAutoGenerator();
+            }
+            else if (args[0].Equals("FileUpload"))
+            {
+                FileService fs = FileService.Instance;
+                WebFile webFile = fs.GetWebFile("10", args[1]);
+                
+                
             }
         }
     }

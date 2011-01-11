@@ -82,6 +82,10 @@
       <Project>{2F4DC9DF-FCCC-4597-B4A2-3D292F6831BC}</Project>
       <Name>ExceptionLogging</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Stemstudios File Service\Stemstudios File Service.csproj">
+      <Project>{21F85703-3506-47CC-90EE-5D5A81CAFCD5}</Project>
+      <Name>Stemstudios File Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

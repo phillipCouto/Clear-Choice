@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuthToken.cs" />
     <Compile Include="FileService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebFile.cs" />

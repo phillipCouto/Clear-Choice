@@ -13,6 +13,7 @@ using Stemstudios.DataAccessLayer;
 using Stemstudios.DataAccessLayer.DataObjects;
 using Stemstudios.DataAccessLayer.DataObjects.Bindings;
 using Stemstudios.UIControls;
+using System.Text;
 
 namespace Clear_Choice.Views
 {
@@ -29,6 +30,8 @@ namespace Clear_Choice.Views
         {
             this.Name = "LotExtrasBilledReport";
             InitializeComponent();
+            dpFrom.SelectedDate = DateTime.Now.AddMonths(-1);
+            dpTo.SelectedDate = DateTime.Now;
             LoadGrid();
         }
 
@@ -36,7 +39,16 @@ namespace Clear_Choice.Views
         {
             try
             {
-                DataSet data = db.Select("*", "lot_extras_billed");
+                StringBuilder selectStatement = new StringBuilder();
+                selectStatement.Append("lots.lotID AS lotID,");
+                selectStatement.Append("lots.LotNumber AS LotNumber,");
+                selectStatement.Append("lots.Address AS Address,");
+                selectStatement.Append("lots.City AS City,");
+                selectStatement.Append("sum(lot_extras.Quantity) AS Quantity,");
+                selectStatement.Append("sum(lot_extras.BilledQuantity) AS BilledQuantity,");
+                selectStatement.Append("sum((lot_extras.BilledQuantity * lot_extras.UnitPrice)) AS Amount");
+
+                DataSet data = db.Select(selectStatement.ToString(), "lots, lot_extras", "(lots.lotID = lot_extras.lotID) AND (lot_extras.BilledDate >= '" + dpFrom.SelectedDate.ToString("yyyy-MM-dd") + "') AND (lot_extras.BilledDate <= '" + dpTo.SelectedDate.ToString("yyyy-MM-dd") + "') group by lots.lotID", "lots.City,lots.Address,lots.LotNumber");
                 Collection<LotExtrasBilledBinding> gridData = data.getBindableCollection<LotExtrasBilledBinding>();
                 this.dgExtrabill.ItemsSource = gridData;
 
@@ -152,6 +164,14 @@ namespace Clear_Choice.Views
         }
 
         #endregion
+
+        private void dpFrom_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (IsLoaded)
+            {
+                LoadGrid();
+            }
+        }
     }
 }
 

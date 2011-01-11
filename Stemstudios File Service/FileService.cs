@@ -9,6 +9,11 @@ namespace Stemstudios_File_Service
     public class FileService
     {
 
+        internal static String URLBase
+        {
+            get { return "http://stemfileservice.appspot.com/"; }
+        }
+
         public static FileService Instance
         {
             get { return instance; }
@@ -21,9 +26,12 @@ namespace Stemstudios_File_Service
         FileService()
         { }
 
-        public String UploadFile(String appID, String file)
+        public WebFile GetWebFile(String appID, String file)
         {
-            return "";
+            AuthToken token = new AuthToken(appID);
+            WebFile webFile = new WebFile(file, token.UploadURL);
+
+            return webFile;
         }
 
         public String GetDownloadURL(String appID, String fileID)

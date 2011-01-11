@@ -113,9 +113,7 @@ namespace ClearChoice
             if (e.LeftButton == MouseButtonState.Pressed)
             {
                     Cursor = Cursors.ScrollAll;
-                    Point currentPos = e.GetPosition((IInputElement)sender);
-                    this.Left += currentPos.X - lastClick.X;
-                    this.Top += currentPos.Y - lastClick.Y;
+                    this.DragMove();
             }
             else
             {
@@ -310,6 +308,21 @@ namespace ClearChoice
                 db.CloseConnection();
                 Environment.Exit(0);
             }
+        }
+
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            if (this.WindowState.Equals(WindowState.Maximized))
+            {
+                isWindowed = false;
+                MaxWindowIcon.Source = ((Image)Resources["windowIcon"]).Source;
+            }
+            else
+            {
+                isWindowed = true;
+                MaxWindowIcon.Source = ((Image)Resources["maximizeIcon"]).Source;
+            }
+            this.Cursor = Cursors.Arrow;
         }
 
     }
