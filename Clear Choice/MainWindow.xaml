@@ -16,17 +16,17 @@
             </Storyboard>
         </ResourceDictionary>
     </Window.Resources>
-    <Border BorderThickness="3" CornerRadius="5">
+    <Border BorderThickness="1" CornerRadius="5" BorderBrush="#FF000000" Padding="5">
         <Border.Background>
             <ImageBrush ImageSource="/Resources/Background.png" Stretch="UniformToFill"/>
         </Border.Background>
-        <Border.BorderBrush>
+        <!--<Border.BorderBrush>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                 <GradientStop Color="#99FFFFFF" Offset="0.0"/>
                 <GradientStop Color="#22fff0c1" Offset="0.5"/>
                 <GradientStop Color="#99FFFFFF" Offset="1.0"/>
             </LinearGradientBrush>
-        </Border.BorderBrush>
+        </Border.BorderBrush>-->
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="36"></RowDefinition>

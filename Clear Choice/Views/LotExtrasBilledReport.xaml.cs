@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.ObjectModel;
 using System.Resources;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
@@ -13,7 +14,6 @@ using Stemstudios.DataAccessLayer;
 using Stemstudios.DataAccessLayer.DataObjects;
 using Stemstudios.DataAccessLayer.DataObjects.Bindings;
 using Stemstudios.UIControls;
-using System.Text;
 
 namespace Clear_Choice.Views
 {
@@ -53,11 +53,28 @@ namespace Clear_Choice.Views
                 this.dgExtrabill.ItemsSource = gridData;
 
                 itemRecords = data;
+
+                CalculateAvgAndTotal();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Loading info - " + msgCodes.GetString("M2102") + ex.Message, "Error - 2102", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void CalculateAvgAndTotal()
+        {
+            float total = 0;
+            while (itemRecords.Read())
+            {
+                total += Single.Parse(itemRecords.getString("Amount"));
+            }
+            amtTotalBilled.Amount = total;
+            if (total > 0)
+            {
+                amtLotAvg.Amount = total / itemRecords.NumberOfRows();
+            }
+            itemRecords.ResetDataSet();
         }
 
         private ArrayList Print()

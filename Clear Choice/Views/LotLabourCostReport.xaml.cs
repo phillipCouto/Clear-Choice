@@ -13,6 +13,7 @@ using Stemstudios.DataAccessLayer;
 using Stemstudios.DataAccessLayer.DataObjects;
 using Stemstudios.DataAccessLayer.DataObjects.Bindings;
 using Stemstudios.UIControls;
+using System.Text;
 
 namespace Clear_Choice.Views
 {
@@ -29,6 +30,8 @@ namespace Clear_Choice.Views
         {
             this.Name = "LotLabourCostReport";
             InitializeComponent();
+            dpFrom.SelectedDate = DateTime.Now.AddMonths(-1);
+            dpTo.SelectedDate = DateTime.Now;
             LoadGrid();
         }
 
@@ -36,8 +39,15 @@ namespace Clear_Choice.Views
         {
             try
             {
+                StringBuilder qrySelect = new StringBuilder();
+                qrySelect.Append("`lots`.`lotID` AS `lotID`,");
+                qrySelect.Append("`lots`.`LotNumber` AS `LotNumber`,");
+                qrySelect.Append("`lots`.`Address` AS `Address`,");
+                qrySelect.Append("`lots`.`City` AS `City`,");
+                qrySelect.Append("sum(`time_sheets`.`Hours`) AS `Hours`,");
+                qrySelect.Append("sum((`time_sheets`.`Hours` * `time_sheets`.`Wage`)) AS `LabourCost`");
 
-                DataSet data = db.Select("*","lot_labour_costs");
+                DataSet data = db.Select(qrySelect.ToString(), "(`lots` join `time_sheets`)", "((`lots`.`lotID` = `time_sheets`.`lotID`) AND (`time_sheets`.`Date` >= '" + dpFrom.SelectedDate.ToString("yyyy-MM-dd") + "') AND (`time_sheets`.`Date` <= '" + dpTo.SelectedDate.ToString("yyyy-MM-dd") + "')) group by `lots`.`lotID`", "`lots`.`City`,`lots`.`Address`,`lots`.`LotNumber`");
                 Collection<LotLabourCostsBinding> gridData = data.getBindableCollection<LotLabourCostsBinding>();
                 this.dgLabourHours.ItemsSource = gridData;
 
@@ -173,6 +183,14 @@ namespace Clear_Choice.Views
         }
 
         #endregion
+
+        private void dpFrom_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (IsLoaded)
+            {
+                LoadGrid();
+            }
+        }
     }
 }
 

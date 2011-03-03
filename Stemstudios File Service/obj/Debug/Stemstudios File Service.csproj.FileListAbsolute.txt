@@ -1,0 +1,5 @@
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Stemstudios File Service\bin\Debug\Stemstudios File Service.dll
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Stemstudios File Service\bin\Debug\Stemstudios File Service.pdb
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Stemstudios File Service\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Stemstudios File Service\obj\Debug\Stemstudios File Service.dll
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\Stemstudios File Service\obj\Debug\Stemstudios File Service.pdb

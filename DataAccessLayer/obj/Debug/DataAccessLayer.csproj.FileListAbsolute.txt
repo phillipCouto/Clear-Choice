@@ -56,3 +56,13 @@ C:\Users\Anthony\Documents\Git\New folder\Clear-Choice\DataAccessLayer\obj\Debug
 C:\Users\Anthony\Documents\Git\New folder\Clear-Choice\DataAccessLayer\obj\Debug\GenerateResource.write.1.tlog
 C:\Users\Anthony\Documents\Git\New folder\Clear-Choice\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 C:\Users\Anthony\Documents\Git\New folder\Clear-Choice\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\DataAccessLayer\bin\Debug\mysql.data.dll
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\DataAccessLayer\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\DataAccessLayer\obj\Debug\Stemstudios.DataAccessLayer.ConnInfo.resources
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\DataAccessLayer\obj\Debug\Stemstudios.DataAccessLayer.Properties.Resources.resources
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\DataAccessLayer\obj\Debug\GenerateResource.read.1.tlog
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\DataAccessLayer\obj\Debug\GenerateResource.write.1.tlog
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\Users\Phillip Couto\Documents\Stemstudios\Projects\Clear-Choice\DataAccessLayer\obj\Debug\DataAccessLayer.pdb

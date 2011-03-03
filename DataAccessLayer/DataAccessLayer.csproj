@@ -133,6 +133,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Query.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="libs\mysql.data.dll" />
